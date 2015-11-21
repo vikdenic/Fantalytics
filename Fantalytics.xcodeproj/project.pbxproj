@@ -13,7 +13,9 @@
 		93A9FA3A1C0115F6008AD171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A9FA391C0115F6008AD171 /* Assets.xcassets */; };
 		93A9FA3D1C0115F6008AD171 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A9FA3B1C0115F6008AD171 /* LaunchScreen.storyboard */; };
 		93A9FA481C0115F7008AD171 /* FantalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA471C0115F7008AD171 /* FantalyticsTests.swift */; };
-		93A9FA531C0115F7008AD171 /* FantalyticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA521C0115F7008AD171 /* FantalyticsUITests.swift */; };
+		93A9FA611C011992008AD171 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9FA601C011992008AD171 /* Alamofire.framework */; };
+		93A9FA631C011B65008AD171 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9FA601C011992008AD171 /* Alamofire.framework */; };
+		93A9FA641C011B65008AD171 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9FA601C011992008AD171 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		93A9FA651C011B65008AD171 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				93A9FA641C011B65008AD171 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		93A9FA2F1C0115F6008AD171 /* Fantalytics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fantalytics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A9FA321C0115F6008AD171 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,8 +61,7 @@
 		93A9FA471C0115F7008AD171 /* FantalyticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FantalyticsTests.swift; sourceTree = "<group>"; };
 		93A9FA491C0115F7008AD171 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93A9FA4E1C0115F7008AD171 /* FantalyticsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FantalyticsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		93A9FA521C0115F7008AD171 /* FantalyticsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FantalyticsUITests.swift; sourceTree = "<group>"; };
-		93A9FA541C0115F7008AD171 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A9FA601C011992008AD171 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93A9FA611C011992008AD171 /* Alamofire.framework in Frameworks */,
+				93A9FA631C011B65008AD171 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,9 +94,9 @@
 		93A9FA261C0115F6008AD171 = {
 			isa = PBXGroup;
 			children = (
+				93A9FA601C011992008AD171 /* Alamofire.framework */,
 				93A9FA311C0115F6008AD171 /* Fantalytics */,
 				93A9FA461C0115F7008AD171 /* FantalyticsTests */,
-				93A9FA511C0115F7008AD171 /* FantalyticsUITests */,
 				93A9FA301C0115F6008AD171 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,15 +133,6 @@
 			path = FantalyticsTests;
 			sourceTree = "<group>";
 		};
-		93A9FA511C0115F7008AD171 /* FantalyticsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				93A9FA521C0115F7008AD171 /* FantalyticsUITests.swift */,
-				93A9FA541C0115F7008AD171 /* Info.plist */,
-			);
-			path = FantalyticsUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +143,8 @@
 				93A9FA2B1C0115F6008AD171 /* Sources */,
 				93A9FA2C1C0115F6008AD171 /* Frameworks */,
 				93A9FA2D1C0115F6008AD171 /* Resources */,
+				93A9FA621C0119B6008AD171 /* ShellScript */,
+				93A9FA651C011B65008AD171 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,6 +261,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		93A9FA621C0119B6008AD171 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		93A9FA2B1C0115F6008AD171 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -273,7 +300,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93A9FA531C0115F7008AD171 /* FantalyticsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +425,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Fantalytics/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nektarlabs.Fantalytics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,7 +441,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Fantalytics/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nektarlabs.Fantalytics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
