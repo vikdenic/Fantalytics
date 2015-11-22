@@ -15,6 +15,7 @@ let playersURL = "http://api.probasketballapi.com/player"
 let playersAdvancedURL = "http://api.probasketballapi.com/advanced/player"
 let boxscoreURL = "http://api.probasketballapi.com/boxscore/team"
 let shotchartsURL = "http://api.probasketballapi.com/shots"
+let gameURL = "http://api.probasketballapi.com/game"
 
 class ProBballManager {
 
@@ -31,7 +32,7 @@ class ProBballManager {
                     return
                 }
 
-                print("json: \(JSON(jsonObject))")
+//                print("json: \(JSON(jsonObject))")
                 let json = JSON(jsonObject)
                 completion(teams: json)
         }
@@ -56,7 +57,7 @@ class ProBballManager {
         }
     }
 
-    class func getAllAdvancedPlayers(completion : (players : JSON) -> Void) {
+    class func getAllAdvancedPlayersStats(completion : (players : JSON) -> Void) {
 
         let parameters = ["api_key" : kProBballAPIKey]
 
@@ -65,21 +66,76 @@ class ProBballManager {
 
                 guard let jsonObject = response.result.value else {
                     print("response: \(response)")
+                    print(response.data)
+                    print(response.description)
+                    print(response.request)
+                    print(response.data)
                     completion(players: nil)
                     return
                 }
 
-                print("json: \(JSON(jsonObject))")
+//                print("json: \(JSON(jsonObject))")
                 let json = JSON(jsonObject)
                 completion(players: json)
         }
     }
 
-    class func getPlayersForTeam(team : NBATeam, completion : (teams : JSON) -> Void) {
+    class func getAdvancedPlayerStatsForPlayer(player : JSON, completion : (stats : JSON) -> Void) {
+
+        let parameters = ["api_key" : kProBballAPIKey, "player_id" : player["id"].stringValue]
+
+        Alamofire.request(.POST, playersAdvancedURL, parameters: parameters)
+            .responseJSON { response in
+
+                guard let jsonObject = response.result.value else {
+                    print("response: \(response)")
+                    completion(stats: nil)
+                    return
+                }
+
+//                print("json: \(JSON(jsonObject))")
+                let json = JSON(jsonObject)
+                completion(stats: json)
+        }
+    }
+
+    class func getPlayersForTeam(team : NBATeam, completion : (players : [JSON]) -> Void) {
         ProBballManager.getAllPlayers { (players) -> Void in
+
+            var playersArray = [JSON]()
             for player in players.array! where player["team_id"].stringValue == String(team.teamId) {
-                print(player)
+                playersArray.append(player)
             }
+            completion(players: playersArray)
+        }
+    }
+
+    class func getGamesForDate(dateString : String, season : String, completion : (games : [JSON]?) -> Void) {
+
+        let parameters = ["api_key" : kProBballAPIKey, "season" : season]
+
+        Alamofire.request(.POST, gameURL, parameters: parameters)
+            .responseJSON { response in
+
+                guard let jsonObject = response.result.value else {
+                    print("response: \(response)")
+                    completion(games: nil)
+                    return
+                }
+
+//                print("json: \(JSON(jsonObject))")
+                let allGamesJson = JSON(jsonObject)
+
+                var specifiedGamesArray = [JSON]()
+                for game in allGamesJson.array! where game["date"].stringValue.trimCharactersFromEnd(9) == dateString {
+                    specifiedGamesArray.append(game)
+                }
+
+                if specifiedGamesArray.count == 0 {
+                    completion(games: nil)
+                } else {
+                    completion(games: specifiedGamesArray)
+                }
         }
     }
 
@@ -96,7 +152,7 @@ class ProBballManager {
                     return
                 }
 
-                print("json: \(JSON(jsonObject))")
+//                print("json: \(JSON(jsonObject))")
                 let json = JSON(jsonObject)
                 completion(players: json)
         }
@@ -115,7 +171,7 @@ class ProBballManager {
                     return
                 }
 
-                print("json: \(JSON(jsonObject))")
+//                print("json: \(JSON(jsonObject))")
                 let json = JSON(jsonObject)
                 completion(shots: json)
         }
