@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ProBballManager.getAllTeams { (teams) -> Void in
-            print(teams)
+        ProBballManager.getPlayersForTeam(NBATeam.GoldenState) { (teams) -> Void in
+            //
         }
     }
 }
