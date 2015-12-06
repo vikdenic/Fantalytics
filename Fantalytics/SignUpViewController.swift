@@ -25,3 +25,18 @@ class SignUpViewController: UIViewController {
     }
 }
 
+class LoginViewController: UIViewController {
+
+    @IBOutlet var usernameTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    @IBAction func onLoginButtonTapped(sender: UIButton) {
+        User.loginUser(usernameTextField.text, password: passwordTextField.text) { (result, error) -> Void in
+            print("logged in")
+        }
+    }
+}
