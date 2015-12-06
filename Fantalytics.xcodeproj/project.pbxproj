@@ -20,9 +20,10 @@
 		93754F091C1410FA00D45176 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F081C1410FA00D45176 /* SystemConfiguration.framework */; };
 		93754F0B1C14110200D45176 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F0A1C14110200D45176 /* libz.tbd */; };
 		93754F0D1C14110900D45176 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F0C1C14110900D45176 /* libsqlite3.tbd */; };
+		937E4F561C141DBF0008374A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E4F551C141DBF0008374A /* User.swift */; };
 		93835F1B1C018A7B00A71A08 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93835F1A1C018A7B00A71A08 /* Extensions.swift */; };
 		93A9FA331C0115F6008AD171 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA321C0115F6008AD171 /* AppDelegate.swift */; };
-		93A9FA351C0115F6008AD171 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA341C0115F6008AD171 /* ViewController.swift */; };
+		93A9FA351C0115F6008AD171 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA341C0115F6008AD171 /* SignUpViewController.swift */; };
 		93A9FA381C0115F6008AD171 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A9FA361C0115F6008AD171 /* Main.storyboard */; };
 		93A9FA3A1C0115F6008AD171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A9FA391C0115F6008AD171 /* Assets.xcassets */; };
 		93A9FA3D1C0115F6008AD171 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A9FA3B1C0115F6008AD171 /* LaunchScreen.storyboard */; };
@@ -83,10 +84,11 @@
 		93754F081C1410FA00D45176 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		93754F0A1C14110200D45176 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		93754F0C1C14110900D45176 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		937E4F551C141DBF0008374A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		93835F1A1C018A7B00A71A08 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		93A9FA2F1C0115F6008AD171 /* Fantalytics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fantalytics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A9FA321C0115F6008AD171 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		93A9FA341C0115F6008AD171 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		93A9FA341C0115F6008AD171 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		93A9FA371C0115F6008AD171 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93A9FA391C0115F6008AD171 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93A9FA3C1C0115F6008AD171 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		93A9FA6A1C0149D4008AD171 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				937E4F551C141DBF0008374A /* User.swift */,
 				93A9FA6B1C0149DB008AD171 /* ProBball API */,
 			);
 			name = Model;
@@ -236,7 +239,7 @@
 		93A9FA721C014EEF008AD171 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				93A9FA341C0115F6008AD171 /* ViewController.swift */,
+				93A9FA341C0115F6008AD171 /* SignUpViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -395,7 +398,8 @@
 			files = (
 				93835F1B1C018A7B00A71A08 /* Extensions.swift in Sources */,
 				93A9FA6D1C014A1C008AD171 /* ProBballManager.swift in Sources */,
-				93A9FA351C0115F6008AD171 /* ViewController.swift in Sources */,
+				937E4F561C141DBF0008374A /* User.swift in Sources */,
+				93A9FA351C0115F6008AD171 /* SignUpViewController.swift in Sources */,
 				93A9FA331C0115F6008AD171 /* AppDelegate.swift in Sources */,
 				93A9FA701C014BC7008AD171 /* Constants.swift in Sources */,
 			);
