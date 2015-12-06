@@ -17,6 +17,8 @@ let boxscoreURL = "http://api.probasketballapi.com/boxscore/team"
 let shotchartsURL = "http://api.probasketballapi.com/shots"
 let gameURL = "http://api.probasketballapi.com/game"
 
+let kProBballAPIKey = NSDictionary(contentsOfFile: NSBundle.mainBundle().pathForResource("Keys", ofType: "plist")!)?.objectForKey("proBballApiKey") as! String
+
 class ProBballManager {
 
     class func getAllTeams(completion : (teams : JSON) -> Void) {

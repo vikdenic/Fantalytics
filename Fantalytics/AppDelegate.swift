@@ -7,16 +7,24 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        parseSetup()
         return true
+    }
+
+    func parseSetup() {
+        let dict = NSDictionary(contentsOfFile: NSBundle.mainBundle().pathForResource("Keys", ofType: "plist")!)
+        let appId = dict?.objectForKey("parseAppId") as! String
+        let clientKey = dict?.objectForKey("parseClientKey")as! String
+
+        Parse.setApplicationId(appId, clientKey: clientKey)
     }
 
     func applicationWillResignActive(application: UIApplication) {

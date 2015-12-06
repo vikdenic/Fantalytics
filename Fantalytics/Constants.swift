@@ -7,5 +7,3 @@
 //
 
 import Foundation
-
-let kProBballAPIKey = "h8Eb1BCDqRgVU3ZcLvTIl5NzM9FnSQif"

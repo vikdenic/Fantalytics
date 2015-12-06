@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		93754EF51C140DC800D45176 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93754EF41C140DC800D45176 /* Keys.plist */; };
+		93754EF81C14109400D45176 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EF61C14109400D45176 /* Bolts.framework */; };
+		93754EF91C14109400D45176 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EF71C14109400D45176 /* Parse.framework */; };
+		93754EFB1C1410C400D45176 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EFA1C1410C400D45176 /* AudioToolbox.framework */; };
+		93754EFD1C1410CD00D45176 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EFC1C1410CD00D45176 /* CFNetwork.framework */; };
+		93754EFF1C1410D500D45176 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EFE1C1410D500D45176 /* CoreGraphics.framework */; };
+		93754F011C1410DD00D45176 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F001C1410DD00D45176 /* CoreLocation.framework */; };
+		93754F031C1410E400D45176 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F021C1410E400D45176 /* QuartzCore.framework */; };
+		93754F051C1410EC00D45176 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F041C1410EC00D45176 /* Security.framework */; };
+		93754F071C1410F100D45176 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F061C1410F100D45176 /* StoreKit.framework */; };
+		93754F091C1410FA00D45176 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F081C1410FA00D45176 /* SystemConfiguration.framework */; };
+		93754F0B1C14110200D45176 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F0A1C14110200D45176 /* libz.tbd */; };
+		93754F0D1C14110900D45176 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F0C1C14110900D45176 /* libsqlite3.tbd */; };
 		93835F1B1C018A7B00A71A08 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93835F1A1C018A7B00A71A08 /* Extensions.swift */; };
 		93A9FA331C0115F6008AD171 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA321C0115F6008AD171 /* AppDelegate.swift */; };
 		93A9FA351C0115F6008AD171 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA341C0115F6008AD171 /* ViewController.swift */; };
@@ -59,6 +71,18 @@
 
 /* Begin PBXFileReference section */
 		93754EF41C140DC800D45176 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		93754EF61C14109400D45176 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		93754EF71C14109400D45176 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		93754EFA1C1410C400D45176 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		93754EFC1C1410CD00D45176 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		93754EFE1C1410D500D45176 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		93754F001C1410DD00D45176 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		93754F021C1410E400D45176 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		93754F041C1410EC00D45176 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		93754F061C1410F100D45176 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		93754F081C1410FA00D45176 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		93754F0A1C14110200D45176 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		93754F0C1C14110900D45176 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		93835F1A1C018A7B00A71A08 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		93A9FA2F1C0115F6008AD171 /* Fantalytics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fantalytics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A9FA321C0115F6008AD171 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,9 +106,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93754F0D1C14110900D45176 /* libsqlite3.tbd in Frameworks */,
+				93754F0B1C14110200D45176 /* libz.tbd in Frameworks */,
+				93754F091C1410FA00D45176 /* SystemConfiguration.framework in Frameworks */,
+				93754F071C1410F100D45176 /* StoreKit.framework in Frameworks */,
+				93754F051C1410EC00D45176 /* Security.framework in Frameworks */,
+				93754F031C1410E400D45176 /* QuartzCore.framework in Frameworks */,
+				93754F011C1410DD00D45176 /* CoreLocation.framework in Frameworks */,
+				93754EFF1C1410D500D45176 /* CoreGraphics.framework in Frameworks */,
+				93754EFD1C1410CD00D45176 /* CFNetwork.framework in Frameworks */,
+				93754EFB1C1410C400D45176 /* AudioToolbox.framework in Frameworks */,
+				93754EF81C14109400D45176 /* Bolts.framework in Frameworks */,
 				93A9FA681C013CCE008AD171 /* SwiftyJSON.framework in Frameworks */,
 				93A9FA611C011992008AD171 /* Alamofire.framework in Frameworks */,
 				93A9FA631C011B65008AD171 /* Alamofire.framework in Frameworks */,
+				93754EF91C14109400D45176 /* Parse.framework in Frameworks */,
 				93A9FA671C013CC3008AD171 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,6 +215,18 @@
 		93A9FA711C014BF1008AD171 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93754F0C1C14110900D45176 /* libsqlite3.tbd */,
+				93754F0A1C14110200D45176 /* libz.tbd */,
+				93754F081C1410FA00D45176 /* SystemConfiguration.framework */,
+				93754F061C1410F100D45176 /* StoreKit.framework */,
+				93754F041C1410EC00D45176 /* Security.framework */,
+				93754F021C1410E400D45176 /* QuartzCore.framework */,
+				93754F001C1410DD00D45176 /* CoreLocation.framework */,
+				93754EFE1C1410D500D45176 /* CoreGraphics.framework */,
+				93754EFC1C1410CD00D45176 /* CFNetwork.framework */,
+				93754EFA1C1410C400D45176 /* AudioToolbox.framework */,
+				93754EF61C14109400D45176 /* Bolts.framework */,
+				93754EF71C14109400D45176 /* Parse.framework */,
 				93A9FA661C013CC3008AD171 /* SwiftyJSON.framework */,
 				93A9FA601C011992008AD171 /* Alamofire.framework */,
 			);
@@ -493,6 +541,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Fantalytics/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -509,6 +558,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Fantalytics/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
