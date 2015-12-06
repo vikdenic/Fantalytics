@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93754EF51C140DC800D45176 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93754EF41C140DC800D45176 /* Keys.plist */; };
 		93835F1B1C018A7B00A71A08 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93835F1A1C018A7B00A71A08 /* Extensions.swift */; };
 		93A9FA331C0115F6008AD171 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA321C0115F6008AD171 /* AppDelegate.swift */; };
 		93A9FA351C0115F6008AD171 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA341C0115F6008AD171 /* ViewController.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		93754EF41C140DC800D45176 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		93835F1A1C018A7B00A71A08 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		93A9FA2F1C0115F6008AD171 /* Fantalytics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fantalytics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A9FA321C0115F6008AD171 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				93A9FA6F1C014BC7008AD171 /* Constants.swift */,
 				93835F1A1C018A7B00A71A08 /* Extensions.swift */,
+				93754EF41C140DC800D45176 /* Keys.plist */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93754EF51C140DC800D45176 /* Keys.plist in Resources */,
 				93A9FA3D1C0115F6008AD171 /* LaunchScreen.storyboard in Resources */,
 				93A9FA3A1C0115F6008AD171 /* Assets.xcassets in Resources */,
 				93A9FA381C0115F6008AD171 /* Main.storyboard in Resources */,
