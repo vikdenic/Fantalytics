@@ -110,6 +110,13 @@ class ProBballManager {
         }
     }
 
+    /**
+     Returns an array of games in JSON from the API for the specified date
+
+     - parameter dateString: The date for which to retrieve games from (i.e. "2015-10-27")
+     - parameter season: The season for which to retrieve games from (i.e. "2015")
+     - parameter completion: A closure in which the array of games is provided once the request has fished
+     */
     class func getGamesForDate(dateString : String, season : String, completion : (games : [JSON]?) -> Void) {
 
         let parameters = ["api_key" : kProBballAPIKey, "season" : season]
@@ -123,7 +130,6 @@ class ProBballManager {
                     return
                 }
 
-//                print("json: \(JSON(jsonObject))")
                 let allGamesJson = JSON(jsonObject)
 
                 var specifiedGamesArray = [JSON]()
