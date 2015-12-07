@@ -12,13 +12,16 @@ class SettingsMenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func onLogoutButtonTapped(sender: UIButton) {
         User.logOutInBackgroundWithBlock { (error) -> Void in
-            //
+            if error != nil {
+                print(error)
+            } else {
+                self.performSegueWithIdentifier(kSegueLogoutToRegister, sender: self)
+                self.navigationController?.popToRootViewControllerAnimated(false)
+            }
         }
     }
 }

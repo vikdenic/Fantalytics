@@ -9,7 +9,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SignUpViewController" customModule="Fantalytics" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="BYZ-38-t0r" customClass="SignUpViewController" customModule="Fantalytics" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -187,15 +187,18 @@
                             <constraint firstItem="RNC-vT-a7p" firstAttribute="centerY" secondItem="oro-2R-8XN" secondAttribute="centerY" id="qcw-QJ-65G"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="9gB-c8-TkA" kind="presentation" identifier="LogoutToSignIn" id="W5Y-Wk-N2k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="md9-gB-N61" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2155" y="1181"/>
+            <point key="canvasLocation" x="2163" y="1203"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TiA-M5-zKC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9gB-c8-TkA" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RegisterNC" automaticallyAdjustsScrollViewInsets="NO" id="9gB-c8-TkA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fg1-Ok-fc3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -236,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIK-dq-IKE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1412" y="1181"/>
+            <point key="canvasLocation" x="1462" y="1181"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="f1Y-Px-NF0">
@@ -314,4 +317,7 @@
             <point key="canvasLocation" x="776" y="1962"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="GPh-1K-aXW"/>
+    </inferredMetricsTieBreakers>
 </document>

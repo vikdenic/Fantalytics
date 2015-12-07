@@ -6,4 +6,5 @@
 //  Copyright © 2015 nektar labs. All rights reserved.
 //
 
-import Foundation
+let kSegueLobbyToRegister = "SignUpSegue"
+let kSegueLogoutToRegister = "LogoutToSignIn"

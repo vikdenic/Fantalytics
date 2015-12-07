@@ -10,6 +10,7 @@
 		936C08751C14FB990068E9B3 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08741C14FB990068E9B3 /* LobbyViewController.swift */; };
 		936C08771C14FE270068E9B3 /* MyContestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08761C14FE270068E9B3 /* MyContestsViewController.swift */; };
 		936C08791C14FE910068E9B3 /* SettingsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */; };
+		936C087C1C1561B90068E9B3 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C087B1C1561B90068E9B3 /* Helpers.swift */; };
 		93754EF51C140DC800D45176 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93754EF41C140DC800D45176 /* Keys.plist */; };
 		93754EF81C14109400D45176 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EF61C14109400D45176 /* Bolts.framework */; };
 		93754EF91C14109400D45176 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EF71C14109400D45176 /* Parse.framework */; };
@@ -39,6 +40,10 @@
 		93A9FA691C013CCE008AD171 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9FA661C013CC3008AD171 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93A9FA6D1C014A1C008AD171 /* ProBballManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA6C1C014A1C008AD171 /* ProBballManager.swift */; };
 		93A9FA701C014BC7008AD171 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA6F1C014BC7008AD171 /* Constants.swift */; };
+		93D831D91C1570FB0027070C /* Contest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D831D81C1570FB0027070C /* Contest.swift */; };
+		93D831DB1C1571090027070C /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D831DA1C1571090027070C /* Entry.swift */; };
+		93D831DD1C1571150027070C /* Lineup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D831DC1C1571150027070C /* Lineup.swift */; };
+		93D831DF1C1571200027070C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D831DE1C1571200027070C /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +82,7 @@
 		936C08741C14FB990068E9B3 /* LobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		936C08761C14FE270068E9B3 /* MyContestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyContestsViewController.swift; sourceTree = "<group>"; };
 		936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMenuViewController.swift; sourceTree = "<group>"; };
+		936C087B1C1561B90068E9B3 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		93754EF41C140DC800D45176 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		93754EF61C14109400D45176 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		93754EF71C14109400D45176 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -107,6 +113,10 @@
 		93A9FA661C013CC3008AD171 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		93A9FA6C1C014A1C008AD171 /* ProBballManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProBballManager.swift; sourceTree = "<group>"; };
 		93A9FA6F1C014BC7008AD171 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		93D831D81C1570FB0027070C /* Contest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contest.swift; sourceTree = "<group>"; };
+		93D831DA1C1571090027070C /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		93D831DC1C1571150027070C /* Lineup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lineup.swift; sourceTree = "<group>"; };
+		93D831DE1C1571200027070C /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +208,10 @@
 			isa = PBXGroup;
 			children = (
 				937E4F551C141DBF0008374A /* User.swift */,
+				93D831D81C1570FB0027070C /* Contest.swift */,
+				93D831DA1C1571090027070C /* Entry.swift */,
+				93D831DC1C1571150027070C /* Lineup.swift */,
+				93D831DE1C1571200027070C /* Player.swift */,
 				93A9FA6B1C0149DB008AD171 /* ProBball API */,
 			);
 			name = Model;
@@ -216,6 +230,7 @@
 			children = (
 				93A9FA6F1C014BC7008AD171 /* Constants.swift */,
 				93835F1A1C018A7B00A71A08 /* Extensions.swift */,
+				936C087B1C1561B90068E9B3 /* Helpers.swift */,
 				93754EF41C140DC800D45176 /* Keys.plist */,
 			);
 			name = Utilities;
@@ -405,12 +420,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D831DB1C1571090027070C /* Entry.swift in Sources */,
 				93835F1B1C018A7B00A71A08 /* Extensions.swift in Sources */,
+				93D831D91C1570FB0027070C /* Contest.swift in Sources */,
 				936C08771C14FE270068E9B3 /* MyContestsViewController.swift in Sources */,
+				93D831DF1C1571200027070C /* Player.swift in Sources */,
 				93A9FA6D1C014A1C008AD171 /* ProBballManager.swift in Sources */,
+				936C087C1C1561B90068E9B3 /* Helpers.swift in Sources */,
 				936C08791C14FE910068E9B3 /* SettingsMenuViewController.swift in Sources */,
 				937E4F561C141DBF0008374A /* User.swift in Sources */,
 				93A9FA351C0115F6008AD171 /* SignUpViewController.swift in Sources */,
+				93D831DD1C1571150027070C /* Lineup.swift in Sources */,
 				936C08751C14FB990068E9B3 /* LobbyViewController.swift in Sources */,
 				93A9FA331C0115F6008AD171 /* AppDelegate.swift in Sources */,
 				93A9FA701C014BC7008AD171 /* Constants.swift in Sources */,

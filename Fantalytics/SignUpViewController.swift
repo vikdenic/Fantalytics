@@ -21,10 +21,10 @@ class SignUpViewController: UIViewController {
     @IBAction func onSignUpButtonTapped(sender: UIButton) {
         User.registerNewUser(usernameTextField.text, password: passwordTextField.text) { (error) -> Void in
             if error != nil {
-
-            }
-            else {
+                showAlertWithError(error, forVC: self)
+            } else {
                 print("signed in")
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
     }
@@ -40,12 +40,12 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func onLoginButtonTapped(sender: UIButton) {
-        User.loginUser(usernameTextField.text, password: passwordTextField.text) { (error) -> Void in
+        PFUser.logInWithUsernameInBackground(usernameTextField.text!, password: passwordTextField.text!) { (user, error) -> Void in
             if error != nil {
-
-            }
-            else {
+                showAlertWithError(error, forVC: self)
+            } else {
                 print("logged in")
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
     }

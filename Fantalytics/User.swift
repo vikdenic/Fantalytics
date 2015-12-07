@@ -26,12 +26,4 @@ class User: PFUser {
             completed(error: signUpError)
         }
     }
-
-    ///Logs in a user
-    class func loginUser(username : String!, password : String!, completed:(error : NSError!) -> Void)
-    {
-        PFUser.logInWithUsernameInBackground(username, password: password) { (user, loginError) -> Void in
-            completed(error: loginError)
-        }
-    }
 }
