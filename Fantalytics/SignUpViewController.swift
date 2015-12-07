@@ -19,8 +19,13 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func onSignUpButtonTapped(sender: UIButton) {
-        User.registerNewUser(usernameTextField.text, password: passwordTextField.text) { (result, error) -> Void in
-            print("signed up")
+        User.registerNewUser(usernameTextField.text, password: passwordTextField.text) { (error) -> Void in
+            if error != nil {
+
+            }
+            else {
+                print("signed in")
+            }
         }
     }
 }
@@ -35,8 +40,13 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func onLoginButtonTapped(sender: UIButton) {
-        User.loginUser(usernameTextField.text, password: passwordTextField.text) { (result, error) -> Void in
-            print("logged in")
+        User.loginUser(usernameTextField.text, password: passwordTextField.text) { (error) -> Void in
+            if error != nil {
+
+            }
+            else {
+                print("logged in")
+            }
         }
     }
 }

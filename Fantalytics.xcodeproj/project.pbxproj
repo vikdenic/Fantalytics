@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		936C08751C14FB990068E9B3 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08741C14FB990068E9B3 /* LobbyViewController.swift */; };
+		936C08771C14FE270068E9B3 /* MyContestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08761C14FE270068E9B3 /* MyContestsViewController.swift */; };
+		936C08791C14FE910068E9B3 /* SettingsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */; };
 		93754EF51C140DC800D45176 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93754EF41C140DC800D45176 /* Keys.plist */; };
 		93754EF81C14109400D45176 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EF61C14109400D45176 /* Bolts.framework */; };
 		93754EF91C14109400D45176 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EF71C14109400D45176 /* Parse.framework */; };
@@ -71,6 +74,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		936C08741C14FB990068E9B3 /* LobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
+		936C08761C14FE270068E9B3 /* MyContestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyContestsViewController.swift; sourceTree = "<group>"; };
+		936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMenuViewController.swift; sourceTree = "<group>"; };
 		93754EF41C140DC800D45176 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		93754EF61C14109400D45176 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		93754EF71C14109400D45176 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -240,6 +246,9 @@
 			isa = PBXGroup;
 			children = (
 				93A9FA341C0115F6008AD171 /* SignUpViewController.swift */,
+				936C08741C14FB990068E9B3 /* LobbyViewController.swift */,
+				936C08761C14FE270068E9B3 /* MyContestsViewController.swift */,
+				936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -397,9 +406,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				93835F1B1C018A7B00A71A08 /* Extensions.swift in Sources */,
+				936C08771C14FE270068E9B3 /* MyContestsViewController.swift in Sources */,
 				93A9FA6D1C014A1C008AD171 /* ProBballManager.swift in Sources */,
+				936C08791C14FE910068E9B3 /* SettingsMenuViewController.swift in Sources */,
 				937E4F561C141DBF0008374A /* User.swift in Sources */,
 				93A9FA351C0115F6008AD171 /* SignUpViewController.swift in Sources */,
+				936C08751C14FB990068E9B3 /* LobbyViewController.swift in Sources */,
 				93A9FA331C0115F6008AD171 /* AppDelegate.swift in Sources */,
 				93A9FA701C014BC7008AD171 /* Constants.swift in Sources */,
 			);
