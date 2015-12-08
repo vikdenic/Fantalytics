@@ -32,7 +32,7 @@ class SignUpViewController: UIViewController {
         } catch SignUpError.InvalidUsernameCharacters {
             showAlert(SignUpError.InvalidUsernameCharacters.message, message: nil, viewController: self)
         } catch {
-            showAlert("Oops", message: "Something went wrong. Try again", viewController: self)
+            showAlert("Oops", message: SignUpError.Other.message, viewController: self)
         }
     }
 }

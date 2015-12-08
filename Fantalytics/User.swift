@@ -33,7 +33,15 @@ class User: PFUser {
         self.registerSubclass()
     }
 
-    ///Creates a new user
+    /**
+     Signs up a new user asyncronously
+
+     - parameter username:  the username for the new user
+     - parameter password:  the password for the new user
+     - parameter completed: the block to execute
+
+     - throws: throws specified errors of the enum type SignUpError
+     */
     class func registerNewUser(username : String!, password : String!, completed:(error : NSError!) -> Void) throws
     {
         guard username.characters.count > 0 || password.characters.count > 0 else {
