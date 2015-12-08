@@ -19,9 +19,9 @@ extension String {
         var charSet = NSCharacterSet(charactersInString: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_")
         charSet = charSet.invertedSet
 
-        let range = self.rangeOfCharacterFromSet(charSet)
+        let range = (self as NSString).rangeOfCharacterFromSet(charSet)
 
-        if range?.count != NSNotFound {
+        if range.location != NSNotFound {
             return false
         }
 

@@ -15,8 +15,6 @@ enum SignUpError: ErrorType {
 
 import Parse
 
-//NSCharacterSet *s = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"];
-
 class User: PFUser {
 
     override class func initialize()
@@ -30,14 +28,14 @@ class User: PFUser {
         guard username.characters.count > 0 || password.characters.count > 0 else {
             throw SignUpError.EmptyFields
         }
-        guard username.characters.count > 2 else {
+        guard username.characters.count >= 3 || username.characters.count <= 15 else {
             throw SignUpError.InvalidUsernameLength
-        }
-        guard password.characters.count < 20 else {
-            throw SignUpError.InvalidPasswordLength
         }
         guard username.containsValidCharacters() else {
             throw SignUpError.InvalidUsernameCharacters
+        }
+        guard password.characters.count >= 7 else {
+            throw SignUpError.InvalidPasswordLength
         }
 
         let newUser = User()
