@@ -221,38 +221,37 @@ enum NBATeam {
 
     var teamId : Int {
         switch self {
-        case .Atlanta: return 1610612737;
-        case .Boston: return 1610612738;
-        case .Brooklyn: return 1610612751;
-        case .Charlotte: return 1610612766;
-        case .Chicago: return 1610612741;
-        case .Cleveland: return 1610612739;
-        case .Dallas: return 1610612742;
-        case .Denver: return 1610612743;
-        case .Detroit: return 1610612765;
-        case .GoldenState: return 1610612744;
-        case .Houston: return 1610612745;
-        case .Indiana: return 1610612754;
-        case .LAClippers: return 1610612746;
-        case .LALakers: return 1610612747;
-        case .Memphis: return 1610612763;
-        case .Miami: return 1610612748;
-        case .Milwaukee: return 1610612749;
-        case .Minnesota: return 1610612750;
-        case .NewOrleans: return 1610612740;
-        case .NewYork: return 1610612752;
-        case .OklahomaCity: return 1610612760;
-        case .Orlando: return 1610612753;
-        case .Philadelphia: return 1610612755;
-        case .Phoenix: return 1610612756;
-        case .Portland: return 1610612757;
-        case .Sacramento: return 1610612758;
-        case .SanAntonio: return 1610612759;
-        case .Toronto: return 1610612761;
-        case .Utah: return 1610612762;
-        case .Washington: return 1610612764;
-        default:
-            return 1610612744
+        case .Atlanta: return 1610612737
+        case .Boston: return 1610612738
+        case .Brooklyn: return 1610612751
+        case .Charlotte: return 1610612766
+        case .Chicago: return 1610612741
+        case .Cleveland: return 1610612739
+        case .Dallas: return 1610612742
+        case .Denver: return 1610612743
+        case .Detroit: return 1610612765
+        case .GoldenState: return 1610612744
+        case .Houston: return 1610612745
+        case .Indiana: return 1610612754
+        case .LAClippers: return 1610612746
+        case .LALakers: return 1610612747
+        case .Memphis: return 1610612763
+        case .Miami: return 1610612748
+        case .Milwaukee: return 1610612749
+        case .Minnesota: return 1610612750
+        case .NewOrleans: return 1610612740
+        case .NewYork: return 1610612752
+        case .OklahomaCity: return 1610612760
+        case .Orlando: return 1610612753
+        case .Philadelphia: return 1610612755
+        case .Phoenix: return 1610612756
+        case .Portland: return 1610612757
+        case .Sacramento: return 1610612758
+        case .SanAntonio: return 1610612759
+        case .Toronto: return 1610612761
+        case .Utah: return 1610612762
+        case .Washington: return 1610612764
+        default: return 1610612744
         }
     }
 }

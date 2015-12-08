@@ -24,13 +24,13 @@ class SignUpViewController: UIViewController {
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
         } catch SignUpError.EmptyFields {
-            showAlert("Please enter a username and password", message: nil, viewController: self)
-        } catch SignUpError.InvalidUsernameCharacters {
-            showAlert("Usernames may only contain letters, numbers, and underscores", message: nil, viewController: self)
+            showAlert(SignUpError.EmptyFields.message, message: nil, viewController: self)
         } catch SignUpError.InvalidUsernameLength {
-            showAlert("Username can contain between 3 and 15 characters", message: nil, viewController: self)
+            showAlert(SignUpError.InvalidUsernameLength.message, message: nil, viewController: self)
         } catch SignUpError.InvalidPasswordLength {
-            showAlert("Password must be at least 7 characters long", message: nil, viewController: self)
+            showAlert(SignUpError.InvalidPasswordLength.message, message: nil, viewController: self)
+        } catch SignUpError.InvalidUsernameCharacters {
+            showAlert(SignUpError.InvalidUsernameCharacters.message, message: nil, viewController: self)
         } catch {
             showAlert("Oops", message: "Something went wrong. Try again", viewController: self)
         }

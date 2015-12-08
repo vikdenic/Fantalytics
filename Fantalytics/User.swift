@@ -8,9 +8,20 @@
 
 enum SignUpError: ErrorType {
     case EmptyFields
-    case InvalidPasswordLength
     case InvalidUsernameLength
+    case InvalidPasswordLength
     case InvalidUsernameCharacters
+    case Other
+
+    var message : String {
+        switch self {
+        case .EmptyFields: return "Please enter a username and password"
+        case .InvalidUsernameLength: return "Username can contain between 3 and 15 characters"
+        case .InvalidPasswordLength: return "Password must be at least 7 characters long"
+        case .InvalidUsernameCharacters: return "Usernames may only contain letters, numbers, and underscores"
+        default: return "Something went wrong. Try again"
+        }
+    }
 }
 
 import Parse
@@ -31,11 +42,11 @@ class User: PFUser {
         guard username.characters.count >= 3 && username.characters.count <= 15 else {
             throw SignUpError.InvalidUsernameLength
         }
-        guard username.containsValidCharacters() else {
-            throw SignUpError.InvalidUsernameCharacters
-        }
         guard password.characters.count >= 7 else {
             throw SignUpError.InvalidPasswordLength
+        }
+        guard username.containsValidCharacters() else {
+            throw SignUpError.InvalidUsernameCharacters
         }
 
         let newUser = User()
