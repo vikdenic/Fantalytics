@@ -28,7 +28,7 @@ class User: PFUser {
         guard username.characters.count > 0 || password.characters.count > 0 else {
             throw SignUpError.EmptyFields
         }
-        guard username.characters.count >= 3 || username.characters.count <= 15 else {
+        guard username.characters.count >= 3 && username.characters.count <= 15 else {
             throw SignUpError.InvalidUsernameLength
         }
         guard username.containsValidCharacters() else {
