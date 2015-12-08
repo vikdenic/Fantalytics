@@ -19,13 +19,20 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func onSignUpButtonTapped(sender: UIButton) {
-        User.registerNewUser(usernameTextField.text, password: passwordTextField.text) { (error) -> Void in
-            if error != nil {
-                showAlertWithError(error, forVC: self)
-            } else {
-                print("signed in")
+        do {
+            try User.registerNewUser(usernameTextField.text, password: passwordTextField.text, completed: { (error) -> Void in
                 self.dismissViewControllerAnimated(true, completion: nil)
-            }
+            })
+        } catch SignUpError.EmptyFields {
+            print("empty fields")
+        } catch SignUpError.InvalidUsernameCharacters {
+            print("invalid username characters")
+        } catch SignUpError.InvalidUsernameLength {
+            print("invalid username length")
+        } catch SignUpError.InvalidPasswordLength {
+            print("invalid password length")
+        } catch {
+            print("something went wrong")
         }
     }
 }
