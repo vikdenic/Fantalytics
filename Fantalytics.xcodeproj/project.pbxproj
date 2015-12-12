@@ -40,6 +40,8 @@
 		93A9FA691C013CCE008AD171 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9FA661C013CC3008AD171 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93A9FA6D1C014A1C008AD171 /* ProBballManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA6C1C014A1C008AD171 /* ProBballManager.swift */; };
 		93A9FA701C014BC7008AD171 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA6F1C014BC7008AD171 /* Constants.swift */; };
+		93C6E9251C1BD5A800959D61 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C6E9241C1BD5A800959D61 /* Eureka.framework */; };
+		93C6E9261C1BD5CE00959D61 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93C6E9241C1BD5A800959D61 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93D831D91C1570FB0027070C /* Contest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D831D81C1570FB0027070C /* Contest.swift */; };
 		93D831DB1C1571090027070C /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D831DA1C1571090027070C /* Entry.swift */; };
 		93D831DD1C1571150027070C /* Lineup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D831DC1C1571150027070C /* Lineup.swift */; };
@@ -70,6 +72,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				93C6E9261C1BD5CE00959D61 /* Eureka.framework in Embed Frameworks */,
 				93A9FA691C013CCE008AD171 /* SwiftyJSON.framework in Embed Frameworks */,
 				93A9FA641C011B65008AD171 /* Alamofire.framework in Embed Frameworks */,
 			);
@@ -113,6 +116,7 @@
 		93A9FA661C013CC3008AD171 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		93A9FA6C1C014A1C008AD171 /* ProBballManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProBballManager.swift; sourceTree = "<group>"; };
 		93A9FA6F1C014BC7008AD171 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		93C6E9241C1BD5A800959D61 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		93D831D81C1570FB0027070C /* Contest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contest.swift; sourceTree = "<group>"; };
 		93D831DA1C1571090027070C /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		93D831DC1C1571150027070C /* Lineup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lineup.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				93754F0D1C14110900D45176 /* libsqlite3.tbd in Frameworks */,
 				93754F0B1C14110200D45176 /* libz.tbd in Frameworks */,
 				93754F091C1410FA00D45176 /* SystemConfiguration.framework in Frameworks */,
+				93C6E9251C1BD5A800959D61 /* Eureka.framework in Frameworks */,
 				93754F071C1410F100D45176 /* StoreKit.framework in Frameworks */,
 				93754F051C1410EC00D45176 /* Security.framework in Frameworks */,
 				93754F031C1410E400D45176 /* QuartzCore.framework in Frameworks */,
@@ -241,6 +246,7 @@
 			children = (
 				93754F0C1C14110900D45176 /* libsqlite3.tbd */,
 				93754F0A1C14110200D45176 /* libz.tbd */,
+				93C6E9241C1BD5A800959D61 /* Eureka.framework */,
 				93754F081C1410FA00D45176 /* SystemConfiguration.framework */,
 				93754F061C1410F100D45176 /* StoreKit.framework */,
 				93754F041C1410EC00D45176 /* Security.framework */,
