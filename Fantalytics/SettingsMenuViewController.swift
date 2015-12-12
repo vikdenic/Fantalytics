@@ -21,57 +21,51 @@ class SettingsMenuViewController: FormViewController {
         navigationController!.navigationBar.translucent = false
     }
 
+    //Using Eureka form builder library
     func setUpForm() {
         form =
 
             Section()
 
-                <<< ButtonRow("username") {
+                <<< LabelRow("username") {
                     $0.title = $0.tag
-                    $0.presentationMode = .SegueName(segueName: "RowsExampleViewControllerSegue", completionCallback: nil)
                 }
 
             +++ Section("")
 
-                <<< ButtonRow("Add Funds") {
+                <<< LabelRow("Add Funds") {
                     $0.title = $0.tag
-                    $0.presentationMode = .SegueName(segueName: "RowsExampleViewControllerSegue", completionCallback: nil)
+                    $0.value = "$100"
                 }
 
-                <<< ButtonRow("Withdraw") {
+                <<< LabelRow("Withdraw") {
                     $0.title = $0.tag
-                    $0.presentationMode = .SegueName(segueName: "RowsExampleViewControllerSegue", completionCallback: nil)
                 }
 
-                <<< ButtonRow("Transaction History") {
+                <<< LabelRow("Transaction History") {
                     $0.title = $0.tag
-                    $0.presentationMode = .SegueName(segueName: "RowsExampleViewControllerSegue", completionCallback: nil)
-                }
-
-            +++ Section("")
-
-                <<< ButtonRow("Friends") {
-                    $0.title = $0.tag
-                    $0.presentationMode = .SegueName(segueName: "RowsExampleViewControllerSegue", completionCallback: nil)
                 }
 
             +++ Section("")
 
-                <<< ButtonRow("Rules") {
+                <<< LabelRow("Friends") {
                     $0.title = $0.tag
-                    $0.presentationMode = .SegueName(segueName: "RowsExampleViewControllerSegue", completionCallback: nil)
-                }
-
-                <<< ButtonRow("Support") {
-                    $0.title = $0.tag
-                    $0.presentationMode = .SegueName(segueName: "RowsExampleViewControllerSegue", completionCallback: nil)
                 }
 
             +++ Section("")
 
-                <<< ButtonRow("Log Out") {
+                <<< LabelRow("Rules") {
                     $0.title = $0.tag
-                    $0.presentationMode = .SegueName(segueName: "RowsExampleViewControllerSegue", completionCallback: nil)
+                }
+
+                <<< LabelRow("Support") {
+                    $0.title = $0.tag
+                }
+
+            +++ Section("")
+
+                <<< LabelRow("Log Out") {
+                    $0.title = $0.tag
                 }.onCellSelection { cell, row in
                     self.logOutAndPresentLogin()
                 }
