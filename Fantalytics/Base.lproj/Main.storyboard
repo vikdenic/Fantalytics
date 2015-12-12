@@ -163,30 +163,11 @@
                         <viewControllerLayoutGuide type="bottom" id="InO-At-lwx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oro-2R-8XN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNC-vT-a7p">
-                                <rect key="frame" x="200" y="278" width="200" height="44"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="NW1-Lb-IyP"/>
-                                    <constraint firstAttribute="width" constant="200" id="zQW-aU-MTB"/>
-                                </constraints>
-                                <state key="normal" title="Log Out">
-                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="onLogoutButtonTapped:" destination="8Z6-eY-jhz" eventType="touchUpInside" id="j3c-uq-zSO"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="RNC-vT-a7p" firstAttribute="centerX" secondItem="oro-2R-8XN" secondAttribute="centerX" id="b4s-Pr-Gj9"/>
-                            <constraint firstItem="RNC-vT-a7p" firstAttribute="centerY" secondItem="oro-2R-8XN" secondAttribute="centerY" id="qcw-QJ-65G"/>
-                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <segue destination="9gB-c8-TkA" kind="presentation" identifier="LogoutToSignIn" id="W5Y-Wk-N2k"/>
                     </connections>
@@ -318,6 +299,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GPh-1K-aXW"/>
+        <segue reference="W5Y-Wk-N2k"/>
     </inferredMetricsTieBreakers>
 </document>
