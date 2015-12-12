@@ -251,7 +251,7 @@ enum NBATeam {
         case .Toronto: return 1610612761
         case .Utah: return 1610612762
         case .Washington: return 1610612764
-        default: return 1610612744
+            default: return 1610612744
         }
     }
 }

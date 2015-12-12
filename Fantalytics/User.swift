@@ -19,7 +19,7 @@ enum SignUpError: ErrorType {
         case .InvalidUsernameLength: return "Username can contain between 3 and 15 characters"
         case .InvalidPasswordLength: return "Password must be at least 7 characters long"
         case .InvalidUsernameCharacters: return "Usernames may only contain letters, numbers, and underscores"
-        default: return "Something went wrong. Try again"
+            default: return "Something went wrong. Try again"
         }
     }
 }
