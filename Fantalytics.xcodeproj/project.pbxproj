@@ -11,6 +11,9 @@
 		936C08771C14FE270068E9B3 /* MyContestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08761C14FE270068E9B3 /* MyContestsViewController.swift */; };
 		936C08791C14FE910068E9B3 /* SettingsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */; };
 		936C087C1C1561B90068E9B3 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C087B1C1561B90068E9B3 /* Helpers.swift */; };
+		936DDDA31C1D46BA0059B215 /* MyContestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DDDA21C1D46BA0059B215 /* MyContestsTableViewCell.swift */; };
+		936DDDA51C1D4BD10059B215 /* GameKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DDDA41C1D4BD10059B215 /* GameKind.swift */; };
+		936DDDA71C1D4BDF0059B215 /* ContestKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DDDA61C1D4BDF0059B215 /* ContestKind.swift */; };
 		93754EF51C140DC800D45176 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93754EF41C140DC800D45176 /* Keys.plist */; };
 		93754EF81C14109400D45176 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EF61C14109400D45176 /* Bolts.framework */; };
 		93754EF91C14109400D45176 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EF71C14109400D45176 /* Parse.framework */; };
@@ -86,6 +89,9 @@
 		936C08761C14FE270068E9B3 /* MyContestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyContestsViewController.swift; sourceTree = "<group>"; };
 		936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMenuViewController.swift; sourceTree = "<group>"; };
 		936C087B1C1561B90068E9B3 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		936DDDA21C1D46BA0059B215 /* MyContestsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyContestsTableViewCell.swift; sourceTree = "<group>"; };
+		936DDDA41C1D4BD10059B215 /* GameKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameKind.swift; sourceTree = "<group>"; };
+		936DDDA61C1D4BDF0059B215 /* ContestKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestKind.swift; sourceTree = "<group>"; };
 		93754EF41C140DC800D45176 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		93754EF61C14109400D45176 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		93754EF71C14109400D45176 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -165,6 +171,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		936DDDA11C1D46940059B215 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				936DDDA21C1D46BA0059B215 /* MyContestsTableViewCell.swift */,
+			);
+			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
 		93A9FA261C0115F6008AD171 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +206,7 @@
 				93A9FA321C0115F6008AD171 /* AppDelegate.swift */,
 				93A9FA721C014EEF008AD171 /* Controllers */,
 				93A9FA6A1C0149D4008AD171 /* Model */,
+				936DDDA11C1D46940059B215 /* Custom Cells */,
 				93A9FA6E1C014BB7008AD171 /* Utilities */,
 				93A9FA391C0115F6008AD171 /* Assets.xcassets */,
 				93A9FA3B1C0115F6008AD171 /* LaunchScreen.storyboard */,
@@ -214,6 +229,8 @@
 			children = (
 				937E4F551C141DBF0008374A /* User.swift */,
 				93D831D81C1570FB0027070C /* Contest.swift */,
+				936DDDA61C1D4BDF0059B215 /* ContestKind.swift */,
+				936DDDA41C1D4BD10059B215 /* GameKind.swift */,
 				93D831DA1C1571090027070C /* Entry.swift */,
 				93D831DC1C1571150027070C /* Lineup.swift */,
 				93D831DE1C1571200027070C /* Player.swift */,
@@ -429,11 +446,14 @@
 				93D831DB1C1571090027070C /* Entry.swift in Sources */,
 				93835F1B1C018A7B00A71A08 /* Extensions.swift in Sources */,
 				93D831D91C1570FB0027070C /* Contest.swift in Sources */,
+				936DDDA31C1D46BA0059B215 /* MyContestsTableViewCell.swift in Sources */,
+				936DDDA71C1D4BDF0059B215 /* ContestKind.swift in Sources */,
 				936C08771C14FE270068E9B3 /* MyContestsViewController.swift in Sources */,
 				93D831DF1C1571200027070C /* Player.swift in Sources */,
 				93A9FA6D1C014A1C008AD171 /* ProBballManager.swift in Sources */,
 				936C087C1C1561B90068E9B3 /* Helpers.swift in Sources */,
 				936C08791C14FE910068E9B3 /* SettingsMenuViewController.swift in Sources */,
+				936DDDA51C1D4BD10059B215 /* GameKind.swift in Sources */,
 				937E4F561C141DBF0008374A /* User.swift in Sources */,
 				93A9FA351C0115F6008AD171 /* SignUpViewController.swift in Sources */,
 				93D831DD1C1571150027070C /* Lineup.swift in Sources */,

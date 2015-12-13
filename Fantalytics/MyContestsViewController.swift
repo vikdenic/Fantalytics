@@ -8,34 +8,46 @@
 
 import Parse
 
-class MyContestsViewController: UIViewController {
+class MyContestsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    @IBOutlet var tableView: UITableView!
+
+    var entries = [Entry]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Entry.getAllEntriesForCurrentUser { (entries, error) -> Void in
 
-        let query = PFQuery(className: "Entry")
-        query.whereKey("user", equalTo: User.currentUser()!)
-
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-
-            guard let entries = objects as! [Entry]! else {
+            guard let someEntries = entries else {
                 showAlertWithError(error, forVC: self)
                 return
             }
 
-            for entry in entries {
-                let lineup = entry.lineup
-                let relation = lineup.players
-                let query2 = relation.query()
-                query2?.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
-
-                    guard let players = objects as! [Player]! else {
-                        showAlertWithError(error, forVC: self)
-                        return
-                    }
-                    print(players)
-                })
-            }
+            self.entries = someEntries
         }
+    }
+
+    //MARK: TV
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdMyContests) as! MyContestsTableViewCell
+
+        let entry = entries[indexPath.row] as Entry
+
+        cell.contestKindLabel.text = entry.contestKind.name
+        cell.gameKindLabel.text = entry.gameKind.name
+
+        return cell
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return entries.count
+    }
+
+    //MARK: Actions
+    @IBAction func onSegmentTapped(sender: UISegmentedControl) {
     }
 }

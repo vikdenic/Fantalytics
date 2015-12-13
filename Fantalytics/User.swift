@@ -28,8 +28,7 @@ import Parse
 
 class User: PFUser {
 
-    override class func initialize()
-    {
+    override class func initialize() {
         self.registerSubclass()
     }
 
@@ -42,8 +41,7 @@ class User: PFUser {
 
      - throws: throws specified errors of the enum type SignUpError
      */
-    class func registerNewUser(username : String!, password : String!, completed:(error : NSError!) -> Void) throws
-    {
+    class func registerNewUser(username : String!, password : String!, completed:(error : NSError!) -> Void) throws {
         guard username.characters.count > 0 || password.characters.count > 0 else {
             throw SignUpError.EmptyFields
         }

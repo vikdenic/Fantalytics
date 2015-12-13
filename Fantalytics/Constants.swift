@@ -8,3 +8,4 @@
 
 let kSegueLobbyToRegister = "SignUpSegue"
 let kSegueLogoutToRegister = "LogoutToSignIn"
+let kCellIdMyContests = "MyContestsCell"

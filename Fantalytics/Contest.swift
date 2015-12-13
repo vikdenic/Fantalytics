@@ -10,8 +10,7 @@ import Parse
 
 class Contest: PFObject, PFSubclassing {
 
-    override class func initialize()
-    {
+    override class func initialize() {
         self.registerSubclass()
     }
 

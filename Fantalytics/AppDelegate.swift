@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func registerSubclasses() {
         User.registerSubclass()
         Contest.registerSubclass()
+        ContestKind.registerSubclass()
+        GameKind.registerSubclass()
         Entry.registerSubclass()
         Lineup.registerSubclass()
         Player.registerSubclass()
