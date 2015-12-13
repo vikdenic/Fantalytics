@@ -20,3 +20,15 @@ class GameKind: PFObject, PFSubclassing {
 
     @NSManaged var name: String
 }
+
+enum GameType {
+    case MarathonMan
+    case SmartCat
+
+    var parseObject : GameKind {
+        switch self {
+        case .MarathonMan: return GameKind(withoutDataWithObjectId: "wZuUgXOYVw");
+        case .SmartCat: return GameKind(withoutDataWithObjectId: "2TaeS5emup");
+        }
+    }
+}

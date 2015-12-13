@@ -19,4 +19,5 @@ class Contest: PFObject, PFSubclassing {
     }
 
     @NSManaged var name: String
+    @NSManaged var startDate: NSDate
 }

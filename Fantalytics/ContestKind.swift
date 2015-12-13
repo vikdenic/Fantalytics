@@ -20,3 +20,15 @@ class ContestKind: PFObject, PFSubclassing {
 
     @NSManaged var name: String
 }
+
+enum ContestType {
+    case HeadToHead
+    case Pool
+
+    var parseObject : ContestKind {
+        switch self {
+        case .HeadToHead: return ContestKind(withoutDataWithObjectId: "kIjN1WbMis");
+        case .Pool: return ContestKind(withoutDataWithObjectId: "TLsqXoEbRm");
+        }
+    }
+}

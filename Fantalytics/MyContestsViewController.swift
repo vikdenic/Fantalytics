@@ -10,6 +10,7 @@ import Parse
 
 class MyContestsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var tableView: UITableView!
 
     var entries = [Entry]() {
@@ -29,6 +30,16 @@ class MyContestsViewController: UIViewController, UITableViewDataSource, UITable
 
             self.entries = someEntries
         }
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        viewSetup()
+    }
+
+    //MARK: Helpers
+    func viewSetup() {
+        segmentedControl.selectedSegmentIndex = 2
     }
 
     //MARK: TV
