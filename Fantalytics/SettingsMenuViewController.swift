@@ -27,7 +27,7 @@ class SettingsMenuViewController: FormViewController {
 
             Section()
 
-                <<< LabelRow("username") {
+                <<< LabelRow(User.currentUser()?.username) {
                     $0.title = $0.tag
                 }
 
