@@ -18,6 +18,13 @@ class Contest: PFObject, PFSubclassing {
         return "Contest"
     }
 
-    @NSManaged var name: String
-    @NSManaged var startDate: NSDate
+    @NSManaged var name: String!
+    @NSManaged var startDate: NSDate!
+    @NSManaged var maxEntries: NSNumber!
+    @NSManaged var minEntries: NSNumber!
+    @NSManaged var entryFee: NSNumber!
+    @NSManaged var prizeAmount: NSNumber!
+
+    @NSManaged var contestKind: ContestKind!
+    @NSManaged var gameKind: GameKind!
 }

@@ -27,7 +27,7 @@ class MyContestsViewController: UIViewController, UITableViewDataSource, UITable
                 showAlertWithError(error, forVC: self)
                 return
             }
-
+            
             self.entries = someEntries
         }
     }
@@ -48,8 +48,23 @@ class MyContestsViewController: UIViewController, UITableViewDataSource, UITable
 
         let entry = entries[indexPath.row] as Entry
 
+        cell.dateLabel.text = entry.contest.startDate.toMonthDayYearAbbrevString()
         cell.contestKindLabel.text = entry.contestKind.name
         cell.gameKindLabel.text = entry.gameKind.name
+        cell.entryFeeLabel.text = "Entry: $\(entry.contest.entryFee)"
+
+        if entry.contestKind.objectId == ContestType.HeadToHead.parseObjectId
+        {
+            cell.placeLabel.text = "nth / 2"
+        } else {
+            Entry.getAllEntriesForContest(entry.contest, completed: { (entries, error) -> Void in
+                guard let someEntries = entries else {
+                    showAlertWithError(error, forVC: self)
+                    return
+                }
+                cell.placeLabel.text = "nth / \(someEntries.count)"
+            })
+        }
 
         return cell
     }

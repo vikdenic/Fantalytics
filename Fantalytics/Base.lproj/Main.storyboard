@@ -301,17 +301,21 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Won: ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbe-cQ-Nqq">
-                                                    <rect key="frame" x="523" y="41" width="52" height="21"/>
+                                                    <rect key="frame" x="512" y="41" width="80" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="Ff8-Hz-sCa"/>
-                                                        <constraint firstAttribute="width" constant="52" id="NCw-OJ-d8D"/>
+                                                        <constraint firstAttribute="height" constant="21" id="myN-69-rFQ"/>
+                                                        <constraint firstAttribute="width" constant="80" id="nRT-UY-vpk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry: $y" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sq-uq-erB">
-                                                    <rect key="frame" x="523" y="70" width="69" height="20.5"/>
+                                                    <rect key="frame" x="512" y="70" width="80" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20.5" id="Yhb-0D-86S"/>
+                                                        <constraint firstAttribute="width" constant="80" id="lfU-Yf-cu6"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -324,24 +328,24 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="3Sq-uq-erB" firstAttribute="trailing" secondItem="hQX-8u-Y41" secondAttribute="trailingMargin" id="A1M-Rw-feH"/>
                                                 <constraint firstItem="teM-gh-o2C" firstAttribute="centerY" secondItem="hQX-8u-Y41" secondAttribute="centerY" id="G1A-ve-SZ3"/>
                                                 <constraint firstItem="vtH-H6-H3p" firstAttribute="top" secondItem="hQX-8u-Y41" secondAttribute="topMargin" id="Jpd-TX-t1k"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="nbe-cQ-Nqq" secondAttribute="trailing" constant="17" id="MFa-FK-2wK"/>
+                                                <constraint firstItem="3Sq-uq-erB" firstAttribute="top" secondItem="nbe-cQ-Nqq" secondAttribute="bottom" constant="8" id="Nb4-CV-kdo"/>
                                                 <constraint firstItem="vtH-H6-H3p" firstAttribute="centerX" secondItem="hQX-8u-Y41" secondAttribute="centerX" id="OVT-pM-cBi"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="3Sq-uq-erB" secondAttribute="bottom" constant="0.5" id="Uc7-oc-RMZ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="3Sq-uq-erB" secondAttribute="bottom" constant="1" id="Qfj-9b-6ug"/>
                                                 <constraint firstItem="tnO-mT-9ca" firstAttribute="centerX" secondItem="hQX-8u-Y41" secondAttribute="centerX" id="VTR-OS-fuS"/>
                                                 <constraint firstItem="teM-gh-o2C" firstAttribute="centerX" secondItem="hQX-8u-Y41" secondAttribute="centerX" id="VTz-Fq-WBx"/>
                                                 <constraint firstItem="qO6-OM-46k" firstAttribute="leading" secondItem="hQX-8u-Y41" secondAttribute="leadingMargin" constant="7" id="ajO-xr-fCr"/>
-                                                <constraint firstItem="3Sq-uq-erB" firstAttribute="trailing" secondItem="hQX-8u-Y41" secondAttribute="trailingMargin" id="c1V-DJ-nBx"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="tnO-mT-9ca" secondAttribute="bottom" constant="0.5" id="p2G-gM-PH0"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="qO6-OM-46k" secondAttribute="bottom" constant="0.5" id="qpV-GV-stJ"/>
-                                                <constraint firstItem="3Sq-uq-erB" firstAttribute="top" secondItem="nbe-cQ-Nqq" secondAttribute="bottom" constant="8" id="vjh-so-yqJ"/>
+                                                <constraint firstItem="nbe-cQ-Nqq" firstAttribute="trailing" secondItem="hQX-8u-Y41" secondAttribute="trailingMargin" id="rhz-HQ-4vi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="contestKindLabel" destination="vtH-H6-H3p" id="01a-0Q-k1h"/>
                                             <outlet property="dateLabel" destination="qO6-OM-46k" id="eke-qH-4kH"/>
-                                            <outlet property="entryAmountLabel" destination="3Sq-uq-erB" id="qRk-E0-Uub"/>
+                                            <outlet property="entryFeeLabel" destination="3Sq-uq-erB" id="bcv-S6-M9G"/>
                                             <outlet property="gameKindLabel" destination="teM-gh-o2C" id="HUK-U9-dhh"/>
                                             <outlet property="placeLabel" destination="tnO-mT-9ca" id="ti7-FC-05P"/>
                                             <outlet property="wonLabel" destination="nbe-cQ-Nqq" id="FLy-9r-MAA"/>

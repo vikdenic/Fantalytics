@@ -21,14 +21,17 @@ class GameKind: PFObject, PFSubclassing {
     @NSManaged var name: String
 }
 
+/// An enum type used in conjunction with the GameKind class
 enum GameType {
     case MarathonMan
     case SmartCat
 
-    var parseObject : GameKind {
+    /// Returns an instance of a specific GameType object, which already exists on Parse.
+    /// To access data on the object, fetch() will need to be called
+    var parseObjectId : String {
         switch self {
-        case .MarathonMan: return GameKind(withoutDataWithObjectId: "wZuUgXOYVw");
-        case .SmartCat: return GameKind(withoutDataWithObjectId: "2TaeS5emup");
+        case .MarathonMan: return GameKind(withoutDataWithObjectId: "wZuUgXOYVw").objectId!;
+        case .SmartCat: return GameKind(withoutDataWithObjectId: "2TaeS5emup").objectId!;
         }
     }
 }

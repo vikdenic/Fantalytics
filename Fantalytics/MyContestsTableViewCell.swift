@@ -15,7 +15,7 @@ class MyContestsTableViewCell: UITableViewCell {
     @IBOutlet var gameKindLabel: UILabel!
     @IBOutlet var placeLabel: UILabel!
     @IBOutlet var wonLabel: UILabel!
-    @IBOutlet var entryAmountLabel: UILabel!
+    @IBOutlet var entryFeeLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

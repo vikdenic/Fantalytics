@@ -21,14 +21,17 @@ class ContestKind: PFObject, PFSubclassing {
     @NSManaged var name: String
 }
 
+/// An enum type used in conjunction with the ContestKind class
 enum ContestType {
     case HeadToHead
     case Pool
 
-    var parseObject : ContestKind {
+    /// Returns an instance of a specific ContestKind object, which already exists on Parse.
+    /// To access data on the object, fetch() will need to be called.
+    var parseObjectId : String {
         switch self {
-        case .HeadToHead: return ContestKind(withoutDataWithObjectId: "kIjN1WbMis");
-        case .Pool: return ContestKind(withoutDataWithObjectId: "TLsqXoEbRm");
+        case .HeadToHead: return ContestKind(withoutDataWithObjectId: "kIjN1WbMis").objectId!;
+        case .Pool: return ContestKind(withoutDataWithObjectId: "TLsqXoEbRm").objectId!;
         }
     }
 }

@@ -20,9 +20,10 @@ class Entry: PFObject, PFSubclassing {
 
     @NSManaged var user: User
     @NSManaged var contest: Contest
-    @NSManaged var lineup: Lineup
-    @NSManaged var contestKind: ContestKind
-    @NSManaged var gameKind: GameKind
+    @NSManaged var lineup: Lineup?
+
+    @NSManaged var contestKind: ContestKind!
+    @NSManaged var gameKind: GameKind!
 
     class func queryWithIncludes () -> PFQuery! {
         let query  = Entry.query()
@@ -46,7 +47,20 @@ class Entry: PFObject, PFSubclassing {
                 completed(entries: nil, error: error)
                 return
             }
+            completed(entries: entries, error: nil)
+        }
+    }
 
+    class func getAllEntriesForContest(contest : Contest, completed:(entries : [Entry]?, error : NSError!) -> Void) {
+        let query = Entry.queryWithIncludes()
+        query.whereKey("contest", equalTo: contest)
+
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+
+            guard let entries = objects as! [Entry]! else {
+                completed(entries: nil, error: error)
+                return
+            }
             completed(entries: entries, error: nil)
         }
     }
