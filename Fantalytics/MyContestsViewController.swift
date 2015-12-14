@@ -27,7 +27,6 @@ class MyContestsViewController: UIViewController, UITableViewDataSource, UITable
                 showAlertWithError(error, forVC: self)
                 return
             }
-            
             self.entries = someEntries
         }
     }
@@ -53,8 +52,14 @@ class MyContestsViewController: UIViewController, UITableViewDataSource, UITable
         cell.gameKindLabel.text = entry.gameKind.name
         cell.entryFeeLabel.text = "Entry: $\(entry.contest.entryFee)"
 
-        if entry.contestKind.objectId == ContestType.HeadToHead.parseObjectId
-        {
+        if segmentedControl.selectedSegmentIndex == 2 {
+            if let _ = entry.contest.winners {
+                cell.wonLabel.hidden = false
+                cell.wonLabel.text = "Won: $\(entry.contest.prizeAmount)" //TODO: If current user is winner
+            }
+        }
+
+        if entry.contestKind.objectId == ContestType.HeadToHead.parseObjectId {
             cell.placeLabel.text = "nth / 2"
         } else {
             Entry.getAllEntriesForContest(entry.contest, completed: { (entries, error) -> Void in
@@ -65,7 +70,6 @@ class MyContestsViewController: UIViewController, UITableViewDataSource, UITable
                 cell.placeLabel.text = "nth / \(someEntries.count)"
             })
         }
-
         return cell
     }
 

@@ -19,6 +19,7 @@ class Lineup: PFObject, PFSubclassing {
     }
 
     @NSManaged var players: PFRelation
+    @NSManaged var totalScore: NSNumber?
 
     class func saveExampleLineup() {
 

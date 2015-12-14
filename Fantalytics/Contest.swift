@@ -27,4 +27,6 @@ class Contest: PFObject, PFSubclassing {
 
     @NSManaged var contestKind: ContestKind!
     @NSManaged var gameKind: GameKind!
+
+    @NSManaged var winners: [AnyObject]?
 }
