@@ -8,7 +8,7 @@
 
 import Parse
 
-class MyContestsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MyContestsViewController: UIViewController {
 
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var tableView: UITableView!
@@ -44,6 +44,21 @@ class MyContestsViewController: UIViewController, UITableViewDataSource, UITable
         segmentedControl.selectedSegmentIndex = 2
     }
 
+    //MARK: Actions
+    @IBAction func onSegmentTapped(sender: UISegmentedControl) {
+    }
+
+    //MARK: Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == kSegueMyContestsToMMH2H {
+            let vc = segue.destinationViewController as! HeadToHeadMatchViewController
+            vc.entry1 = selectedEntry
+        }
+    }
+}
+
+extension MyContestsViewController: UITableViewDataSource, UITableViewDelegate {
     //MARK: TV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdMyContests) as! MyContestsTableViewCell
@@ -91,18 +106,5 @@ class MyContestsViewController: UIViewController, UITableViewDataSource, UITable
             break
         }
         return indexPath
-    }
-
-    //MARK: Actions
-    @IBAction func onSegmentTapped(sender: UISegmentedControl) {
-    }
-
-    //MARK: Segue
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == kSegueMyContestsToMMH2H {
-            let vc = segue.destinationViewController as! HeadToHeadMatchViewController
-            vc.entry1 = selectedEntry
-        }
     }
 }

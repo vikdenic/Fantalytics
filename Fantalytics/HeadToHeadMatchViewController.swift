@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class HeadToHeadMatchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HeadToHeadMatchViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var contestant1NameLabel: UILabel!
@@ -48,7 +48,9 @@ class HeadToHeadMatchViewController: UIViewController, UITableViewDataSource, UI
             }
         }
     }
+}
 
+extension HeadToHeadMatchViewController: UITableViewDataSource, UITableViewDelegate {
     //MARK: TV DS
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(kCellH2HMatch) as! HeadToHeadMatchTableViewCell
