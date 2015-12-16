@@ -102,7 +102,7 @@ class MyContestsViewController: UIViewController, UITableViewDataSource, UITable
         
         if segue.identifier == kSegueMyContestsToMMH2H {
             let vc = segue.destinationViewController as! HeadToHeadMatchViewController
-            vc.entry = selectedEntry
+            vc.entry1 = selectedEntry
         }
     }
 }

@@ -15,8 +15,8 @@ class LobbyViewController: UIViewController {
     }
 
     override func viewDidAppear(animated: Bool) {
-        checkForUser()
         super.viewDidAppear(animated)
+        checkForUser()
     }
 
     func checkForUser() {

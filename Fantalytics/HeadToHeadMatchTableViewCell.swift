@@ -10,6 +10,10 @@ import UIKit
 
 class HeadToHeadMatchTableViewCell: UITableViewCell {
 
+    @IBOutlet var positionLabel: UILabel!
+    @IBOutlet var nameLabel1: UILabel!
+    @IBOutlet var nameLabel2: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

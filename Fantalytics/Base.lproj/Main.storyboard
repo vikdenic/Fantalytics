@@ -413,17 +413,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="scr-hg-Icq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="scr-hg-Icq">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="H2HMatchCell" id="i5O-h6-Mf3" customClass="HeadToHeadMatchTableViewCell" customModule="Fantalytics" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="H2HMatchCell" rowHeight="100" id="i5O-h6-Mf3" customClass="HeadToHeadMatchTableViewCell" customModule="Fantalytics" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i5O-h6-Mf3" id="gSz-Pi-tIp">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLB-XA-5YE">
+                                                    <rect key="frame" x="288.5" y="39.5" width="23" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucR-Gn-Dlv">
+                                                    <rect key="frame" x="20" y="39" width="45" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52N-ow-jlr">
+                                                    <rect key="frame" x="535" y="39" width="45" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="52N-ow-jlr" secondAttribute="trailing" constant="12" id="4yk-fH-by4"/>
+                                                <constraint firstItem="52N-ow-jlr" firstAttribute="centerY" secondItem="gSz-Pi-tIp" secondAttribute="centerY" id="Ac0-z1-7fh"/>
+                                                <constraint firstItem="gLB-XA-5YE" firstAttribute="centerX" secondItem="gSz-Pi-tIp" secondAttribute="centerX" id="LwP-XT-GQS"/>
+                                                <constraint firstItem="ucR-Gn-Dlv" firstAttribute="leading" secondItem="gSz-Pi-tIp" secondAttribute="leadingMargin" constant="12" id="VKo-GO-8e3"/>
+                                                <constraint firstItem="gLB-XA-5YE" firstAttribute="centerY" secondItem="gSz-Pi-tIp" secondAttribute="centerY" id="bsp-Bk-AkH"/>
+                                                <constraint firstItem="ucR-Gn-Dlv" firstAttribute="centerY" secondItem="gSz-Pi-tIp" secondAttribute="centerY" id="sjZ-dd-S7p"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel1" destination="ucR-Gn-Dlv" id="eRM-nb-j6Q"/>
+                                            <outlet property="nameLabel2" destination="52N-ow-jlr" id="cOj-aU-gRX"/>
+                                            <outlet property="positionLabel" destination="gLB-XA-5YE" id="Fle-ve-iMn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
