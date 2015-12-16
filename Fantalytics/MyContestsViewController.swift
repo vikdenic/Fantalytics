@@ -13,6 +13,8 @@ class MyContestsViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var tableView: UITableView!
 
+    var selectedEntry : Entry!
+
     var entries = [Entry]() {
         didSet {
             self.tableView.reloadData()
@@ -33,6 +35,7 @@ class MyContestsViewController: UIViewController, UITableViewDataSource, UITable
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
         viewSetup()
     }
 
@@ -77,7 +80,29 @@ class MyContestsViewController: UIViewController, UITableViewDataSource, UITable
         return entries.count
     }
 
+    //MARK: TV DL
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        selectedEntry = entries[indexPath.row] as Entry
+
+        switch selectedEntry.gameKind.objectId {
+        case GameType.MarathonMan.parseObjectId as NSString:
+            performSegueWithIdentifier(kSegueMyContestsToMMH2H, sender: self)
+        default:
+            break
+        }
+        return indexPath
+    }
+
     //MARK: Actions
     @IBAction func onSegmentTapped(sender: UISegmentedControl) {
+    }
+
+    //MARK: Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == kSegueMyContestsToMMH2H {
+            let vc = segue.destinationViewController as! HeadToHeadMatchViewController
+            vc.entry = selectedEntry
+        }
     }
 }

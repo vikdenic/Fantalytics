@@ -45,6 +45,8 @@
 		93A9FA701C014BC7008AD171 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA6F1C014BC7008AD171 /* Constants.swift */; };
 		93C6E9251C1BD5A800959D61 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C6E9241C1BD5A800959D61 /* Eureka.framework */; };
 		93C6E9261C1BD5CE00959D61 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93C6E9241C1BD5A800959D61 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93CEC8A11C20E0340052A649 /* HeadToHeadMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CEC8A01C20E0340052A649 /* HeadToHeadMatchViewController.swift */; };
+		93CEC8A31C20E1E10052A649 /* HeadToHeadMatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CEC8A21C20E1E10052A649 /* HeadToHeadMatchTableViewCell.swift */; };
 		93D831D91C1570FB0027070C /* Contest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D831D81C1570FB0027070C /* Contest.swift */; };
 		93D831DB1C1571090027070C /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D831DA1C1571090027070C /* Entry.swift */; };
 		93D831DD1C1571150027070C /* Lineup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D831DC1C1571150027070C /* Lineup.swift */; };
@@ -123,6 +125,8 @@
 		93A9FA6C1C014A1C008AD171 /* ProBballManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProBballManager.swift; sourceTree = "<group>"; };
 		93A9FA6F1C014BC7008AD171 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		93C6E9241C1BD5A800959D61 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
+		93CEC8A01C20E0340052A649 /* HeadToHeadMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadToHeadMatchViewController.swift; sourceTree = "<group>"; };
+		93CEC8A21C20E1E10052A649 /* HeadToHeadMatchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadToHeadMatchTableViewCell.swift; sourceTree = "<group>"; };
 		93D831D81C1570FB0027070C /* Contest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contest.swift; sourceTree = "<group>"; };
 		93D831DA1C1571090027070C /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		93D831DC1C1571150027070C /* Lineup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lineup.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				936DDDA21C1D46BA0059B215 /* MyContestsTableViewCell.swift */,
+				93CEC8A21C20E1E10052A649 /* HeadToHeadMatchTableViewCell.swift */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -285,8 +290,9 @@
 			children = (
 				93A9FA341C0115F6008AD171 /* SignUpViewController.swift */,
 				936C08741C14FB990068E9B3 /* LobbyViewController.swift */,
-				936C08761C14FE270068E9B3 /* MyContestsViewController.swift */,
 				936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */,
+				936C08761C14FE270068E9B3 /* MyContestsViewController.swift */,
+				93CEC8A01C20E0340052A649 /* HeadToHeadMatchViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -452,10 +458,12 @@
 				93D831DF1C1571200027070C /* Player.swift in Sources */,
 				93A9FA6D1C014A1C008AD171 /* ProBballManager.swift in Sources */,
 				936C087C1C1561B90068E9B3 /* Helpers.swift in Sources */,
+				93CEC8A11C20E0340052A649 /* HeadToHeadMatchViewController.swift in Sources */,
 				936C08791C14FE910068E9B3 /* SettingsMenuViewController.swift in Sources */,
 				936DDDA51C1D4BD10059B215 /* GameKind.swift in Sources */,
 				937E4F561C141DBF0008374A /* User.swift in Sources */,
 				93A9FA351C0115F6008AD171 /* SignUpViewController.swift in Sources */,
+				93CEC8A31C20E1E10052A649 /* HeadToHeadMatchTableViewCell.swift in Sources */,
 				93D831DD1C1571150027070C /* Lineup.swift in Sources */,
 				936C08751C14FB990068E9B3 /* LobbyViewController.swift in Sources */,
 				93A9FA331C0115F6008AD171 /* AppDelegate.swift in Sources */,

@@ -28,7 +28,7 @@ enum GameType {
 
     /// Returns an instance of a specific GameType object, which already exists on Parse.
     /// To access data on the object, fetch() will need to be called
-    var parseObjectId : String {
+    var parseObjectId : NSString {
         switch self {
         case .MarathonMan: return GameKind(withoutDataWithObjectId: "wZuUgXOYVw").objectId!;
         case .SmartCat: return GameKind(withoutDataWithObjectId: "2TaeS5emup").objectId!;

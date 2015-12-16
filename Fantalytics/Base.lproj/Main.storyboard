@@ -275,7 +275,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="572"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MyContestsCell" rowHeight="100" id="ka9-kt-0Bc" customClass="MyContestsTableViewCell" customModule="Fantalytics" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="MyContestsCell" rowHeight="100" id="ka9-kt-0Bc" customClass="MyContestsTableViewCell" customModule="Fantalytics" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ka9-kt-0Bc" id="hQX-8u-Y41">
@@ -394,11 +394,59 @@
                     <connections>
                         <outlet property="segmentedControl" destination="iO7-tV-UGq" id="ODd-4z-47s"/>
                         <outlet property="tableView" destination="rKg-af-fhv" id="RkT-qZ-SAt"/>
+                        <segue destination="inn-wj-DWr" kind="show" identifier="MyContestsToH2HMatchSegue" id="DKt-J0-LxE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dpw-or-9jB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1462" y="1962"/>
+        </scene>
+        <!--Head To Head Match View Controller-->
+        <scene sceneID="tPc-rn-DoB">
+            <objects>
+                <viewController id="inn-wj-DWr" customClass="HeadToHeadMatchViewController" customModule="Fantalytics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h2x-eA-OpO"/>
+                        <viewControllerLayoutGuide type="bottom" id="3zH-0C-Wie"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yKA-H3-sdI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="scr-hg-Icq">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="H2HMatchCell" id="i5O-h6-Mf3" customClass="HeadToHeadMatchTableViewCell" customModule="Fantalytics" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i5O-h6-Mf3" id="gSz-Pi-tIp">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="inn-wj-DWr" id="cDz-Cr-kj5"/>
+                                    <outlet property="delegate" destination="inn-wj-DWr" id="8n5-mG-O9n"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="scr-hg-Icq" firstAttribute="top" secondItem="yKA-H3-sdI" secondAttribute="topMargin" id="IzC-qH-kZG"/>
+                            <constraint firstItem="scr-hg-Icq" firstAttribute="bottom" secondItem="yKA-H3-sdI" secondAttribute="bottomMargin" id="Xb9-3S-dB1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="scr-hg-Icq" secondAttribute="trailing" constant="-20" id="feC-AB-u3r"/>
+                            <constraint firstItem="scr-hg-Icq" firstAttribute="leading" secondItem="yKA-H3-sdI" secondAttribute="leadingMargin" constant="-20" id="hT8-zv-Aih"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="scr-hg-Icq" id="5Vh-c5-daP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="whm-ck-o7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2163" y="1957"/>
         </scene>
         <!--MY CONTESTS-->
         <scene sceneID="fGb-vS-6cT">

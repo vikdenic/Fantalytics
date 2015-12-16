@@ -6,6 +6,11 @@
 //  Copyright © 2015 nektar labs. All rights reserved.
 //
 
+//MARK: Segues
 let kSegueLobbyToRegister = "SignUpSegue"
 let kSegueLogoutToRegister = "LogoutToSignIn"
+let kSegueMyContestsToMMH2H = "MyContestsToH2HMatchSegue"
+
+//MARK: Cell Id's
 let kCellIdMyContests = "MyContestsCell"
+let kCellH2HMatch = "H2HMatchCell"
