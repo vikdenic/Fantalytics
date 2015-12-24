@@ -54,4 +54,17 @@ extension NSNumber {
         formatter.positiveFormat = "0.00"
         return formatter.stringFromNumber(self)!
     }
+    /**
+     - returns: A String abbreviation of the basketball position (i.e. 1 returns "PG", 3 returns "SF", etc)
+     */
+    func stringAbbrev() -> String {
+        switch self {
+        case 1: return "PG"
+        case 2: return "SG"
+        case 3: return "SF"
+        case 4: return "PF"
+        case 5: return "C"
+        default: return "P"
+        }
+    }
 }
