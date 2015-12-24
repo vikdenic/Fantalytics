@@ -31,7 +31,9 @@ class HeadToHeadMatchTableViewCell: UITableViewCell {
     }
 
     func setUpCell() {
-        self.nameLabel1.text = player1.firstName + " " + player1.lastName
+        if let somePlayer1 = player1 {
+            self.nameLabel1.text = somePlayer1.firstName + " " + somePlayer1.lastName
+        }
 
         if let somePlayer2 = player2 {
             self.nameLabel2.text = somePlayer2.firstName + " " + somePlayer2.lastName

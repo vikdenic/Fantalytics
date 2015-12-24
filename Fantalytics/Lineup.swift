@@ -65,40 +65,12 @@ class Lineup: PFObject, PFSubclassing {
         let query = relation.query()
         query.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
 
-            guard let players = objects as! [Player]! else {
+            guard var players = objects as! [Player]! else {
                 completed(players: nil, error: error)
                 return
             }
+            players.sortInPlace({ $0.position.intValue < $1.position.intValue})
             completed(players: players, error: nil)
         })
     }
 }
-
-/* How to get lineup from entry
-func queryContests() {
-    let query = PFQuery(className: "Entry")
-    query.whereKey("user", equalTo: User.currentUser()!)
-
-    query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-
-        guard let entries = objects as! [Entry]! else {
-            showAlertWithError(error, forVC: self)
-            return
-        }
-
-        for entry in entries {
-            let lineup = entry.lineup
-            let relation = lineup.players
-            let query2 = relation.query()
-            query2?.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
-
-                guard let players = objects as! [Player]! else {
-                    showAlertWithError(error, forVC: self)
-                    return
-                }
-                print(players)
-            })
-        }
-    }
-}
-*/
