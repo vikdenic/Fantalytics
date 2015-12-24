@@ -207,12 +207,12 @@
 		93A9FA311C0115F6008AD171 /* Fantalytics */ = {
 			isa = PBXGroup;
 			children = (
+				93A9FA6E1C014BB7008AD171 /* Utilities */,
 				93A9FA361C0115F6008AD171 /* Main.storyboard */,
 				93A9FA321C0115F6008AD171 /* AppDelegate.swift */,
 				93A9FA6A1C0149D4008AD171 /* Model */,
 				93A9FA721C014EEF008AD171 /* Controllers */,
 				936DDDA11C1D46940059B215 /* Custom Cells */,
-				93A9FA6E1C014BB7008AD171 /* Utilities */,
 				93A9FA391C0115F6008AD171 /* Assets.xcassets */,
 				93A9FA3B1C0115F6008AD171 /* LaunchScreen.storyboard */,
 				93A9FA3E1C0115F6008AD171 /* Info.plist */,

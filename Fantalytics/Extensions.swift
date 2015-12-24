@@ -19,7 +19,7 @@ extension String {
      */
     func containsValidCharacters() -> Bool {
 
-        var charSet = NSCharacterSet(charactersInString: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_")
+        var charSet = NSCharacterSet(charactersInString: kPermittedCharacters)
         charSet = charSet.invertedSet
 
         let range = (self as NSString).rangeOfCharacterFromSet(charSet)
@@ -32,7 +32,6 @@ extension String {
     }
 }
 
-
 extension NSDate {
     /**
      - returns: a String representation of the date in MM-dd-yyyy format (ex: 12/02/90)
@@ -41,5 +40,18 @@ extension NSDate {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM-dd-yy"
         return dateFormatter.stringFromDate(self)
+    }
+}
+
+extension NSNumber {
+    /**
+     - returns: A String representation of the number rounded to two decimal places
+     */
+    func roundToTwoPlaces() -> String {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .DecimalStyle
+        formatter.roundingMode = .RoundUp
+        formatter.positiveFormat = "0.00"
+        return formatter.stringFromNumber(self)!
     }
 }

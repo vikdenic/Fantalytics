@@ -59,6 +59,19 @@ class Lineup: PFObject, PFSubclassing {
             }
         }
     }
+
+    func getAllPlayers(completed:(players : [Player]?, error : NSError!) -> Void) {
+        let relation = self.players
+        let query = relation.query()
+        query.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
+
+            guard let players = objects as! [Player]! else {
+                completed(players: nil, error: error)
+                return
+            }
+            completed(players: players, error: nil)
+        })
+    }
 }
 
 /* How to get lineup from entry

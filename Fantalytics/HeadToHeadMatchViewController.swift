@@ -18,7 +18,14 @@ class HeadToHeadMatchViewController: UIViewController {
     @IBOutlet var contestant2ScoreLabel: UILabel!
 
     var entry1 : Entry!
-    var entry2 : Entry? {
+
+    var players1 : [Player]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+
+    var players2 : [Player]? {
         didSet {
             self.tableView.reloadData()
         }
@@ -36,16 +43,23 @@ class HeadToHeadMatchViewController: UIViewController {
             self.contestant1ScoreLabel.text = someScore.roundToTwoPlaces()
         }
 
+        entry1.lineup?.getAllPlayers({ (players, error) -> Void in
+            self.players1 = players
+        })
+
         Entry.getH2HOpponentEntryForEntry(entry1) { (entry, error) -> Void in
-            guard let someEntry = entry else {
+            guard let someEntry2 = entry else {
                 return
             }
-            self.entry2 = someEntry
-            self.contestant2NameLabel.text = someEntry.user.username
+            self.contestant2NameLabel.text = someEntry2.user.username
 
-            if let someScore = someEntry.lineup?.totalScore {
+            if let someScore = someEntry2.lineup?.totalScore {
                 self.contestant2ScoreLabel.text = someScore.roundToTwoPlaces()
             }
+
+            someEntry2.lineup?.getAllPlayers({ (players, error) -> Void in
+                self.players2 = players
+            })
         }
     }
 }
@@ -55,23 +69,21 @@ extension HeadToHeadMatchViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(kCellH2HMatch) as! HeadToHeadMatchTableViewCell
 
+        if let somePlayers1 = players1 {
+            cell.player1 = somePlayers1[indexPath.row]
+        }
+
+        if let somePlayers2 = players2 {
+            cell.player2 = somePlayers2[indexPath.row]
+        }
+
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-}
-
-extension NSNumber {
-    /**
-     - returns: A String representation of the number rounded to two decimal places
-     */
-    func roundToTwoPlaces() -> String {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .DecimalStyle
-        formatter.roundingMode = .RoundUp
-        formatter.positiveFormat = "0.00"
-        return formatter.stringFromNumber(self)!
+        if let somePlayers1 = players1 {
+            return somePlayers1.count
+        }
+        return 0
     }
 }
