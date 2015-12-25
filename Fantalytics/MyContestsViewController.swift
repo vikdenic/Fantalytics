@@ -39,7 +39,7 @@ class MyContestsViewController: UIViewController {
         viewSetup()
     }
 
-    //MARK: Helpers
+    //MARK: View Helpers
     func viewSetup() {
         segmentedControl.selectedSegmentIndex = 2
     }

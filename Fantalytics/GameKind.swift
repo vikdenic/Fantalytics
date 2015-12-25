@@ -19,6 +19,23 @@ class GameKind: PFObject, PFSubclassing {
     }
 
     @NSManaged var name: String
+    @NSManaged var summary: String
+
+    /**
+     Retrieves all GameKind's
+
+     - parameter completed: the block to execute
+     */
+    class func getAllGameKinds(completed:(gameKinds : [GameKind]?, error : NSError!) -> Void) {
+        let query = GameKind.query()
+        query!.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            guard let gameKinds = objects as! [GameKind]! else {
+                completed(gameKinds: nil, error: error)
+                return
+            }
+            completed(gameKinds: gameKinds, error: nil)
+        }
+    }
 }
 
 /// An enum type used in conjunction with the GameKind class

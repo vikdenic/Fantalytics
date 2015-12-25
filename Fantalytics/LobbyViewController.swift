@@ -10,8 +10,21 @@ import UIKit
 
 class LobbyViewController: UIViewController {
 
+    @IBOutlet var tableView: UITableView!
+
+    var gameKinds : [GameKind]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+
+    //MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        GameKind.getAllGameKinds { (gameKinds, error) -> Void in
+            self.gameKinds = gameKinds
+        }
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -19,9 +32,26 @@ class LobbyViewController: UIViewController {
         checkForUser()
     }
 
+    //MARK: Handle no user
     func checkForUser() {
         if User.currentUser() == nil {
             performSegueWithIdentifier(kSegueLobbyToRegister, sender: self)
         }
+    }
+}
+
+//MARK: TableView
+extension LobbyViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(KCellLobby) as! LobbyTableViewCell
+        cell.gameKind = gameKinds![indexPath.row]
+        return cell
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let someGameKinds = gameKinds {
+            return someGameKinds.count
+        }
+        return 0
     }
 }

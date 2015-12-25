@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		934F05971C2D3C860093C4A9 /* LobbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934F05961C2D3C860093C4A9 /* LobbyTableViewCell.swift */; };
 		936C08751C14FB990068E9B3 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08741C14FB990068E9B3 /* LobbyViewController.swift */; };
 		936C08771C14FE270068E9B3 /* MyContestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08761C14FE270068E9B3 /* MyContestsViewController.swift */; };
 		936C08791C14FE910068E9B3 /* SettingsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */; };
@@ -87,6 +88,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		934F05961C2D3C860093C4A9 /* LobbyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyTableViewCell.swift; sourceTree = "<group>"; };
 		936C08741C14FB990068E9B3 /* LobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		936C08761C14FE270068E9B3 /* MyContestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyContestsViewController.swift; sourceTree = "<group>"; };
 		936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMenuViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				936DDDA21C1D46BA0059B215 /* MyContestsTableViewCell.swift */,
 				93CEC8A21C20E1E10052A649 /* HeadToHeadMatchTableViewCell.swift */,
+				934F05961C2D3C860093C4A9 /* LobbyTableViewCell.swift */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				936DDDA31C1D46BA0059B215 /* MyContestsTableViewCell.swift in Sources */,
 				936DDDA71C1D4BDF0059B215 /* ContestKind.swift in Sources */,
 				936C08771C14FE270068E9B3 /* MyContestsViewController.swift in Sources */,
+				934F05971C2D3C860093C4A9 /* LobbyTableViewCell.swift in Sources */,
 				93D831DF1C1571200027070C /* Player.swift in Sources */,
 				93A9FA6D1C014A1C008AD171 /* ProBballManager.swift in Sources */,
 				936C087C1C1561B90068E9B3 /* Helpers.swift in Sources */,

@@ -205,7 +205,57 @@
                     <view key="view" contentMode="scaleToFill" id="8dO-Cr-f4B">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tE4-lZ-zOX">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LobbyCell" rowHeight="100" id="zEQ-DX-6Cd" customClass="LobbyTableViewCell" customModule="Fantalytics" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zEQ-DX-6Cd" id="dUj-Ls-pSY">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GameKind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eal-NG-bxa">
+                                                    <rect key="frame" x="258" y="39" width="84" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IgO-kn-NIm">
+                                                    <rect key="frame" x="258" y="71" width="83.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="IgO-kn-NIm" secondAttribute="bottom" constant="0.5" id="1Ng-RR-y7a"/>
+                                                <constraint firstItem="IgO-kn-NIm" firstAttribute="centerX" secondItem="dUj-Ls-pSY" secondAttribute="centerX" id="GqG-Xo-FbV"/>
+                                                <constraint firstItem="Eal-NG-bxa" firstAttribute="centerX" secondItem="dUj-Ls-pSY" secondAttribute="centerX" id="K9x-Y1-eID"/>
+                                                <constraint firstItem="Eal-NG-bxa" firstAttribute="centerY" secondItem="dUj-Ls-pSY" secondAttribute="centerY" id="PGZ-XI-OlC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="IgO-kn-NIm" id="1qm-pI-xUp"/>
+                                            <outlet property="nameLabel" destination="Eal-NG-bxa" id="ICP-nP-HNu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gLD-qf-F6R" id="uIF-VA-TZw"/>
+                                    <outlet property="delegate" destination="gLD-qf-F6R" id="qtP-T8-cQ1"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tE4-lZ-zOX" firstAttribute="bottom" secondItem="8dO-Cr-f4B" secondAttribute="bottomMargin" id="Fai-gr-pp6"/>
+                            <constraint firstItem="tE4-lZ-zOX" firstAttribute="top" secondItem="8dO-Cr-f4B" secondAttribute="topMargin" id="Lcf-hx-8WS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tE4-lZ-zOX" secondAttribute="trailing" constant="-20" id="Oxy-Tx-uPc"/>
+                            <constraint firstItem="tE4-lZ-zOX" firstAttribute="leading" secondItem="8dO-Cr-f4B" secondAttribute="leadingMargin" constant="-20" id="UcI-gT-H4B"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4v3-dV-bRn">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="RoA-yo-QaT">
@@ -215,6 +265,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="tE4-lZ-zOX" id="r55-IP-boD"/>
                         <segue destination="9gB-c8-TkA" kind="presentation" identifier="SignUpSegue" id="GPh-1K-aXW"/>
                     </connections>
                 </viewController>
