@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		931A81C71C2F66CE00224560 /* TimeSlotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A81C61C2F66CE00224560 /* TimeSlotsViewController.swift */; };
+		931A81C91C2F67AA00224560 /* TimeSlotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A81C81C2F67AA00224560 /* TimeSlotTableViewCell.swift */; };
+		931A81CB1C2F691E00224560 /* AvailableContestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A81CA1C2F691E00224560 /* AvailableContestsViewController.swift */; };
+		931A81CD1C2F6AD900224560 /* AvailableContestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A81CC1C2F6AD900224560 /* AvailableContestTableViewCell.swift */; };
 		934F05971C2D3C860093C4A9 /* LobbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934F05961C2D3C860093C4A9 /* LobbyTableViewCell.swift */; };
 		936C08751C14FB990068E9B3 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08741C14FB990068E9B3 /* LobbyViewController.swift */; };
 		936C08771C14FE270068E9B3 /* MyContestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08761C14FE270068E9B3 /* MyContestsViewController.swift */; };
@@ -88,6 +92,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		931A81C61C2F66CE00224560 /* TimeSlotsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSlotsViewController.swift; sourceTree = "<group>"; };
+		931A81C81C2F67AA00224560 /* TimeSlotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSlotTableViewCell.swift; sourceTree = "<group>"; };
+		931A81CA1C2F691E00224560 /* AvailableContestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableContestsViewController.swift; sourceTree = "<group>"; };
+		931A81CC1C2F6AD900224560 /* AvailableContestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableContestTableViewCell.swift; sourceTree = "<group>"; };
 		934F05961C2D3C860093C4A9 /* LobbyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyTableViewCell.swift; sourceTree = "<group>"; };
 		936C08741C14FB990068E9B3 /* LobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		936C08761C14FE270068E9B3 /* MyContestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyContestsViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +191,8 @@
 				936DDDA21C1D46BA0059B215 /* MyContestsTableViewCell.swift */,
 				93CEC8A21C20E1E10052A649 /* HeadToHeadMatchTableViewCell.swift */,
 				934F05961C2D3C860093C4A9 /* LobbyTableViewCell.swift */,
+				931A81C81C2F67AA00224560 /* TimeSlotTableViewCell.swift */,
+				931A81CC1C2F6AD900224560 /* AvailableContestTableViewCell.swift */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -296,6 +306,8 @@
 				936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */,
 				936C08761C14FE270068E9B3 /* MyContestsViewController.swift */,
 				93CEC8A01C20E0340052A649 /* HeadToHeadMatchViewController.swift */,
+				931A81C61C2F66CE00224560 /* TimeSlotsViewController.swift */,
+				931A81CA1C2F691E00224560 /* AvailableContestsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -452,7 +464,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				931A81C91C2F67AA00224560 /* TimeSlotTableViewCell.swift in Sources */,
 				93D831DB1C1571090027070C /* Entry.swift in Sources */,
+				931A81CD1C2F6AD900224560 /* AvailableContestTableViewCell.swift in Sources */,
 				93835F1B1C018A7B00A71A08 /* Extensions.swift in Sources */,
 				93D831D91C1570FB0027070C /* Contest.swift in Sources */,
 				936DDDA31C1D46BA0059B215 /* MyContestsTableViewCell.swift in Sources */,
@@ -462,10 +476,12 @@
 				93D831DF1C1571200027070C /* Player.swift in Sources */,
 				93A9FA6D1C014A1C008AD171 /* ProBballManager.swift in Sources */,
 				936C087C1C1561B90068E9B3 /* Helpers.swift in Sources */,
+				931A81CB1C2F691E00224560 /* AvailableContestsViewController.swift in Sources */,
 				93CEC8A11C20E0340052A649 /* HeadToHeadMatchViewController.swift in Sources */,
 				936C08791C14FE910068E9B3 /* SettingsMenuViewController.swift in Sources */,
 				936DDDA51C1D4BD10059B215 /* GameKind.swift in Sources */,
 				937E4F561C141DBF0008374A /* User.swift in Sources */,
+				931A81C71C2F66CE00224560 /* TimeSlotsViewController.swift in Sources */,
 				93A9FA351C0115F6008AD171 /* SignUpViewController.swift in Sources */,
 				93CEC8A31C20E1E10052A649 /* HeadToHeadMatchTableViewCell.swift in Sources */,
 				93D831DD1C1571150027070C /* Lineup.swift in Sources */,

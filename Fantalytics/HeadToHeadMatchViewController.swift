@@ -65,7 +65,6 @@ class HeadToHeadMatchViewController: UIViewController {
 }
 
 extension HeadToHeadMatchViewController: UITableViewDataSource, UITableViewDelegate {
-    //MARK: TV DS
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(kCellH2HMatch) as! HeadToHeadMatchTableViewCell
 
