@@ -42,7 +42,7 @@ class TimeSlot: PFObject, PFSubclassing {
         }
     }
 
-    class func getEarliestTimeSlotForToday(completed:(timeSlot : TimeSlot?, error : NSError!) -> Void) {
+    class func generateTimeSlotsForToday(completed:(timeSlot : TimeSlot?, error : NSError!) -> Void) {
         ProBballManager.getGamesForDate(NSDate()) { (games) -> Void in
 
             if let someGames = games {
@@ -53,20 +53,6 @@ class TimeSlot: PFObject, PFSubclassing {
                     timeSlot.saveInBackground()
                 }
             }
-        }
-    }
-
-    class func getAllTimeSlots(completed:(timeSlots : [TimeSlot]?, error : NSError!) -> Void) {
-
-        let query = TimeSlot.query()
-
-        query!.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-
-            guard let timeSlots = objects as! [TimeSlot]! else {
-                completed(timeSlots: nil, error: error)
-                return
-            }
-            completed(timeSlots: timeSlots, error: nil)
         }
     }
 }
