@@ -669,6 +669,9 @@
                             <constraint firstItem="yBD-tw-QrU" firstAttribute="leading" secondItem="6VZ-3F-Jox" secondAttribute="leadingMargin" constant="-20" id="bE4-Lb-Rqt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="yBD-tw-QrU" id="YKr-HW-7m8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Gl-2y-iZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -749,6 +752,9 @@
                     <navigationItem key="navigationItem" title="Available H2H's" id="V4h-QL-qNa">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rte-5y-gy4"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="yF3-bA-vR5" id="54S-Fr-OIL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVF-aC-4s9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

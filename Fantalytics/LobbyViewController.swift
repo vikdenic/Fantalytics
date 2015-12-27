@@ -27,6 +27,11 @@ class LobbyViewController: UIViewController {
         }
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         checkForUser()

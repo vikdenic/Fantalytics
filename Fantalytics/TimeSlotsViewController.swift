@@ -10,9 +10,17 @@ import UIKit
 
 class TimeSlotsViewController: UIViewController {
 
+    @IBOutlet var tableView: UITableView!
+
+    //MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.extendedLayoutIncludesOpaqueBars = true
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
     }
 }
 
