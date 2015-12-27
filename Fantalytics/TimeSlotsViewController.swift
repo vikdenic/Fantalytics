@@ -12,6 +12,7 @@ class TimeSlotsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.extendedLayoutIncludesOpaqueBars = true
     }
 }
 

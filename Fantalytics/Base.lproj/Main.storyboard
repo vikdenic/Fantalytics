@@ -163,11 +163,10 @@
                         <viewControllerLayoutGuide type="bottom" id="InO-At-lwx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oro-2R-8XN">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <segue destination="9gB-c8-TkA" kind="presentation" identifier="LogoutToSignIn" id="W5Y-Wk-N2k"/>
                     </connections>
@@ -776,6 +775,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GPh-1K-aXW"/>
+        <segue reference="W5Y-Wk-N2k"/>
     </inferredMetricsTieBreakers>
 </document>

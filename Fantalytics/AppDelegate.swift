@@ -16,13 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         parseSetup()
-//        TimeSlot.getEarliestTimeSlotForToday { (timeSlot, error) -> Void in
-//        }
-        TimeSlot.getAllTimeSlots { (timeSlots, error) -> Void in
-            for timeSlot in timeSlots! {
-                print(timeSlot.startTime.toLocalString())
-            }
-        }
+
         return true
     }
 
