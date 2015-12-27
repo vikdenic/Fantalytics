@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "Fantalytics": {
+      "applicationId": "RdoJu2z09lsqqDMk3VoJ36MnsTxvuKerYl1AqlPX"
+    },
+    "_default": {
+      "link": "Fantalytics"
+    }
+  }
+}
