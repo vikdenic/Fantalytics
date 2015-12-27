@@ -13,8 +13,21 @@ class TimeSlotTableViewCell: UITableViewCell {
     @IBOutlet var dayAndTimeLabel: UILabel!
     @IBOutlet var summaryLabel: UILabel!
 
+    var timeSlot : TimeSlot? {
+        didSet {
+            setUpCell()
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+
+    func setUpCell() {
+        if let someTimeSlot = timeSlot {
+            self.dayAndTimeLabel.text = someTimeSlot.startTime.toLocalString()
+//            self.summaryLabel.text = someGameKind.startTime
+        }
     }
 }

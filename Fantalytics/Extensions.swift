@@ -49,6 +49,8 @@ extension String {
 
 extension NSDate {
     /**
+     A String representation of the date acc. to local timezone in MM-dd-yyyy format (ex: 12/02/90)
+
      - returns: a String representation of the date in local timezone in MM-dd-yyyy format (ex: 12/02/90)
      */
     func toAbbrevString() -> String {
@@ -60,7 +62,9 @@ extension NSDate {
     }
 
     /**
-     - returns: a String representation of the date acc. to local timezone in MM-dd-yyyy format (ex: 12/02/90)
+     Returns a String representation of the date acc. to local timezone in MM-dd-yyyy format (ex: 12/02/90 05:00 PM)
+
+     - returns: a String representation of the date acc. to local timezone in MM-dd-yyyy format (ex: 12/02/90 04:20 PM)
      */
     func toLocalString() -> String {
         let formatter = NSDateFormatter()
@@ -84,6 +88,13 @@ extension NSDate {
         let est = NSTimeZone(abbreviation: "EST")
         formatter.timeZone = est
         return formatter.stringFromDate(self)
+    }
+
+    /**
+     - returns: An NSDate instance 24-hours from the current date and time
+     */
+    class func thisTimeTomrorrow() -> NSDate {
+        return NSDate().dateByAddingTimeInterval(60*60*24*1)
     }
 }
 

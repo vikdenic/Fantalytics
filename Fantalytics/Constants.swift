@@ -25,3 +25,4 @@ let kPermittedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 //MARK: ProBball API
 let kCurrentSeason = "2015"
+let kTimeZoneEastern = "EST"
