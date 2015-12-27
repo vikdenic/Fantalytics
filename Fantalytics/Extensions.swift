@@ -30,16 +30,60 @@ extension String {
 
         return true
     }
+
+    /**
+     Returns an NSDate object from a String in the format yyyy-MM-dd HH:mm:ss (i.e. "2015-12-25 17:00:00")
+
+     - parameter timeZoneAbbrev: abbreviation of the timeZone to set the date to (i.e. "EST")
+
+     - returns: An NSDate instance based on the String instance
+     */
+    func toDate(forTimeZone timeZoneAbbrev : String) -> NSDate {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let est = NSTimeZone(abbreviation: timeZoneAbbrev) //date data from API is in EST
+        formatter.timeZone = est
+        return formatter.dateFromString(self)! //.dateByAddingTimeInterval(-3600*6)
+    }
 }
 
 extension NSDate {
     /**
-     - returns: a String representation of the date in MM-dd-yyyy format (ex: 12/02/90)
+     - returns: a String representation of the date in local timezone in MM-dd-yyyy format (ex: 12/02/90)
      */
-    func toMonthDayYearAbbrevString() -> String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yy"
-        return dateFormatter.stringFromDate(self)
+    func toAbbrevString() -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "MM-dd-yy"
+        let localTZ = NSTimeZone.localTimeZone()
+        formatter.timeZone = localTZ
+        return formatter.stringFromDate(self)
+    }
+
+    /**
+     - returns: a String representation of the date acc. to local timezone in MM-dd-yyyy format (ex: 12/02/90)
+     */
+    func toLocalString() -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "MM/dd/yy hh:mm a"
+        let localTZ = NSTimeZone.localTimeZone()
+        formatter.timeZone = localTZ
+        return formatter.stringFromDate(self)
+    }
+
+
+    /**
+     Returns a String object from a date, formatted to EST and in the format of yyyy-MM-dd (i.e. "2015-12-25")
+
+     - parameter string: The NSDate to return the String from
+
+     - returns: A String instance based on the provided NSDate
+     */
+    func toStringForAPI() -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let est = NSTimeZone(abbreviation: "EST")
+        formatter.timeZone = est
+        return formatter.stringFromDate(self)
     }
 }
 

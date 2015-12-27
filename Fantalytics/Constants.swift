@@ -22,3 +22,6 @@ let kCellAvailableContest = "AvailableContestCell"
 
 //MARK: SignUp
 let kPermittedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
+
+//MARK: ProBball API
+let kCurrentSeason = "2015"

@@ -119,9 +119,9 @@ class ProBballManager {
      - parameter season: The season for which to retrieve games from (i.e. "2015")
      - parameter completion: A closure in which the array of games is provided once the request has fished
      */
-    class func getGamesForDate(dateString : String, season : String, completion : (games : [JSON]?) -> Void) {
+    class func getGamesForDate(date : NSDate, completion : (games : [JSON]?) -> Void) {
 
-        let parameters = ["api_key" : kProBballAPIKey, "season" : season]
+        let parameters = ["api_key" : kProBballAPIKey, "season" : kCurrentSeason]
 
         Alamofire.request(.POST, gameURL, parameters: parameters)
             .responseJSON { response in
@@ -135,7 +135,7 @@ class ProBballManager {
                 let allGamesJson = JSON(jsonObject)
 
                 var specifiedGamesArray = [JSON]()
-                for game in allGamesJson.array! where game["date"].stringValue.trimCharactersFromEnd(9) == dateString {
+                for game in allGamesJson.array! where game["date"].stringValue.trimCharactersFromEnd(9) == date.toStringForAPI() {
                     specifiedGamesArray.append(game)
                 }
 

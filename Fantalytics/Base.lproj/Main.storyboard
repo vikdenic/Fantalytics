@@ -688,7 +688,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yF3-bA-vR5">
-                                <rect key="frame" x="0.0" y="28" width="600" height="572"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AvailableContestCell" rowHeight="100" id="a5z-5H-FXV" customClass="AvailableContestTableViewCell" customModule="Fantalytics" customModuleProvider="target">
@@ -738,25 +738,12 @@
                                     <outlet property="delegate" destination="5fl-ci-bge" id="qUo-IC-q2K"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VMb-H5-QCK">
-                                <rect key="frame" x="0.0" y="64" width="600" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="fmb-bM-mYH"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="HEAD-TO-HEAD"/>
-                                    <segment title="POOLS"/>
-                                </segments>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yF3-bA-vR5" firstAttribute="leading" secondItem="l1S-DO-XRW" secondAttribute="leadingMargin" constant="-20" id="2tN-j7-nA6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yF3-bA-vR5" secondAttribute="trailing" constant="-20" id="5Hc-Y2-Gby"/>
-                            <constraint firstItem="VMb-H5-QCK" firstAttribute="top" secondItem="HZ3-72-8De" secondAttribute="bottom" id="9OU-0E-wCm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VMb-H5-QCK" secondAttribute="trailing" constant="-20" id="MxN-d4-mrn"/>
-                            <constraint firstItem="yF3-bA-vR5" firstAttribute="top" secondItem="l1S-DO-XRW" secondAttribute="topMargin" constant="28" id="pCE-Ag-Wmr"/>
-                            <constraint firstItem="VMb-H5-QCK" firstAttribute="leading" secondItem="l1S-DO-XRW" secondAttribute="leadingMargin" constant="-20" id="rjX-sm-WJb"/>
+                            <constraint firstItem="yF3-bA-vR5" firstAttribute="top" secondItem="l1S-DO-XRW" secondAttribute="topMargin" id="pCE-Ag-Wmr"/>
                             <constraint firstItem="yF3-bA-vR5" firstAttribute="bottom" secondItem="l1S-DO-XRW" secondAttribute="bottomMargin" id="zl8-Cl-KrI"/>
                         </constraints>
                     </view>

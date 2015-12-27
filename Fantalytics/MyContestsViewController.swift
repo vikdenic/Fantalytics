@@ -65,7 +65,7 @@ extension MyContestsViewController: UITableViewDataSource, UITableViewDelegate {
 
         let entry = entries[indexPath.row] as Entry
 
-        cell.dateLabel.text = entry.contest.startDate.toMonthDayYearAbbrevString()
+        cell.dateLabel.text = entry.contest.startDate.toAbbrevString()
         cell.contestKindLabel.text = entry.contestKind.name
         cell.gameKindLabel.text = entry.gameKind.name
         cell.entryFeeLabel.text = "Entry: $\(entry.contest.entryFee)"

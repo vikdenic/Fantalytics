@@ -15,7 +15,7 @@
 		936C08751C14FB990068E9B3 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08741C14FB990068E9B3 /* LobbyViewController.swift */; };
 		936C08771C14FE270068E9B3 /* MyContestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08761C14FE270068E9B3 /* MyContestsViewController.swift */; };
 		936C08791C14FE910068E9B3 /* SettingsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */; };
-		936C087C1C1561B90068E9B3 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C087B1C1561B90068E9B3 /* Helpers.swift */; };
+		936C087C1C1561B90068E9B3 /* GlobalAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C087B1C1561B90068E9B3 /* GlobalAlerts.swift */; };
 		936DDDA31C1D46BA0059B215 /* MyContestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DDDA21C1D46BA0059B215 /* MyContestsTableViewCell.swift */; };
 		936DDDA51C1D4BD10059B215 /* GameKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DDDA41C1D4BD10059B215 /* GameKind.swift */; };
 		936DDDA71C1D4BDF0059B215 /* ContestKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936DDDA61C1D4BDF0059B215 /* ContestKind.swift */; };
@@ -34,6 +34,7 @@
 		93754F0D1C14110900D45176 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F0C1C14110900D45176 /* libsqlite3.tbd */; };
 		937E4F561C141DBF0008374A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E4F551C141DBF0008374A /* User.swift */; };
 		93835F1B1C018A7B00A71A08 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93835F1A1C018A7B00A71A08 /* Extensions.swift */; };
+		939DA7D01C2F780800C070BB /* TimeSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939DA7CF1C2F780800C070BB /* TimeSlot.swift */; };
 		93A9FA331C0115F6008AD171 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA321C0115F6008AD171 /* AppDelegate.swift */; };
 		93A9FA351C0115F6008AD171 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA341C0115F6008AD171 /* SignUpViewController.swift */; };
 		93A9FA381C0115F6008AD171 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93A9FA361C0115F6008AD171 /* Main.storyboard */; };
@@ -100,7 +101,7 @@
 		936C08741C14FB990068E9B3 /* LobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		936C08761C14FE270068E9B3 /* MyContestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyContestsViewController.swift; sourceTree = "<group>"; };
 		936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMenuViewController.swift; sourceTree = "<group>"; };
-		936C087B1C1561B90068E9B3 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		936C087B1C1561B90068E9B3 /* GlobalAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalAlerts.swift; sourceTree = "<group>"; };
 		936DDDA21C1D46BA0059B215 /* MyContestsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyContestsTableViewCell.swift; sourceTree = "<group>"; };
 		936DDDA41C1D4BD10059B215 /* GameKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameKind.swift; sourceTree = "<group>"; };
 		936DDDA61C1D4BDF0059B215 /* ContestKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestKind.swift; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 		93754F0C1C14110900D45176 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		937E4F551C141DBF0008374A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		93835F1A1C018A7B00A71A08 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		939DA7CF1C2F780800C070BB /* TimeSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSlot.swift; sourceTree = "<group>"; };
 		93A9FA2F1C0115F6008AD171 /* Fantalytics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fantalytics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A9FA321C0115F6008AD171 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93A9FA341C0115F6008AD171 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				93D831DA1C1571090027070C /* Entry.swift */,
 				93D831DC1C1571150027070C /* Lineup.swift */,
 				93D831DE1C1571200027070C /* Player.swift */,
+				939DA7CF1C2F780800C070BB /* TimeSlot.swift */,
 				93A9FA6B1C0149DB008AD171 /* ProBball API */,
 			);
 			name = Model;
@@ -270,7 +273,7 @@
 			children = (
 				93A9FA6F1C014BC7008AD171 /* Constants.swift */,
 				93835F1A1C018A7B00A71A08 /* Extensions.swift */,
-				936C087B1C1561B90068E9B3 /* Helpers.swift */,
+				936C087B1C1561B90068E9B3 /* GlobalAlerts.swift */,
 				93754EF41C140DC800D45176 /* Keys.plist */,
 			);
 			name = Utilities;
@@ -475,7 +478,7 @@
 				934F05971C2D3C860093C4A9 /* LobbyTableViewCell.swift in Sources */,
 				93D831DF1C1571200027070C /* Player.swift in Sources */,
 				93A9FA6D1C014A1C008AD171 /* ProBballManager.swift in Sources */,
-				936C087C1C1561B90068E9B3 /* Helpers.swift in Sources */,
+				936C087C1C1561B90068E9B3 /* GlobalAlerts.swift in Sources */,
 				931A81CB1C2F691E00224560 /* AvailableContestsViewController.swift in Sources */,
 				93CEC8A11C20E0340052A649 /* HeadToHeadMatchViewController.swift in Sources */,
 				936C08791C14FE910068E9B3 /* SettingsMenuViewController.swift in Sources */,
@@ -484,6 +487,7 @@
 				931A81C71C2F66CE00224560 /* TimeSlotsViewController.swift in Sources */,
 				93A9FA351C0115F6008AD171 /* SignUpViewController.swift in Sources */,
 				93CEC8A31C20E1E10052A649 /* HeadToHeadMatchTableViewCell.swift in Sources */,
+				939DA7D01C2F780800C070BB /* TimeSlot.swift in Sources */,
 				93D831DD1C1571150027070C /* Lineup.swift in Sources */,
 				936C08751C14FB990068E9B3 /* LobbyViewController.swift in Sources */,
 				93A9FA331C0115F6008AD171 /* AppDelegate.swift in Sources */,
