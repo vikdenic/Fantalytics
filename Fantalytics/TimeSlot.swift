@@ -43,7 +43,7 @@ class TimeSlot: PFObject, PFSubclassing {
     }
 
     class func generateTimeSlotsForToday(completed:(timeSlot : TimeSlot?, error : NSError!) -> Void) {
-        ProBballManager.getGamesForDate(NSDate()) { (games) -> Void in
+        ProBballManager.getGamesForDate(NSDate.thisTimeTomrorrow()) { (games) -> Void in
 
             if let someGames = games {
                 for game in someGames {

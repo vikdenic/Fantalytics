@@ -43,6 +43,11 @@ class LobbyViewController: UIViewController {
             performSegueWithIdentifier(kSegueLobbyToRegister, sender: self)
         }
     }
+
+    //MARK: Testing
+    @IBAction func onTestButtonTapped(sender: UIBarButtonItem) {
+        TimeSlot.testCloud()
+    }
 }
 
 //MARK: TableView

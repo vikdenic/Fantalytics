@@ -258,6 +258,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4v3-dV-bRn">
+                        <barButtonItem key="leftBarButtonItem" title="Test" id="LUm-6z-cor">
+                            <connections>
+                                <action selector="onTestButtonTapped:" destination="gLD-qf-F6R" id="0gL-Wn-85b"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="RoA-yo-QaT">
                             <connections>
                                 <segue destination="8Z6-eY-jhz" kind="show" id="NDy-QX-qg0"/>
@@ -781,6 +786,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="W5Y-Wk-N2k"/>
+        <segue reference="GPh-1K-aXW"/>
     </inferredMetricsTieBreakers>
 </document>

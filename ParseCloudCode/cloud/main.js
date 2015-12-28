@@ -12,7 +12,7 @@ Parse.Cloud.define("test", function(request, response) {
 
     var params = {
       "api_key":proBballKey,
-		"season":"2015"
+	   "season":"2015"
     }
 
     return Parse.Cloud.httpRequest({
@@ -23,6 +23,12 @@ Parse.Cloud.define("test", function(request, response) {
       },
       body: params
     }).then(function(httpResponse) {
+		var json = JSON.parse(httpResponse.text);
+		
+	 	for (var i = 0; i < json.length; i++) {
+			console.log(json[i]);
+		}
+		
         response.success(httpResponse.text);
     }, 
     function (error) {
