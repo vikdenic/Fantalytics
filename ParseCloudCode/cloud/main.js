@@ -25,17 +25,32 @@ Parse.Cloud.define("test", function(request, response) {
     }).then(function(httpResponse) {
 		var json = JSON.parse(httpResponse.text);
 		
-	 	for (var i = 0; i < json.length; i++) {
-			console.log(json[i]);
-		}
+		console.log(todaysDateString());
+			// 	    json.forEach(function(game) {
+			// var dateString = game["date"];
+			// dateString = dateString.slice(0, -9);
+			// console.log(dateString);
+			// 	    });
 		
-        response.success(httpResponse.text);
+        // response.success(httpResponse.text);
     }, 
     function (error) {
         console.error('Console Log response: ' + error.text);
         response.error('Request failed with response ' + error.text)
     });
 });
+
+function todaysDateString() {
+	var date = new Date();
+	date.setHours(date.getHours() - 5);
+	
+	var day = date.getDate();
+	var month = date.getMonth() + 1;
+	var year = date.getFullYear();
+
+	var dateString = year + "-" + month + "-" + day;
+	return dateString;
+}
 
 // class func getGamesForDate(date : NSDate, completion : (games : [JSON]?) -> Void) {
 //
