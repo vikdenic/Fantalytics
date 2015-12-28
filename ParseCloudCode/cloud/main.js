@@ -9,6 +9,8 @@ var proBballKey = "h8Eb1BCDqRgVU3ZcLvTIl5NzM9FnSQif";
 var gameURL = "http://api.probasketballapi.com/game";
 
 Parse.Cloud.define("test", function(request, response) {
+		
+	var TimeSlot = Parse.Object.extend("TimeSlot");
 
     var params = {
       "api_key":proBballKey,
@@ -24,15 +26,32 @@ Parse.Cloud.define("test", function(request, response) {
       body: params
     }).then(function(httpResponse) {
 		var json = JSON.parse(httpResponse.text);
-		
-		console.log(todaysDateString());
-			// 	    json.forEach(function(game) {
-			// var dateString = game["date"];
-			// dateString = dateString.slice(0, -9);
-			// console.log(dateString);
-			// 	    });
-		
-        // response.success(httpResponse.text);
+	
+		json.forEach(function(game) {
+			var dateString = game["date"];
+			dateString = dateString.slice(0, -9);
+			
+			if (dateString == todaysDateString()) {
+				//Create TimeSlot with earliest game
+				var timeSlot = new TimeSlot();
+	      		timeSlot.set("startTime", dateFromString(game["date"]));
+				
+				//TODO Create multiple TimeSlots
+	  			timeSlot.save(null, { 
+	  			  success: function(timeSlot) {
+	  			    // Execute any logic that should take place after the object is saved.
+	  			    alert('New TimeSlot object created with objectId: ' + timeSlot.id);
+	  			  },
+	  			  error: function(coupon, error) {
+	  			    // Execute any logic that should take place if the save fails.
+	  			    // error is a Parse.Error with an error code and message.
+	  			    alert('Failed to create new object, with error code: ' + error.message);
+	  			  }
+	  			});
+			}
+		 });
+		 
+		// response.success(httpResponse.text);
     }, 
     function (error) {
         console.error('Console Log response: ' + error.text);
@@ -52,30 +71,19 @@ function todaysDateString() {
 	return dateString;
 }
 
-// class func getGamesForDate(date : NSDate, completion : (games : [JSON]?) -> Void) {
-//
-//     let parameters = ["api_key" : kProBballAPIKey, "season" : kCurrentSeason]
-//
-//     Alamofire.request(.POST, gameURL, parameters: parameters)
-//         .responseJSON { response in
-//
-//             guard let jsonObject = response.result.value else {
-//                 print("response: \(response)")
-//                 completion(games: nil)
-//                 return
-//             }
-//
-//             let allGamesJson = JSON(jsonObject)
-//
-//             var specifiedGamesArray = [JSON]()
-//             for game in allGamesJson.array! where game["date"].stringValue.trimCharactersFromEnd(9) == date.toStringForAPI() {
-//                 specifiedGamesArray.append(game)
-//             }
-//
-//             if specifiedGamesArray.count == 0 {
-//                 completion(games: nil)
-//             } else {
-//                 completion(games: specifiedGamesArray)
-//             }
-//     }
-// }
+function dateFromString(str) {	
+	var yearStr = str.substr(0, 4);
+	var monthStr = str.substr(5, 2);
+	var dayStr = str.substr(8, 2);
+	var date = new Date(yearStr,monthStr,dayStr);
+
+	var hourStr = str.substr(11, 2);
+	var minuteStr = str.substr(14, 2);
+	date.setHours(+hourStr);
+	date.setMinutes(+minuteStr);
+
+	date.setMonth(date.getMonth() - 1);
+	date.setHours(date.getHours() + 5); //to GMT
+	
+	return date;
+}
