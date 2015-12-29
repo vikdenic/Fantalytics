@@ -10,6 +10,7 @@ var gameURL = "http://api.probasketballapi.com/game";
 
 Parse.Cloud.define("test", function(request, response) {
 		
+	var Game = Parse.Object.extend("Game");
 	var TimeSlot = Parse.Object.extend("TimeSlot");
 
     var params = {
@@ -32,22 +33,14 @@ Parse.Cloud.define("test", function(request, response) {
 			dateString = dateString.slice(0, -9);
 			
 			if (dateString == todaysDateString()) {
-				//Create TimeSlot with earliest game
-				var timeSlot = new TimeSlot();
-	      		timeSlot.set("startDate", dateFromString(game["date"]));
-				
-				//TODO Create multiple TimeSlots
-	  			timeSlot.save(null, { 
-	  			  success: function(timeSlot) {
-	  			    // Execute any logic that should take place after the object is saved.
-	  			    alert('New TimeSlot object created with objectId: ' + timeSlot.id);
-	  			  },
-	  			  error: function(coupon, error) {
-	  			    // Execute any logic that should take place if the save fails.
-	  			    // error is a Parse.Error with an error code and message.
-	  			    alert('Failed to create new object, with error code: ' + error.message);
-	  			  }
-	  			});
+				var newGame = new Game();
+				newGame.set("date", dateFromString(game["date"]));
+				saveGame(newGame);
+				// //Create TimeSlot with earliest game
+				// var timeSlot = new TimeSlot();
+				// 	      		timeSlot.set("startDate", dateFromString(game["date"]));
+				// 	      		timeSlot.set("gamesCount", 1);
+				// saveTimeSlot(timeSlot);
 			}
 		 });
 		 
@@ -60,6 +53,33 @@ Parse.Cloud.define("test", function(request, response) {
 });
 
 //MARK: Helpers
+function saveTimeSlot(timeSlot) {
+	timeSlot.save(null, { 
+	  success: function(timeSlot) {
+	    // Execute any logic that should take place after the object is saved.
+	    alert('New TimeSlot object created with objectId: ' + timeSlot.id);
+	  },
+	  error: function(timeSlot, error) {
+	    // Execute any logic that should take place if the save fails.
+	    // error is a Parse.Error with an error code and message.
+	    alert('Failed to create new object, with error code: ' + error.message);
+	  }
+	});
+}
+
+function saveGame(game) {
+	game.save(null, { 
+	  success: function(game) {
+	    // Execute any logic that should take place after the object is saved.
+	    alert('New Game object created with objectId: ' + game.id);
+	  },
+	  error: function(game, error) {
+	    // Execute any logic that should take place if the save fails.
+	    // error is a Parse.Error with an error code and message.
+	    alert('Failed to create new object, with error code: ' + error.message);
+	  }
+	});
+}
 
 // Returns a String of today's date (i.e. 12/02/2015) 
 // to be used for comparison with the dates of Games from the ProBball API

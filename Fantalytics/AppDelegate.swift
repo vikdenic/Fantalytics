@@ -37,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Lineup.registerSubclass()
         Player.registerSubclass()
         TimeSlot.registerSubclass()
+        Game.registerSubclass()
+        Team.registerSubclass()
     }
 
 
