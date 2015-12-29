@@ -13,7 +13,7 @@ class TimeSlotTableViewCell: UITableViewCell {
     @IBOutlet var dayAndTimeLabel: UILabel!
     @IBOutlet var summaryLabel: UILabel!
 
-    var timeSlot : TimeSlot? {
+    var game : Game? {
         didSet {
             setUpCell()
         }
@@ -25,8 +25,8 @@ class TimeSlotTableViewCell: UITableViewCell {
     }
 
     func setUpCell() {
-        if let someTimeSlot = timeSlot {
-            self.dayAndTimeLabel.text = someTimeSlot.startDate.toLocalString()
+        if let someGame = game {
+            self.dayAndTimeLabel.text = someGame.date.toLocalString()
 //            self.summaryLabel.text = someGameKind.startTime
         }
     }

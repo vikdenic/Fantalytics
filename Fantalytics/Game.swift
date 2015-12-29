@@ -19,4 +19,19 @@ class Game: PFObject, PFSubclassing {
     }
 
     @NSManaged var date: NSDate
+
+    class func getAllGamesForToday(completed:(games : [Game]?, error : NSError!) -> Void) {
+
+        let query = Game.query()
+        query?.whereKey("date", greaterThan: NSDate())
+
+        query!.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+
+            guard let games = objects as! [Game]! else {
+                completed(games: nil, error: error)
+                return
+            }
+            completed(games: games, error: nil)
+        }
+    }
 }
