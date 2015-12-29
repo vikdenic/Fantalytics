@@ -58,7 +58,7 @@ class TimeSlot: PFObject, PFSubclassing {
     }
 
     class func testCloud() {
-        PFCloud.callFunctionInBackground(kCloudCreateTimeSlots, withParameters: nil, block: { (customer, error) -> Void in
+        PFCloud.callFunctionInBackground(kCloudCreateGames, withParameters: nil, block: { (customer, error) -> Void in
             if error != nil {
                 print(error)
             } else {

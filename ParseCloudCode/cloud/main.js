@@ -8,10 +8,9 @@
 var proBballKey = "h8Eb1BCDqRgVU3ZcLvTIl5NzM9FnSQif";
 var gameURL = "http://api.probasketballapi.com/game";
 
-Parse.Cloud.define("createGames", function(request, response) {
-		
+//MARK: Jobs
+Parse.Cloud.job("gameCreation", function(request, status) {
 	var Game = Parse.Object.extend("Game");
-	var TimeSlot = Parse.Object.extend("TimeSlot");
 
     var params = {
       "api_key":proBballKey,
@@ -38,22 +37,19 @@ Parse.Cloud.define("createGames", function(request, response) {
 				saveGame(newGame);
 			}
 		 });
-		 
-		// response.success(httpResponse.text);
     }, 
     function (error) {
         console.error('Console Log response: ' + error.text);
-        response.error('Request failed with response ' + error.text);
-    });
+    })
 });
 
-Parse.Cloud.define("createTimeSlots", function(request, response) {
+Parse.Cloud.job("slotCreation", function(request, status) {
 	var TimeSlot = Parse.Object.extend("TimeSlot");
 	
-	var now = new Date();
+	var tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
 	//Get all the upcoming games
     var query = new Parse.Query("Game");
-    query.greaterThan("date", now);
+    query.greaterThan("date", tomorrow);
 
     query.find({
     	success: function(results) {
@@ -73,7 +69,8 @@ Parse.Cloud.define("createTimeSlots", function(request, response) {
 					slots.push(timeSlot);
 					saveTimeSlot(timeSlot);
 				} else {
-					//If date is at least 1 hour later then previously saved TimeSlot, create TimeSlot with it
+					// If date is at least 1 hour later then previously saved TimeSlot
+					// AND there are at least 3 games remaining from that time, creat TimeSlot with it
 					var difference = Math.abs(date - previousTime) / 36e5;
 					var gamesLeft = results.length - i;
 										
@@ -90,7 +87,13 @@ Parse.Cloud.define("createTimeSlots", function(request, response) {
 	  	error: function(error) {
 	  		alert("Error: " + error.code + " " + error.message);
 	    }
-	});
+	}).then(function() {
+    // Set the job's success status
+    status.success("TimeSlots completed successfully.");
+    }, function(error) {
+    // Set the job's error status
+    status.error("Uh oh, something went wrong.");
+  });
 });
 
 //MARK: Helpers
