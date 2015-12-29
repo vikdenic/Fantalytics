@@ -8,7 +8,7 @@
 var proBballKey = "h8Eb1BCDqRgVU3ZcLvTIl5NzM9FnSQif";
 var gameURL = "http://api.probasketballapi.com/game";
 
-Parse.Cloud.define("test", function(request, response) {
+Parse.Cloud.define("createGames", function(request, response) {
 		
 	var Game = Parse.Object.extend("Game");
 	var TimeSlot = Parse.Object.extend("TimeSlot");
@@ -47,7 +47,7 @@ Parse.Cloud.define("test", function(request, response) {
     });
 });
 
-Parse.Cloud.define("test2", function(request, response) {
+Parse.Cloud.define("createTimeSlots", function(request, response) {
 	var TimeSlot = Parse.Object.extend("TimeSlot");
 	
 	var now = new Date();
@@ -64,7 +64,6 @@ Parse.Cloud.define("test2", function(request, response) {
 
 	  	    for (var i = 0; i < results.length; i++) {
 				var date = results[i].get("date");
-				console.log("in the loop" + i);
 				
 				//Always create TimeSlot with date of first game
 				if (i == 0) {
@@ -75,8 +74,17 @@ Parse.Cloud.define("test2", function(request, response) {
 					saveTimeSlot(timeSlot);
 				} else {
 					//If date is at least 1 hour later then previously saved TimeSlot, create TimeSlot with it
-					var difference = Math.abs(date - slots[i]) / 36e5;
+					var difference = Math.abs(date - previousTime) / 36e5;
+					
 					console.log("difference is: " + difference);
+					
+					if (difference >= 1.0) {
+						previousTime = date;
+						var timeSlot = new TimeSlot();
+						timeSlot.set("startDate", date);
+						slots.push(timeSlot);
+						saveTimeSlot(timeSlot);
+					}
 				}
    			}
 	    },

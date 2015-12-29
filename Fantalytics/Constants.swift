@@ -26,3 +26,7 @@ let kPermittedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 //MARK: ProBball API
 let kCurrentSeason = "2015"
 let kTimeZoneEastern = "EST"
+
+//MARK: Parse Cloud
+let kCloudCreateGames = "createGames"
+let kCloudCreateTimeSlots = "createTimeSlots"
