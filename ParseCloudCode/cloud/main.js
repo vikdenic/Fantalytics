@@ -75,9 +75,9 @@ Parse.Cloud.define("createTimeSlots", function(request, response) {
 				} else {
 					//If date is at least 1 hour later then previously saved TimeSlot, create TimeSlot with it
 					var difference = Math.abs(date - previousTime) / 36e5;
-					
-					console.log("remaining are: " + (results.length - i));
-					if (difference >= 1.0 && results.length) {
+					var gamesLeft = results.length - i;
+										
+					if (difference >= 1.0 && gamesLeft >= 3) {
 						previousTime = date;
 						var timeSlot = new TimeSlot();
 						timeSlot.set("startDate", date);

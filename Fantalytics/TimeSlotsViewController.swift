@@ -12,7 +12,7 @@ class TimeSlotsViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
 
-    var games : [Game]? {
+    var timeSlots : [TimeSlot]? {
         didSet {
             self.tableView.reloadData()
         }
@@ -32,12 +32,12 @@ class TimeSlotsViewController: UIViewController {
 
     //MARK: Data
     func retrieveAndSetTimeSlots() {
-        Game.getAllGamesForToday { (games, error) -> Void in
-            guard let someGames = games else {
+        TimeSlot.getCurrentTimeSlots { (timeSlots, error) -> Void in
+            guard let someTimeSlots = timeSlots else {
                 print(error)
                 return
             }
-            self.games = someGames
+            self.timeSlots = someTimeSlots
         }
     }
 }
@@ -46,16 +46,16 @@ extension TimeSlotsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(kCellTimeSlot) as! TimeSlotTableViewCell
 
-        if let someGames = self.games {
-            cell.game = someGames[indexPath.row]
+        if let someTimeSlots = self.timeSlots {
+            cell.timeSlot = someTimeSlots[indexPath.row]
         }
 
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let someGames = self.games {
-            return someGames.count
+        if let someTimeSlots = self.timeSlots {
+            return someTimeSlots.count
         }
         return 0
     }
