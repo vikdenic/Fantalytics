@@ -26,7 +26,7 @@ class TimeSlotTableViewCell: UITableViewCell {
 
     func setUpCell() {
         if let someTimeSlot = timeSlot {
-            self.dayAndTimeLabel.text = someTimeSlot.startTime.toLocalString()
+            self.dayAndTimeLabel.text = someTimeSlot.startDate.toLocalString()
 //            self.summaryLabel.text = someGameKind.startTime
         }
     }

@@ -34,7 +34,7 @@ Parse.Cloud.define("test", function(request, response) {
 			if (dateString == todaysDateString()) {
 				//Create TimeSlot with earliest game
 				var timeSlot = new TimeSlot();
-	      		timeSlot.set("startTime", dateFromString(game["date"]));
+	      		timeSlot.set("startDate", dateFromString(game["date"]));
 				
 				//TODO Create multiple TimeSlots
 	  			timeSlot.save(null, { 
@@ -59,6 +59,10 @@ Parse.Cloud.define("test", function(request, response) {
     });
 });
 
+//MARK: Helpers
+
+// Returns a String of today's date (i.e. 12/02/2015) 
+// to be used for comparison with the dates of Games from the ProBball API
 function todaysDateString() {
 	var date = new Date();
 	date.setHours(date.getHours() - 5);
@@ -71,6 +75,22 @@ function todaysDateString() {
 	return dateString;
 }
 
+// Returns a String of tomorrow's date (i.e. 12/02/2015) 
+// to be used for comparison with the dates of Games from the ProBball API
+function tomorrowsDateString() {
+	var date = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+	date.setHours(date.getHours() - 5);
+	
+	var day = date.getDate();
+	var month = date.getMonth() + 1;
+	var year = date.getFullYear();
+
+	var dateString = year + "-" + month + "-" + day;
+	return dateString;
+}
+
+// Creates a date object from Strings retrieved from the ProBball API
+// this method assumed the string is formatted like so: "2015-12-28 22:00:00" 
 function dateFromString(str) {	
 	var yearStr = str.substr(0, 4);
 	var monthStr = str.substr(5, 2);

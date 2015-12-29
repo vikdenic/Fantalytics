@@ -20,17 +20,18 @@ class TimeSlot: PFObject, PFSubclassing {
         return "TimeSlot"
     }
 
-    @NSManaged var startTime: NSDate!
+    @NSManaged var startDate: NSDate!
+    @NSManaged var gamesCount: NSDate!
 
     convenience init(date: NSDate) {
         self.init()
-        self.startTime = date
+        self.startDate = date
     }
 
     class func getCurrentTimeSlots(completed:(timeSlots : [TimeSlot]?, error : NSError!) -> Void) {
 
         let query = TimeSlot.query()
-        query?.whereKey("startTime", greaterThan: NSDate())
+        query?.whereKey("startDate", greaterThan: NSDate())
 
         query!.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
 
@@ -49,7 +50,7 @@ class TimeSlot: PFObject, PFSubclassing {
                 for game in someGames {
                     let dateString =  game["date"].string
                     let timeSlot = TimeSlot(date: (dateString?.toDate(forTimeZone: kTimeZoneEastern))!)
-                    print(timeSlot.startTime)
+                    print(timeSlot.startDate)
                     timeSlot.saveInBackground()
                 }
             }
