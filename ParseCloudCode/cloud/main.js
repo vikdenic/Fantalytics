@@ -32,15 +32,10 @@ Parse.Cloud.define("test", function(request, response) {
 			var dateString = game["date"];
 			dateString = dateString.slice(0, -9);
 			
-			if (dateString == todaysDateString()) {
+			if (dateString == tomorrowsDateString()) {
 				var newGame = new Game();
-				newGame.set("date", dateFromString(game["date"]));
+				newGame.set("date", dateFromAPIString(game["date"]));
 				saveGame(newGame);
-				// //Create TimeSlot with earliest game
-				// var timeSlot = new TimeSlot();
-				// 	      		timeSlot.set("startDate", dateFromString(game["date"]));
-				// 	      		timeSlot.set("gamesCount", 1);
-				// saveTimeSlot(timeSlot);
 			}
 		 });
 		 
@@ -48,8 +43,47 @@ Parse.Cloud.define("test", function(request, response) {
     }, 
     function (error) {
         console.error('Console Log response: ' + error.text);
-        response.error('Request failed with response ' + error.text)
+        response.error('Request failed with response ' + error.text);
     });
+});
+
+Parse.Cloud.define("test2", function(request, response) {
+	var TimeSlot = Parse.Object.extend("TimeSlot");
+	
+	var now = new Date();
+	//Get all the upcoming games
+    var query = new Parse.Query("Game");
+    query.greaterThan("date", now);
+
+    query.find({
+    	success: function(results) {
+    		console.log("Successfully retrieved " + results.length + " games.");
+
+			var slots = [];
+			var previousTime = null;
+
+	  	    for (var i = 0; i < results.length; i++) {
+				var date = results[i].get("date");
+				console.log("in the loop" + i);
+				
+				//Always create TimeSlot with date of first game
+				if (i == 0) {
+					previousTime = date;
+					var timeSlot = new TimeSlot();
+					timeSlot.set("startDate", date);
+					slots.push(timeSlot);
+					saveTimeSlot(timeSlot);
+				} else {
+					//If date is at least 1 hour later then previously saved TimeSlot, create TimeSlot with it
+					var difference = Math.abs(date - slots[i]) / 36e5;
+					console.log("difference is: " + difference);
+				}
+   			}
+	    },
+	  	error: function(error) {
+	  		alert("Error: " + error.code + " " + error.message);
+	    }
+	});
 });
 
 //MARK: Helpers
@@ -110,8 +144,8 @@ function tomorrowsDateString() {
 }
 
 // Creates a date object from Strings retrieved from the ProBball API
-// this method assumed the string is formatted like so: "2015-12-28 22:00:00" 
-function dateFromString(str) {	
+// this method assumes the string is formatted like so: "2015-12-28 22:00:00" 
+function dateFromAPIString(str) {	
 	var yearStr = str.substr(0, 4);
 	var monthStr = str.substr(5, 2);
 	var dayStr = str.substr(8, 2);

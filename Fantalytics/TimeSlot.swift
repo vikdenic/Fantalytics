@@ -58,7 +58,7 @@ class TimeSlot: PFObject, PFSubclassing {
     }
 
     class func testCloud() {
-        PFCloud.callFunctionInBackground("test", withParameters: nil, block: { (customer, error) -> Void in
+        PFCloud.callFunctionInBackground("test2", withParameters: nil, block: { (customer, error) -> Void in
             if error != nil {
                 print(error)
             } else {
