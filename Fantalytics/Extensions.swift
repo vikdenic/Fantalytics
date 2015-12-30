@@ -74,6 +74,17 @@ extension NSDate {
         return formatter.stringFromDate(self)
     }
 
+    /**
+     Returns a String of the date and time
+
+     - returns: <#return value description#>
+     */
+    func getBeautyToday() -> String {
+        let now = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEEE - hh:mm z"
+        return dateFormatter.stringFromDate(now)
+    }
 
     /**
      Returns a String object from a date, formatted to EST and in the format of yyyy-MM-dd (i.e. "2015-12-25")

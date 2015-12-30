@@ -258,7 +258,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4v3-dV-bRn">
-                        <barButtonItem key="leftBarButtonItem" title="Test" id="LUm-6z-cor">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Test" id="LUm-6z-cor">
                             <connections>
                                 <action selector="onTestButtonTapped:" destination="gLD-qf-F6R" id="0gL-Wn-85b"/>
                             </connections>

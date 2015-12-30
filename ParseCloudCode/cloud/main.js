@@ -27,6 +27,7 @@ Parse.Cloud.job("gameCreation", function(request, status) {
     }).then(function(httpResponse) {
 		var json = JSON.parse(httpResponse.text);
 	
+		var gameCount = 0;
 		json.forEach(function(game) {
 			var dateString = game["date"];
 			dateString = dateString.slice(0, -9);
@@ -35,11 +36,14 @@ Parse.Cloud.job("gameCreation", function(request, status) {
 				var newGame = new Game();
 				newGame.set("date", dateFromAPIString(game["date"]));
 				saveGame(newGame);
+				gameCount++;
 			}
 		 });
+	     status.success("Successfully createed " + gameCount + " games.");
     }, 
     function (error) {
         console.error('Console Log response: ' + error.text);
+	    status.error("Error creating games.");
     })
 });
 
@@ -47,6 +51,7 @@ Parse.Cloud.job("slotCreation", function(request, status) {
 	var TimeSlot = Parse.Object.extend("TimeSlot");
 	
 	var tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+	
 	//Get all the upcoming games
     var query = new Parse.Query("Game");
     query.greaterThan("date", tomorrow);
