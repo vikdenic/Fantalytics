@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         parseSetup()
+        ProBballManager.getGamesForDate(NSDate.thisTimeTomrorrow()) { (games) -> Void in
+            print(games)
+        }
         return true
     }
 

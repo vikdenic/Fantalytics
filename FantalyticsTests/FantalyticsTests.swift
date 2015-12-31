@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Parse
 @testable import Fantalytics
 
 class FantalyticsTests: XCTestCase {
@@ -20,7 +21,17 @@ class FantalyticsTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
+    func testGamesCreation() {
+        let expectation = self.expectationWithDescription("games")
+
+        ProBballManager.getGamesForDate(NSDate()) { (games) -> Void in
+            XCTAssertNotNil(games)
+            expectation.fulfill()
+        }
+        self.waitForExpectationsWithTimeout(6.0, handler: nil)
+    }
+
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

@@ -49,6 +49,24 @@
 		93A9FA691C013CCE008AD171 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9FA661C013CC3008AD171 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93A9FA6D1C014A1C008AD171 /* ProBballManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA6C1C014A1C008AD171 /* ProBballManager.swift */; };
 		93A9FA701C014BC7008AD171 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA6F1C014BC7008AD171 /* Constants.swift */; };
+		93BFA2D51C351E16002BC3A5 /* ProBballManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA6C1C014A1C008AD171 /* ProBballManager.swift */; };
+		93BFA2D61C351E7F002BC3A5 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C6E9241C1BD5A800959D61 /* Eureka.framework */; };
+		93BFA2D71C351E7F002BC3A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F081C1410FA00D45176 /* SystemConfiguration.framework */; };
+		93BFA2D81C351E7F002BC3A5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F061C1410F100D45176 /* StoreKit.framework */; };
+		93BFA2D91C351E7F002BC3A5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F041C1410EC00D45176 /* Security.framework */; };
+		93BFA2DA1C351E7F002BC3A5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F021C1410E400D45176 /* QuartzCore.framework */; };
+		93BFA2DB1C351E7F002BC3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F001C1410DD00D45176 /* CoreLocation.framework */; };
+		93BFA2DC1C351E7F002BC3A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EFE1C1410D500D45176 /* CoreGraphics.framework */; };
+		93BFA2DD1C351E7F002BC3A5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EFC1C1410CD00D45176 /* CFNetwork.framework */; };
+		93BFA2DE1C351E7F002BC3A5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EFA1C1410C400D45176 /* AudioToolbox.framework */; };
+		93BFA2DF1C351E7F002BC3A5 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EF61C14109400D45176 /* Bolts.framework */; };
+		93BFA2E01C351E7F002BC3A5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754EF71C14109400D45176 /* Parse.framework */; };
+		93BFA2E11C351E7F002BC3A5 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9FA661C013CC3008AD171 /* SwiftyJSON.framework */; };
+		93BFA2E21C351E7F002BC3A5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A9FA601C011992008AD171 /* Alamofire.framework */; };
+		93BFA2E31C351E84002BC3A5 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F0C1C14110900D45176 /* libsqlite3.tbd */; };
+		93BFA2E41C351E84002BC3A5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93754F0A1C14110200D45176 /* libz.tbd */; };
+		93BFA2E51C351ECC002BC3A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A9FA6F1C014BC7008AD171 /* Constants.swift */; };
+		93BFA2E61C351EE9002BC3A5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93835F1A1C018A7B00A71A08 /* Extensions.swift */; };
 		93C6E9251C1BD5A800959D61 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C6E9241C1BD5A800959D61 /* Eureka.framework */; };
 		93C6E9261C1BD5CE00959D61 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93C6E9241C1BD5A800959D61 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93CEC8A11C20E0340052A649 /* HeadToHeadMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CEC8A01C20E0340052A649 /* HeadToHeadMatchViewController.swift */; };
@@ -178,6 +196,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93BFA2DB1C351E7F002BC3A5 /* CoreLocation.framework in Frameworks */,
+				93BFA2DA1C351E7F002BC3A5 /* QuartzCore.framework in Frameworks */,
+				93BFA2E31C351E84002BC3A5 /* libsqlite3.tbd in Frameworks */,
+				93BFA2E21C351E7F002BC3A5 /* Alamofire.framework in Frameworks */,
+				93BFA2E41C351E84002BC3A5 /* libz.tbd in Frameworks */,
+				93BFA2DD1C351E7F002BC3A5 /* CFNetwork.framework in Frameworks */,
+				93BFA2D81C351E7F002BC3A5 /* StoreKit.framework in Frameworks */,
+				93BFA2DC1C351E7F002BC3A5 /* CoreGraphics.framework in Frameworks */,
+				93BFA2DF1C351E7F002BC3A5 /* Bolts.framework in Frameworks */,
+				93BFA2E01C351E7F002BC3A5 /* Parse.framework in Frameworks */,
+				93BFA2DE1C351E7F002BC3A5 /* AudioToolbox.framework in Frameworks */,
+				93BFA2E11C351E7F002BC3A5 /* SwiftyJSON.framework in Frameworks */,
+				93BFA2D71C351E7F002BC3A5 /* SystemConfiguration.framework in Frameworks */,
+				93BFA2D91C351E7F002BC3A5 /* Security.framework in Frameworks */,
+				93BFA2D61C351E7F002BC3A5 /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +541,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				93A9FA481C0115F7008AD171 /* FantalyticsTests.swift in Sources */,
+				93BFA2D51C351E16002BC3A5 /* ProBballManager.swift in Sources */,
+				93BFA2E51C351ECC002BC3A5 /* Constants.swift in Sources */,
+				93BFA2E61C351EE9002BC3A5 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,6 +710,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FantalyticsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nektarlabs.FantalyticsTests;
@@ -686,6 +727,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FantalyticsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nektarlabs.FantalyticsTests;

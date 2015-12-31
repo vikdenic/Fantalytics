@@ -26,13 +26,13 @@ Parse.Cloud.job("gameCreation", function(request, status) {
       body: params
     }).then(function(httpResponse) {
 		var json = JSON.parse(httpResponse.text);
-	
+		
 		var gameCount = 0;
-		json.forEach(function(game) {
+		json.forEach(function(game) {			
 			var dateString = game["date"];
 			dateString = dateString.slice(0, -9);
 			
-			if (dateString == tomorrowsDateString()) {
+			if (dateString == tomorrowsDateString()) {			
 				var newGame = new Game();
 				newGame.set("date", dateFromAPIString(game["date"]));
 				saveGame(newGame);
@@ -154,7 +154,14 @@ function tomorrowsDateString() {
 	var day = date.getDate();
 	var month = date.getMonth() + 1;
 	var year = date.getFullYear();
-
+	
+	if (month < 10) {
+		month = "0" + month
+	}
+	if (day < 10) {
+		day = "0" + day
+	}
+	
 	var dateString = year + "-" + month + "-" + day;
 	return dateString;
 }
