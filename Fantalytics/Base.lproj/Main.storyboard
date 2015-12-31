@@ -21,7 +21,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="USERNAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dvY-qH-nAf">
                                 <rect key="frame" x="4" y="118" width="592" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZw-GH-uqu">
                                 <rect key="frame" x="4" y="188" width="592" height="55"/>
@@ -29,7 +29,7 @@
                                     <constraint firstAttribute="height" constant="55" id="Zex-qz-FLM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ID-vc-Ob4">
                                 <rect key="frame" x="0.0" y="273" width="600" height="55"/>
@@ -104,7 +104,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="USERNAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcy-xy-PCB">
                                 <rect key="frame" x="4" y="117" width="592" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVS-zs-jSC">
                                 <rect key="frame" x="0.0" y="272" width="600" height="55"/>
@@ -126,7 +126,7 @@
                                     <constraint firstAttribute="height" constant="55" id="cCt-79-0JW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -634,7 +634,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contests for the specified day and time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZMj-H4-1wB">
-                                                    <rect key="frame" x="8" y="70.5" width="584" height="17"/>
+                                                    <rect key="frame" x="8" y="68.5" width="584" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -650,7 +650,7 @@
                                                 <constraint firstItem="ZMj-H4-1wB" firstAttribute="trailing" secondItem="6Q1-L4-SbK" secondAttribute="trailingMargin" id="B34-A7-g5I"/>
                                                 <constraint firstItem="ZMj-H4-1wB" firstAttribute="leading" secondItem="6Q1-L4-SbK" secondAttribute="leadingMargin" id="Fww-hQ-u38"/>
                                                 <constraint firstItem="knh-Gu-Py3" firstAttribute="centerY" secondItem="6Q1-L4-SbK" secondAttribute="centerY" id="Rdd-fB-loN"/>
-                                                <constraint firstItem="ZMj-H4-1wB" firstAttribute="top" secondItem="knh-Gu-Py3" secondAttribute="bottom" constant="10" id="fjz-fy-95d"/>
+                                                <constraint firstItem="ZMj-H4-1wB" firstAttribute="top" secondItem="knh-Gu-Py3" secondAttribute="bottom" constant="8" id="fjz-fy-95d"/>
                                                 <constraint firstItem="knh-Gu-Py3" firstAttribute="centerX" secondItem="6Q1-L4-SbK" secondAttribute="centerX" id="waB-9W-kas"/>
                                             </constraints>
                                         </tableViewCellContentView>
