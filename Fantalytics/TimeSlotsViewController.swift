@@ -37,7 +37,15 @@ class TimeSlotsViewController: UIViewController {
                 print(error)
                 return
             }
-            self.timeSlots = someTimeSlots
+
+            var validSlots = [TimeSlot]()
+            for slot in someTimeSlots {
+                if slot.startDate.isTomorrow() && !slot.isFirst {
+                    continue
+                }
+                validSlots.append(slot as TimeSlot)
+            }
+            self.timeSlots = validSlots
         }
     }
 }

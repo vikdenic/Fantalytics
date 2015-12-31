@@ -71,6 +71,7 @@ Parse.Cloud.job("slotCreation", function(request, status) {
 					previousTime = date;
 					var timeSlot = new TimeSlot();
 					timeSlot.set("startDate", date);
+					timeSlot.set("isFirst", true);
 					slots.push(timeSlot);
 					saveTimeSlot(timeSlot);
 				} else {

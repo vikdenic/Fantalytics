@@ -75,25 +75,37 @@ extension NSDate {
     }
 
     /**
-     Returns a String of the day and time with timezone (i.e. "Wednesday - 07:30OM CST")
+     Returns a String of the day and time with timezone. Will say Today or Tomorrow if date is either of those.
+     Otherwise it will be the name of the day (i.e. "Wednesday - 06:30PM CST")
 
-     - returns: a String of the day and time with timezone (i.e. "Wednesday - 07:30OM CST")
+     - returns: a String of the day and time with timezone (i.e. "Today - 7:00PM EST")
      */
     func toDayAndTimeZString() -> String {
         let dateFormatter = NSDateFormatter()
-        var dayString = "EEEE"
+        var displayString = ""
 
         if self.isToday() {
-            dayString = "Today - "
+            displayString = "Today - All Games"
         } else if self.isTomorrow() {
-            dayString = "Tomorrow - "
+            displayString = "Tomorrow - All Games"
         } else {
-            dateFormatter.dateFormat = "\(dayString) - hh:mma z"
+            dateFormatter.dateFormat = "EEEE - h:mma z"
             return dateFormatter.stringFromDate(self)
         }
+        return displayString
+    }
 
-        dateFormatter.dateFormat = "hh:mma z"
-        return dayString + dateFormatter.stringFromDate(self)
+    /**
+     Returns a String representation of the date's time (ex: 5PM)
+
+     - returns: a String representation of the date's time (ex: 5PM)
+     */
+    func toSimpleTimeString() -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "h:mma"
+        let localTZ = NSTimeZone.localTimeZone()
+        formatter.timeZone = localTZ
+        return formatter.stringFromDate(self)
     }
 
     /**
@@ -184,5 +196,21 @@ extension NSNumber {
         case 5: return "C"
         default: return "P"
         }
+    }
+}
+
+import Parse
+extension PFCloud {
+    /**
+     For Testing; calls a Parse Cloud function with the provided name
+     */
+    class func triggerFunction(withName name : String) {
+        PFCloud.callFunctionInBackground(name, withParameters: nil, block: { (customer, error) -> Void in
+            if error != nil {
+                print(error)
+            } else {
+                print("success")
+            }
+        })
     }
 }

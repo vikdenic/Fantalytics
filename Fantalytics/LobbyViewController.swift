@@ -46,7 +46,6 @@ class LobbyViewController: UIViewController {
 
     //MARK: Testing
     @IBAction func onTestButtonTapped(sender: UIBarButtonItem) {
-        TimeSlot.testCloud()
     }
 }
 

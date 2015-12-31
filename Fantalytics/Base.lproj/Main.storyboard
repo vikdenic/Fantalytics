@@ -633,9 +633,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contests for the specified day and time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMj-H4-1wB">
-                                                    <rect key="frame" x="158" y="69.5" width="284.5" height="19.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contests for the specified day and time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZMj-H4-1wB">
+                                                    <rect key="frame" x="8" y="70.5" width="584" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -647,9 +647,10 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ZMj-H4-1wB" secondAttribute="bottom" constant="2.5" id="ACk-P8-ndv"/>
+                                                <constraint firstItem="ZMj-H4-1wB" firstAttribute="trailing" secondItem="6Q1-L4-SbK" secondAttribute="trailingMargin" id="B34-A7-g5I"/>
+                                                <constraint firstItem="ZMj-H4-1wB" firstAttribute="leading" secondItem="6Q1-L4-SbK" secondAttribute="leadingMargin" id="Fww-hQ-u38"/>
                                                 <constraint firstItem="knh-Gu-Py3" firstAttribute="centerY" secondItem="6Q1-L4-SbK" secondAttribute="centerY" id="Rdd-fB-loN"/>
-                                                <constraint firstItem="ZMj-H4-1wB" firstAttribute="centerX" secondItem="6Q1-L4-SbK" secondAttribute="centerX" id="b7l-z2-pfz"/>
+                                                <constraint firstItem="ZMj-H4-1wB" firstAttribute="top" secondItem="knh-Gu-Py3" secondAttribute="bottom" constant="10" id="fjz-fy-95d"/>
                                                 <constraint firstItem="knh-Gu-Py3" firstAttribute="centerX" secondItem="6Q1-L4-SbK" secondAttribute="centerX" id="waB-9W-kas"/>
                                             </constraints>
                                         </tableViewCellContentView>
