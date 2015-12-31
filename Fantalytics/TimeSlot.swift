@@ -60,11 +60,11 @@ class TimeSlot: PFObject, PFSubclassing {
 
         if self.startDate.isToday() && self.isFirst {
             displayString = "Today - All Games"
-        } else if self.startDate.isTomorrow() {
+        } else if self.startDate.isTomorrow() && self.isFirst {
             displayString = "Tomorrow - All Games"
         } else {
-            dateFormatter.dateFormat = "EEEE - h:mma z"
-            return dateFormatter.stringFromDate(self.startDate)
+            dateFormatter.dateFormat = "h:mma z"
+            return "Today - " + dateFormatter.stringFromDate(self.startDate)
         }
         return displayString
     }
