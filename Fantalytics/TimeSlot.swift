@@ -58,15 +58,17 @@ class TimeSlot: PFObject, PFSubclassing {
         let dateFormatter = NSDateFormatter()
         var displayString = ""
 
-        if self.startDate.isToday() && self.isFirst {
-            displayString = "Today - All Games"
-        } else if self.startDate.isTomorrow() && self.isFirst {
-            displayString = "Tomorrow - All Games"
+        if self.startDate.isToday() {
+            displayString = "Today - "
+        } else if self.startDate.isTomorrow() {
+            displayString = "Tomorrow - "
         } else {
-            dateFormatter.dateFormat = "h:mma z"
-            return "Today - " + dateFormatter.stringFromDate(self.startDate)
+            dateFormatter.dateFormat = "EEEE - "
+            displayString = dateFormatter.stringFromDate(self.startDate)
         }
-        return displayString
+
+        dateFormatter.dateFormat = "h:mma z"
+        return displayString + dateFormatter.stringFromDate(self.startDate)
     }
 
     /**
