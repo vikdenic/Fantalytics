@@ -75,15 +75,25 @@ extension NSDate {
     }
 
     /**
-     Returns a String of the date and time
+     Returns a String of the day and time with timezone (i.e. "Wednesday - 07:30OM CST")
 
-     - returns: <#return value description#>
+     - returns: a String of the day and time with timezone (i.e. "Wednesday - 07:30OM CST")
      */
-    func getBeautyToday() -> String {
-        let now = NSDate()
+    func toDayAndTimeZString() -> String {
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "EEEE - hh:mm z"
-        return dateFormatter.stringFromDate(now)
+        var dayString = "EEEE"
+
+        if self.isToday() {
+            dayString = "Today - "
+        } else if self.isTomorrow() {
+            dayString = "Tomorrow - "
+        } else {
+            dateFormatter.dateFormat = "\(dayString) - hh:mma z"
+            return dateFormatter.stringFromDate(self)
+        }
+
+        dateFormatter.dateFormat = "hh:mma z"
+        return dayString + dateFormatter.stringFromDate(self)
     }
 
     /**
@@ -99,6 +109,48 @@ extension NSDate {
         let est = NSTimeZone(abbreviation: "EST")
         formatter.timeZone = est
         return formatter.stringFromDate(self)
+    }
+
+    /**
+     Determines whether the NSDate instance is today
+
+     - returns: A Bool value of whether or not the NSDate is today or not
+     */
+    func isToday() -> Bool {
+        let cal = NSCalendar.currentCalendar()
+        var components = cal.components([.Era, .Year, .Month, .Day], fromDate:NSDate())
+        let today = cal.dateFromComponents(components)!
+
+        components = cal.components([.Era, .Year, .Month, .Day], fromDate:self)
+        let otherDate = cal.dateFromComponents(components)!
+
+        if(today.isEqualToDate(otherDate)) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
+    /**
+     Determines whether the NSDate instance is today
+
+     - returns: A Bool value of whether or not the NSDate is today or not
+     */
+    func isTomorrow() -> Bool {
+        let cal = NSCalendar.currentCalendar()
+        var components = cal.components([.Era, .Year, .Month, .Day], fromDate:NSDate.thisTimeTomrorrow())
+        let today = cal.dateFromComponents(components)!
+
+        components = cal.components([.Era, .Year, .Month, .Day], fromDate:self)
+        let otherDate = cal.dateFromComponents(components)!
+
+        if(today.isEqualToDate(otherDate)) {
+            return true
+        }
+        else {
+            return false
+        }
     }
 
     /**
