@@ -12,6 +12,9 @@ class TimeSlotsViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
 
+    var gameKind : GameKind!
+    var contestKind : ContestKind!
+
     var timeSlots : [TimeSlot]? {
         didSet {
             self.tableView.reloadData()
@@ -46,6 +49,16 @@ class TimeSlotsViewController: UIViewController {
                 validSlots.append(slot as TimeSlot)
             }
             self.timeSlots = validSlots
+        }
+    }
+
+    //Mark Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == kSegueTimeSlotsToAvailable {
+            let contestsVC = segue.destinationViewController as! AvailableContestsViewController
+            contestsVC.timeSlot = timeSlots![(tableView.indexPathForSelectedRow?.row)!]
+            contestsVC.gameKind = gameKind
+            contestsVC.contestKind = ContestType.HeadToHead.parseObject
         }
     }
 }

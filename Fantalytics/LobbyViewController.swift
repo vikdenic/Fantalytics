@@ -44,6 +44,14 @@ class LobbyViewController: UIViewController {
         }
     }
 
+    //Mark Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == kSegueLobbyToTimeSlots {
+            let timeSlotsVC = segue.destinationViewController as! TimeSlotsViewController
+            timeSlotsVC.gameKind = gameKinds![(tableView.indexPathForSelectedRow?.row)!]
+        }
+    }
+
     //MARK: Testing
     @IBAction func onTestButtonTapped(sender: UIBarButtonItem) {
     }

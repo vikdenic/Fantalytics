@@ -14,6 +14,19 @@ class AvailableContestTableViewCell: UITableViewCell {
     @IBOutlet var entryAmountLabel: UILabel!
     @IBOutlet var prizeAmountLabel: UILabel!
 
+    var contest : Contest? {
+        didSet {
+            setUpCell()
+        }
+    }
+
+    func setUpCell() {
+        contest?.creator.fetchIfNeededInBackgroundWithBlock({ (object, error) -> Void in
+            let creator = object as! User
+            self.versusLabel.text = "vs \(creator.username!)"
+        })
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

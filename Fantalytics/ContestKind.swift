@@ -34,4 +34,13 @@ enum ContestType {
         case .Pool: return ContestKind(withoutDataWithObjectId: "TLsqXoEbRm").objectId!;
         }
     }
+
+    /// Returns an instance of a specific ContestKind object, which already exists on Parse.
+    /// To access data on the object, fetch() will need to be called.
+    var parseObject : ContestKind {
+        switch self {
+        case .HeadToHead: return ContestKind(withoutDataWithObjectId: "kIjN1WbMis");
+        case .Pool: return ContestKind(withoutDataWithObjectId: "TLsqXoEbRm")
+        }
+    }
 }

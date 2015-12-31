@@ -311,10 +311,10 @@
 			isa = PBXGroup;
 			children = (
 				93A9FA341C0115F6008AD171 /* SignUpViewController.swift */,
-				936C08741C14FB990068E9B3 /* LobbyViewController.swift */,
 				936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */,
 				936C08761C14FE270068E9B3 /* MyContestsViewController.swift */,
 				93CEC8A01C20E0340052A649 /* HeadToHeadMatchViewController.swift */,
+				936C08741C14FB990068E9B3 /* LobbyViewController.swift */,
 				931A81C61C2F66CE00224560 /* TimeSlotsViewController.swift */,
 				931A81CA1C2F691E00224560 /* AvailableContestsViewController.swift */,
 			);

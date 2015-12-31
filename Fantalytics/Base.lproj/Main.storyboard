@@ -706,8 +706,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vs opponent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggv-US-Gh1">
-                                                    <rect key="frame" x="250" y="9" width="100.5" height="21.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggv-US-Gh1">
+                                                    <rect key="frame" x="291" y="9.5" width="18.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -727,7 +727,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="9pl-8B-DOR" firstAttribute="centerY" secondItem="OHh-hw-6MI" secondAttribute="centerY" id="OQX-sS-LiG"/>
-                                                <constraint firstItem="9pl-8B-DOR" firstAttribute="top" secondItem="Ggv-US-Gh1" secondAttribute="bottom" constant="10" id="Qzi-Q0-3Z4"/>
+                                                <constraint firstItem="9pl-8B-DOR" firstAttribute="top" secondItem="Ggv-US-Gh1" secondAttribute="bottom" constant="9" id="Qzi-Q0-3Z4"/>
                                                 <constraint firstItem="Ggv-US-Gh1" firstAttribute="centerX" secondItem="OHh-hw-6MI" secondAttribute="centerX" id="a9N-Cw-THl"/>
                                                 <constraint firstItem="THB-AN-izG" firstAttribute="top" secondItem="9pl-8B-DOR" secondAttribute="bottom" constant="8" id="g0l-9n-tII"/>
                                                 <constraint firstItem="9pl-8B-DOR" firstAttribute="centerX" secondItem="OHh-hw-6MI" secondAttribute="centerX" id="w5w-uA-jXh"/>
