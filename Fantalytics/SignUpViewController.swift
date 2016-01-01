@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController {
 
     @IBAction func onSignUpButtonTapped(sender: UIButton) {
         do {
-            try User.registerNewUser(usernameTextField.text, password: passwordTextField.text, completed: { (error) -> Void in
+            try User.registerNewUser(usernameTextField.text!.lowercaseString, password: passwordTextField.text!, completed: { (error) -> Void in
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
         } catch SignUpError.EmptyFields {
@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func onLoginButtonTapped(sender: UIButton) {
-        PFUser.logInWithUsernameInBackground(usernameTextField.text!, password: passwordTextField.text!) { (user, error) -> Void in
+        PFUser.logInWithUsernameInBackground(usernameTextField.text!.lowercaseString, password: passwordTextField.text!) { (user, error) -> Void in
             if error != nil {
                 showAlertWithError(error, forVC: self)
             } else {
