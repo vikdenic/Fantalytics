@@ -72,6 +72,28 @@ class SettingsMenuViewController: FormViewController {
     }
 
     func logOutAndPresentLogin(){
+
+        let alert = UIAlertController(title: "Log Out?", message: nil, preferredStyle: .Alert)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+
+        let okayAction = UIAlertAction(title: "Log Out", style: .Default) { (action) -> Void in
+            User.logOutInBackgroundWithBlock { (error) -> Void in
+                if error != nil {
+                    print(error)
+                } else {
+                    self.handleLogout()
+                }
+            }
+        }
+
+        alert.addAction(okayAction)
+        alert.addAction(cancelAction)
+
+        presentViewController(alert, animated: true, completion: nil)
+    }
+
+    func handleLogout(){
         User.logOutInBackgroundWithBlock { (error) -> Void in
             if error != nil {
                 print(error)

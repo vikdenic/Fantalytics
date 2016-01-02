@@ -789,7 +789,7 @@
             </objects>
             <point key="canvasLocation" x="3546" y="1181"/>
         </scene>
-        <!--Create Contest View Controller-->
+        <!--Create Contest-->
         <scene sceneID="pj3-EK-cPR">
             <objects>
                 <viewController id="lo8-cV-9TQ" customClass="CreateContestViewController" customModule="Fantalytics" customModuleProvider="target" sceneMemberID="viewController">
@@ -802,7 +802,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="URN-bM-Ihz">
+                    <navigationItem key="navigationItem" title="Create Contest" id="URN-bM-Ihz">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jU8-hv-TQa">
                             <connections>
                                 <action selector="onCancelTapped:" destination="lo8-cV-9TQ" id="D9y-o5-MBV"/>
