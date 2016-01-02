@@ -756,7 +756,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Available H2H's" id="V4h-QL-qNa">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rte-5y-gy4"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rte-5y-gy4">
+                            <connections>
+                                <segue destination="Tpm-Zd-aMi" kind="presentation" identifier="AvailableContestsToCreate" id="R1T-7H-y4h"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="yF3-bA-vR5" id="54S-Fr-OIL"/>
@@ -765,6 +769,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVF-aC-4s9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2827" y="1181"/>
+        </scene>
+        <!--Create Contest View Controller-->
+        <scene sceneID="pj3-EK-cPR">
+            <objects>
+                <viewController id="lo8-cV-9TQ" customClass="CreateContestViewController" customModule="Fantalytics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zzh-qI-LvU"/>
+                        <viewControllerLayoutGuide type="bottom" id="od5-vy-ZDk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wYN-Zg-pJg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="URN-bM-Ihz">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jU8-hv-TQa">
+                            <connections>
+                                <action selector="onCancelTapped:" destination="lo8-cV-9TQ" id="D9y-o5-MBV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5bi-06-DAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4251" y="1181"/>
         </scene>
         <!--MY CONTESTS-->
         <scene sceneID="fGb-vS-6cT">
@@ -785,8 +814,26 @@
             </objects>
             <point key="canvasLocation" x="776" y="1962"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zmu-ER-gTT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tpm-Zd-aMi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oOH-yW-dka">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lo8-cV-9TQ" kind="relationship" relationship="rootViewController" id="wy0-je-8nC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPe-gu-0Xm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3534" y="1181"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GPh-1K-aXW"/>
+        <segue reference="W5Y-Wk-N2k"/>
     </inferredMetricsTieBreakers>
 </document>

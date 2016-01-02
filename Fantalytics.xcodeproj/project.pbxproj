@@ -75,6 +75,7 @@
 		93D831DB1C1571090027070C /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D831DA1C1571090027070C /* Entry.swift */; };
 		93D831DD1C1571150027070C /* Lineup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D831DC1C1571150027070C /* Lineup.swift */; };
 		93D831DF1C1571200027070C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D831DE1C1571200027070C /* Player.swift */; };
+		93E62FF81C3752370094CA79 /* CreateContestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E62FF71C3752370094CA79 /* CreateContestViewController.swift */; };
 		93F060751C3228C500F39BCD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F060741C3228C500F39BCD /* Game.swift */; };
 		93F060771C3228E600F39BCD /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F060761C3228E600F39BCD /* Team.swift */; };
 /* End PBXBuildFile section */
@@ -163,6 +164,7 @@
 		93D831DA1C1571090027070C /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		93D831DC1C1571150027070C /* Lineup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lineup.swift; sourceTree = "<group>"; };
 		93D831DE1C1571200027070C /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		93E62FF71C3752370094CA79 /* CreateContestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateContestViewController.swift; sourceTree = "<group>"; };
 		93F060741C3228C500F39BCD /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		93F060761C3228E600F39BCD /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -350,6 +352,7 @@
 				936C08741C14FB990068E9B3 /* LobbyViewController.swift */,
 				931A81C61C2F66CE00224560 /* TimeSlotsViewController.swift */,
 				931A81CA1C2F691E00224560 /* AvailableContestsViewController.swift */,
+				93E62FF71C3752370094CA79 /* CreateContestViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				93CEC8A11C20E0340052A649 /* HeadToHeadMatchViewController.swift in Sources */,
 				936C08791C14FE910068E9B3 /* SettingsMenuViewController.swift in Sources */,
 				936DDDA51C1D4BD10059B215 /* GameKind.swift in Sources */,
+				93E62FF81C3752370094CA79 /* CreateContestViewController.swift in Sources */,
 				937E4F561C141DBF0008374A /* User.swift in Sources */,
 				93F060771C3228E600F39BCD /* Team.swift in Sources */,
 				931A81C71C2F66CE00224560 /* TimeSlotsViewController.swift in Sources */,

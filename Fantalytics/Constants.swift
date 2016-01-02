@@ -12,6 +12,7 @@ let kSegueLogoutToRegister = "LogoutToSignIn"
 let kSegueMyContestsToMMH2H = "MyContestsToH2HMatchSegue"
 let kSegueLobbyToTimeSlots = "LobbyToTimeSlotsSegue"
 let kSegueTimeSlotsToAvailable = "TimeSlotsToAvailableSegue"
+let kSegueAvailableContestsToCreate = "AvailableContestsToCreate"
 
 //MARK: Cell Id's
 let kCellIdMyContests = "MyContestsCell"
