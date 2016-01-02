@@ -789,7 +789,7 @@
                                 <action selector="onCancelTapped:" destination="lo8-cV-9TQ" id="D9y-o5-MBV"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="8Dc-Ra-1PD">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="8Dc-Ra-1PD">
                             <connections>
                                 <action selector="onDoneTapped:" destination="lo8-cV-9TQ" id="0BR-4H-quQ"/>
                             </connections>

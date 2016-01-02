@@ -20,14 +20,7 @@ class CreateContestViewController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        isPrivate = true
-        if isPrivate == false {
-            title = "Create Public H2H"
-            setUpPublicForm()
-        } else {
-            title = "Create Private H2H"
-            setUpPrivateForm()
-        }
+        setUpForm()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -44,22 +37,7 @@ class CreateContestViewController: FormViewController {
     }
 
     //Using Eureka form builder library
-    func setUpPublicForm() {
-        form
-
-            +++ Section("")
-            <<< PickerInlineRow<String>("PickerInlineRow") { (row : PickerInlineRow<String>) -> Void in
-                row.title = "Entry Fee"
-                row.options = ["$1 to win $1.80", "$2 to win $3.60", "$5 to win $9", "$10 to win $18", "$20 to win $36", "$50 to win $90", "$109 to win $200", "$270 to win $500", "$535 to win $1,000"]
-                row.value = row.options[0]
-                }.onChange {row in
-                    print("Set to: \(row.value)")
-            }//.onExpandInlineRow { cell, row, inlineRow in }
-    }
-
-    func setUpPrivateForm() {
-
-        if isPrivate == true {
+    func setUpForm() {
             form =
 
                 Section("")
@@ -114,5 +92,4 @@ class CreateContestViewController: FormViewController {
                         }
                 }
         }
-    }
 }

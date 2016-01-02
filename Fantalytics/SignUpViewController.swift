@@ -24,15 +24,15 @@ class SignUpViewController: UIViewController {
                 self.dismissViewControllerAnimated(true, completion: nil)
             })
         } catch SignUpError.EmptyFields {
-            showAlert(SignUpError.EmptyFields.message, message: nil, viewController: self)
+            UIAlertController.showAlert(SignUpError.EmptyFields.message, message: nil, viewController: self)
         } catch SignUpError.InvalidUsernameLength {
-            showAlert(SignUpError.InvalidUsernameLength.message, message: nil, viewController: self)
+            UIAlertController.showAlert(SignUpError.InvalidUsernameLength.message, message: nil, viewController: self)
         } catch SignUpError.InvalidPasswordLength {
-            showAlert(SignUpError.InvalidPasswordLength.message, message: nil, viewController: self)
+            UIAlertController.showAlert(SignUpError.InvalidPasswordLength.message, message: nil, viewController: self)
         } catch SignUpError.InvalidUsernameCharacters {
-            showAlert(SignUpError.InvalidUsernameCharacters.message, message: nil, viewController: self)
+            UIAlertController.showAlert(SignUpError.InvalidUsernameCharacters.message, message: nil, viewController: self)
         } catch {
-            showAlert("Oops", message: SignUpError.Other.message, viewController: self)
+            UIAlertController.showAlert("Oops", message: SignUpError.Other.message, viewController: self)
         }
     }
 }
@@ -49,7 +49,7 @@ class LoginViewController: UIViewController {
     @IBAction func onLoginButtonTapped(sender: UIButton) {
         PFUser.logInWithUsernameInBackground(usernameTextField.text!.lowercaseString, password: passwordTextField.text!) { (user, error) -> Void in
             if error != nil {
-                showAlertWithError(error, forVC: self)
+                UIAlertController.showAlertWithError(error, forVC: self)
             } else {
                 print("logged in")
                 self.dismissViewControllerAnimated(true, completion: nil)

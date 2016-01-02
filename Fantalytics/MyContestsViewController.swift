@@ -26,7 +26,7 @@ class MyContestsViewController: UIViewController {
         Entry.getAllEntriesForCurrentUser { (entries, error) -> Void in
 
             guard let someEntries = entries else {
-                showAlertWithError(error, forVC: self)
+                UIAlertController.showAlertWithError(error, forVC: self)
                 return
             }
             self.entries = someEntries
@@ -82,7 +82,7 @@ extension MyContestsViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             Entry.getAllEntriesForContest(entry.contest, completed: { (entries, error) -> Void in
                 guard let someEntries = entries else {
-                    showAlertWithError(error, forVC: self)
+                    UIAlertController.showAlertWithError(error, forVC: self)
                     return
                 }
                 cell.placeLabel.text = "nth / \(someEntries.count)"
