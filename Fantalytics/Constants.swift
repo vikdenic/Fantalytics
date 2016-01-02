@@ -13,6 +13,7 @@ let kSegueMyContestsToMMH2H = "MyContestsToH2HMatchSegue"
 let kSegueLobbyToTimeSlots = "LobbyToTimeSlotsSegue"
 let kSegueTimeSlotsToAvailable = "TimeSlotsToAvailableSegue"
 let kSegueAvailableContestsToCreate = "AvailableContestsToCreate"
+let kSegueAvailableContestsToSelectLineup = "AvailableContestsToSelectLineup"
 
 //MARK: Cell Id's
 let kCellIdMyContests = "MyContestsCell"

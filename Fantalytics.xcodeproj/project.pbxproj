@@ -12,6 +12,7 @@
 		931A81CB1C2F691E00224560 /* AvailableContestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A81CA1C2F691E00224560 /* AvailableContestsViewController.swift */; };
 		931A81CD1C2F6AD900224560 /* AvailableContestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A81CC1C2F6AD900224560 /* AvailableContestTableViewCell.swift */; };
 		934F05971C2D3C860093C4A9 /* LobbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934F05961C2D3C860093C4A9 /* LobbyTableViewCell.swift */; };
+		935572651C37AF1100E09E0D /* SelectLineupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935572641C37AF1100E09E0D /* SelectLineupViewController.swift */; };
 		936C08751C14FB990068E9B3 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08741C14FB990068E9B3 /* LobbyViewController.swift */; };
 		936C08771C14FE270068E9B3 /* MyContestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08761C14FE270068E9B3 /* MyContestsViewController.swift */; };
 		936C08791C14FE910068E9B3 /* SettingsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */; };
@@ -118,6 +119,7 @@
 		931A81CA1C2F691E00224560 /* AvailableContestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableContestsViewController.swift; sourceTree = "<group>"; };
 		931A81CC1C2F6AD900224560 /* AvailableContestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableContestTableViewCell.swift; sourceTree = "<group>"; };
 		934F05961C2D3C860093C4A9 /* LobbyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyTableViewCell.swift; sourceTree = "<group>"; };
+		935572641C37AF1100E09E0D /* SelectLineupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLineupViewController.swift; sourceTree = "<group>"; };
 		936C08741C14FB990068E9B3 /* LobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		936C08761C14FE270068E9B3 /* MyContestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyContestsViewController.swift; sourceTree = "<group>"; };
 		936C08781C14FE910068E9B3 /* SettingsMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMenuViewController.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				931A81C61C2F66CE00224560 /* TimeSlotsViewController.swift */,
 				931A81CA1C2F691E00224560 /* AvailableContestsViewController.swift */,
 				93E62FF71C3752370094CA79 /* CreateContestViewController.swift */,
+				935572641C37AF1100E09E0D /* SelectLineupViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				93A9FA6D1C014A1C008AD171 /* ProBballManager.swift in Sources */,
 				931A81CB1C2F691E00224560 /* AvailableContestsViewController.swift in Sources */,
 				93CEC8A11C20E0340052A649 /* HeadToHeadMatchViewController.swift in Sources */,
+				935572651C37AF1100E09E0D /* SelectLineupViewController.swift in Sources */,
 				936C08791C14FE910068E9B3 /* SettingsMenuViewController.swift in Sources */,
 				936DDDA51C1D4BD10059B215 /* GameKind.swift in Sources */,
 				93E62FF81C3752370094CA79 /* CreateContestViewController.swift in Sources */,

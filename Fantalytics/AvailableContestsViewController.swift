@@ -41,6 +41,15 @@ class AvailableContestsViewController: UIViewController {
             self.contests = someContests
         }
     }
+
+    //MARK: Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == kSegueAvailableContestsToCreate {
+            let navController = segue.destinationViewController as! UINavigationController
+            let createContestVC = navController.viewControllers[0] as! CreateContestViewController
+            createContestVC.availableContestsVC = self
+        }
+    }
 }
 
 extension AvailableContestsViewController: UITableViewDataSource, UITableViewDelegate {

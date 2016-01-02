@@ -11,6 +11,7 @@ import Eureka
 
 class CreateContestViewController: FormViewController {
 
+    var availableContestsVC : AvailableContestsViewController!
     var isPrivate = false
 
 //    let entryPrizeArray : [(entry: Double, prize: Double)] = [(1 , 1.80), (5 , 9),
@@ -29,7 +30,20 @@ class CreateContestViewController: FormViewController {
     }
 
     @IBAction func onDoneTapped(sender: UIBarButtonItem) {
-        
+        let alert = UIAlertController(title: "Create Contest?", message: nil, preferredStyle: .Alert)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+
+        let okayAction = UIAlertAction(title: "Create", style: .Default) { (action) -> Void in
+            self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                self.availableContestsVC.performSegueWithIdentifier(kSegueAvailableContestsToSelectLineup, sender: self.availableContestsVC)
+            })
+        }
+
+        alert.addAction(okayAction)
+        alert.addAction(cancelAction)
+
+        presentViewController(alert, animated: true, completion: nil)
     }
 
     @IBAction func onCancelTapped(sender: UIBarButtonItem) {

@@ -21,7 +21,11 @@ class SignUpViewController: UIViewController {
     @IBAction func onSignUpButtonTapped(sender: UIButton) {
         do {
             try User.registerNewUser(usernameTextField.text!.lowercaseString, password: passwordTextField.text!, completed: { (error) -> Void in
-                self.dismissViewControllerAnimated(true, completion: nil)
+                if error != nil {
+                    UIAlertController.showAlertWithError(error, forVC: self)
+                } else {
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
             })
         } catch SignUpError.EmptyFields {
             UIAlertController.showAlert(SignUpError.EmptyFields.message, message: nil, viewController: self)

@@ -764,11 +764,30 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="yF3-bA-vR5" id="54S-Fr-OIL"/>
+                        <segue destination="sIO-SA-eDO" kind="show" identifier="AvailableContestsToSelectLineup" id="jyx-vv-qxh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVF-aC-4s9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2827" y="1181"/>
+        </scene>
+        <!--Select Lineup View Controller-->
+        <scene sceneID="0EN-63-3yw">
+            <objects>
+                <viewController id="sIO-SA-eDO" customClass="SelectLineupViewController" customModule="Fantalytics" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EEB-qZ-4l7"/>
+                        <viewControllerLayoutGuide type="bottom" id="xFt-UW-SU7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sY8-Ti-6Qo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hFC-1b-2dQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3546" y="1181"/>
         </scene>
         <!--Create Contest View Controller-->
         <scene sceneID="pj3-EK-cPR">
@@ -798,7 +817,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5bi-06-DAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4251" y="1181"/>
+            <point key="canvasLocation" x="4201" y="449"/>
         </scene>
         <!--MY CONTESTS-->
         <scene sceneID="fGb-vS-6cT">
@@ -835,7 +854,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WPe-gu-0Xm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3534" y="1181"/>
+            <point key="canvasLocation" x="3546" y="449"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
