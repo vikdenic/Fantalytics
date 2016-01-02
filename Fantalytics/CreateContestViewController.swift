@@ -20,7 +20,7 @@ class CreateContestViewController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        isPrivate = true
         if isPrivate == false {
             title = "Create Public H2H"
             setUpPublicForm()
@@ -33,6 +33,10 @@ class CreateContestViewController: FormViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationController!.navigationBar.translucent = false
+    }
+
+    @IBAction func onDoneTapped(sender: UIBarButtonItem) {
+        
     }
 
     @IBAction func onCancelTapped(sender: UIBarButtonItem) {
@@ -58,7 +62,18 @@ class CreateContestViewController: FormViewController {
         if isPrivate == true {
             form =
 
-                Section()
+                Section("")
+                <<< SegmentedRow<String>("segments"){
+                    $0.options = ["Public", "Private"]
+                    $0.value = "Public"
+                }.onChange({ (segmentedRow) -> () in
+                    if segmentedRow.value == "Public" {
+
+                    } else {
+
+                    }
+                })
+
                 <<< PickerInlineRow<String>("PickerInlineRow") { (row : PickerInlineRow<String>) -> Void in
                     row.title = "Entry Fee"
                     row.options = ["$1 to win $1.80", "$2 to win $3.60", "$5 to win $9", "$10 to win $18", "$20 to win $36", "$50 to win $90", "$109 to win $200", "$270 to win $500", "$535 to win $1,000"]
@@ -67,7 +82,17 @@ class CreateContestViewController: FormViewController {
                         print("Set to: \(row.value)")
                     }//.onExpandInlineRow { cell, row, inlineRow in }
 
-                +++ Section("")
+                +++ Section(footer: "Automatically find an opponent if nobody accepts your challenge") {
+                    $0.hidden = .Function(["segments"], { form -> Bool in
+                        let row: RowOf<String>! = form.rowByTag("segments")
+
+                        if row.value! == "Public" {
+                            return true
+                        } else {
+                            return false
+                        }
+                    })
+                }
 
                 <<< LabelRow () {
                     $0.title = "Invites"
@@ -76,8 +101,6 @@ class CreateContestViewController: FormViewController {
                     .onCellSelection { cell, row in
                         print("Invites row tapped")
                 }
-
-                +++ Section("")
 
                 <<< SwitchRow() {
                     $0.title = "Find Opponent"
