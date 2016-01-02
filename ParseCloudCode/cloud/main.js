@@ -39,7 +39,7 @@ Parse.Cloud.job("gameCreation", function(request, status) {
 				gameCount++;
 			}
 		 });
-	     status.success("Successfully createed " + gameCount + " games.");
+		 console.log("saved " + gameCount + "game objects")
     }, 
     function (error) {
         console.error('Console Log response: ' + error.text);
@@ -140,6 +140,13 @@ function todaysDateString() {
 	var day = date.getDate();
 	var month = date.getMonth() + 1;
 	var year = date.getFullYear();
+	
+	if (month < 10) {
+		month = "0" + month
+	}
+	if (day < 10) {
+		day = "0" + day
+	}
 
 	var dateString = year + "-" + month + "-" + day;
 	return dateString;
