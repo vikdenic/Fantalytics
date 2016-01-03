@@ -193,7 +193,7 @@
             </objects>
             <point key="canvasLocation" x="776" y="449"/>
         </scene>
-        <!--Lobby View Controller-->
+        <!--Fantalytics-->
         <scene sceneID="lqj-GG-pbI">
             <objects>
                 <viewController id="gLD-qf-F6R" customClass="LobbyViewController" customModule="Fantalytics" customModuleProvider="target" sceneMemberID="viewController">
@@ -257,7 +257,7 @@
                             <constraint firstItem="tE4-lZ-zOX" firstAttribute="leading" secondItem="8dO-Cr-f4B" secondAttribute="leadingMargin" constant="-20" id="UcI-gT-H4B"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="4v3-dV-bRn">
+                    <navigationItem key="navigationItem" title="Fantalytics" id="4v3-dV-bRn">
                         <barButtonItem key="leftBarButtonItem" enabled="NO" title="Test" id="LUm-6z-cor">
                             <connections>
                                 <action selector="onTestButtonTapped:" destination="gLD-qf-F6R" id="0gL-Wn-85b"/>
@@ -610,10 +610,10 @@
             </objects>
             <point key="canvasLocation" x="2163" y="1957"/>
         </scene>
-        <!--Time Slots View Controller-->
+        <!--Time Slots-->
         <scene sceneID="jJq-CT-1l0">
             <objects>
-                <viewController id="Cb5-Nt-Dqr" customClass="TimeSlotsViewController" customModule="Fantalytics" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Time Slots" id="Cb5-Nt-Dqr" customClass="TimeSlotsViewController" customModule="Fantalytics" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qxs-J1-lX4"/>
                         <viewControllerLayoutGuide type="bottom" id="49W-TY-ILd"/>
@@ -858,6 +858,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="W5Y-Wk-N2k"/>
+        <segue reference="GPh-1K-aXW"/>
     </inferredMetricsTieBreakers>
 </document>

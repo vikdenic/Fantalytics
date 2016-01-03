@@ -18,12 +18,8 @@ class Contest: PFObject, PFSubclassing {
         return "Contest"
     }
 
-    @NSManaged var name: String!
-    @NSManaged var startDate: NSDate!
-    @NSManaged var maxEntries: NSNumber!
-    @NSManaged var minEntries: NSNumber!
-    @NSManaged var entryFee: NSNumber!
-    @NSManaged var prizeAmount: NSNumber!
+    @NSManaged var entryFee: NSNumber
+    @NSManaged var prizeAmount: NSNumber
 
     @NSManaged var creator: User!
 
@@ -31,15 +27,38 @@ class Contest: PFObject, PFSubclassing {
     @NSManaged var contestKind: ContestKind!
     @NSManaged var gameKind: GameKind!
 
+    @NSManaged var isPrivate: Bool
+    @NSManaged var findsOpponent: Bool
+
     @NSManaged var winners: [AnyObject]?
+    @NSManaged var invites: [AnyObject]?
 
     class func queryWithIncludes () -> PFQuery! {
         let query  = Contest.query()
         query?.includeKey("contestKind")
         query?.includeKey("gameKind")
         query?.includeKey("winners")
+        query?.includeKey("timeSlot")
 
         return query
+    }
+
+    convenience init(creator : User, gameKind : GameKind, contestKind : ContestKind, timeSlot: TimeSlot!, entryFee : NSNumber, prizeAmount : NSNumber, isPrivate : Bool, findsOpponent : Bool, invites : [User]?) {
+        self.init()
+        self.creator = creator
+        self.gameKind = gameKind
+        self.contestKind = contestKind
+        self.timeSlot = timeSlot
+
+        self.entryFee = entryFee
+        self.prizeAmount = prizeAmount
+
+        self.isPrivate = isPrivate
+        self.findsOpponent = findsOpponent
+
+        if let someInvites = invites {
+            self.invites = someInvites
+        }
     }
 
     /**

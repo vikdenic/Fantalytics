@@ -48,6 +48,9 @@ class AvailableContestsViewController: UIViewController {
             let navController = segue.destinationViewController as! UINavigationController
             let createContestVC = navController.viewControllers[0] as! CreateContestViewController
             createContestVC.availableContestsVC = self
+            createContestVC.timeSlot = timeSlot
+            createContestVC.gameKind = gameKind
+            createContestVC.contestKind = contestKind
         }
     }
 }
