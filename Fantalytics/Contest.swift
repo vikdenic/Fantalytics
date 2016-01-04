@@ -43,6 +43,21 @@ class Contest: PFObject, PFSubclassing {
         return query
     }
 
+    /**
+     Conviently instantiates a Contest with the specified paramaters
+
+     - parameter creator:       a pointer to the User who created the Contest
+     - parameter gameKind:      a pointer to the kind of Game the Contest is (i.e. Marathon Man)
+     - parameter contestKind:   a pointer to the kind of Contest the Contest is (i.e. Head-to-Head)
+     - parameter timeSlot:      a pointer to the TimeSlot for which the contest will take place
+     - parameter entryFee:      the entry fee amount required to join the Contest
+     - parameter prizeAmount:   the prize fee amount required to join the Contest
+     - parameter isPrivate:     whether or not the Contest is private. If private, it will be invite-only
+     - parameter findsOpponent: whether or not the app will automatically find an opponent for the contest if no invitees accept
+     - parameter invites:       an array of Users who are invited to the Contest
+
+     - returns: <#return value description#>
+     */
     convenience init(creator : User, gameKind : GameKind, contestKind : ContestKind, timeSlot: TimeSlot!, entryFee : NSNumber, prizeAmount : NSNumber, isPrivate : Bool, findsOpponent : Bool, invites : [User]?) {
         self.init()
         self.creator = creator
