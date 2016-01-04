@@ -65,9 +65,9 @@ class Entry: PFObject, PFSubclassing {
         }
     }
 
-    class func getH2HOpponentEntryForEntry(entry : Entry, completed:(entry : Entry?, error : NSError!) -> Void) {
+    func getH2HOpponentEntry(completed:(entry : Entry?, error : NSError!) -> Void) {
         let query = Entry.queryWithIncludes()
-        query.whereKey("contest", equalTo: entry.contest)
+        query.whereKey("contest", equalTo: self.contest)
         query.whereKey("user", notEqualTo: User.currentUser()!)
         query.getFirstObjectInBackgroundWithBlock { (object, error) -> Void in
             guard let someEntry = object as? Entry! else {

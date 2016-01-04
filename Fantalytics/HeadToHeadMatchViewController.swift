@@ -47,7 +47,7 @@ class HeadToHeadMatchViewController: UIViewController {
             self.players1 = players
         })
 
-        Entry.getH2HOpponentEntryForEntry(entry1) { (entry, error) -> Void in
+        entry1.getH2HOpponentEntry() { (entry, error) -> Void in
             guard let someEntry2 = entry else {
                 return
             }
