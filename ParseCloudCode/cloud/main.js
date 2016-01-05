@@ -7,6 +7,8 @@
 
 var proBballKey = "h8Eb1BCDqRgVU3ZcLvTIl5NzM9FnSQif";
 var gameURL = "http://api.probasketballapi.com/game";
+var playerURL = "http://api.probasketballapi.com/player"
+var teamURL = "http://api.probasketballapi.com/team"
 
 //MARK: Jobs
 Parse.Cloud.job("gameCreation", function(request, status) {
@@ -102,6 +104,157 @@ Parse.Cloud.job("slotCreation", function(request, status) {
   });
 });
 
+Parse.Cloud.job("playerCreation", function(request, status) {
+	
+	var Player = Parse.Object.extend("Player");
+	var query = new Parse.Query(Player);
+	query.find({
+	  success: function(parsePlayers) {
+	    alert("Successfully retrieved " + parsePlayers.length + " players.");
+
+	    var params = {
+	      "api_key":proBballKey,
+		   "season":"2015"
+	    }
+
+	    return Parse.Cloud.httpRequest({
+	      method: 'POST',
+	      url: playerURL,
+	      headers: {
+	        'Content-Type': 'application/json;charset=utf-8'
+	      },
+	      body: params
+	    }).then(function(httpResponse) {
+			var json = JSON.parse(httpResponse.text);
+		
+			var updatedTeamCount = 0;
+			var updatedPositionCount = 0;
+			var newPlayerCount = 0;
+			
+	  	    for (var i = 0; i < json.count; i++) {
+				var apiPlayer = json[i];
+				var isNew = true;
+
+				parsePlayers.forEach(function(parsePlayer) {
+
+					if (apiPlayer["id"] == parsePlayer.get("playerId")) {
+						console.log("prevented duplicate Player for " + apiPlayer["player_name"]);
+						isNew = false;
+
+						if (apiPlayer["team_id"] != parsePlayer.get("teamId")) {
+							parsePlayer.set("teamId", apiPlayer["team_id"]);
+
+							savePlayer(parsePlayer);
+							updatedTeamCount++;
+							console.log("updated team for " + apiPlayer["player_name"]);
+						}
+
+						// if (apiPlayer["dk_position"] != parsePlayer.get("position")) {
+						//
+						// 			 				parsePlayer.set("position", apiPlayer["dk_position"]);
+						//
+						// 	savePlayer(parsePlayer);
+						// 	updatedPositionCount++;
+						// 	console.log("updated position for " + apiPlayer["player_name"]);
+						// }
+					}
+				 });
+
+				 if (isNew == true) {
+	 				var newPlayer = new Player();
+	 				newPlayer.set("playerId", apiPlayer["id"]);
+	 				newPlayer.set("firstName", apiPlayer["first_name"]);
+	 				newPlayer.set("lastName", apiPlayer["last_name"]);
+
+					if (apiPlayer["dk_position"] == "") {
+						//TODO Send myself a push or email
+						newPlayer.set("position", apiPlayer["position"]);
+					} else {
+		 				newPlayer.set("position", apiPlayer["dk_position"]);
+					}
+
+	 				newPlayer.set("teamId", apiPlayer["team_id"]);
+
+	 				savePlayer(newPlayer);
+	 				newPlayerCount++;
+					console.log("created new Player: " + apiPlayer["player_name"]);
+				 }
+	  	    }
+			 console.log("updated team for " + updatedTeamCount + " players.")
+			 console.log("updated position for " + updatedPositionCount +  " players.")
+			 console.log("created " + newPlayerCount + " new players")
+	    }, 
+	    function (error) {
+			//TODO Send myself a push or email
+	        console.error('Console Log response: ' + error.text);
+		    status.error("Error updating / creating players.");
+	    })
+
+	  },
+	  error: function(error) {
+	    alert("Error: " + error.code + " " + error.message);
+	  }
+	});
+});
+
+Parse.Cloud.job("teamCreation", function(request, status) {
+	var Team = Parse.Object.extend("Team");
+
+    var params = {
+      "api_key":proBballKey,
+	   "season":"2015"
+    }
+
+    return Parse.Cloud.httpRequest({
+      method: 'POST',
+      url: teamURL,
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: params
+    }).then(function(httpResponse) {
+		var json = JSON.parse(httpResponse.text);
+		var teamCount = 0;
+		
+		json.forEach(function(apiTeam) {						
+				var newTeam = new Team();
+				newTeam.set("teamId", apiTeam["id"]);
+				newTeam.set("teamName", apiTeam["team_name"]);
+				newTeam.set("cityName", apiTeam["city"]);
+				newTeam.set("abbrevName", apiTeam["abbreviation"]);
+				
+				saveTeam(newTeam);
+				teamCount++;
+		 });
+		 console.log("saved " + teamCount + " team objects")
+    }, 
+    function (error) {
+        console.error('Console Log response: ' + error.text);
+	    status.error("Error creating teams.");
+    })
+});
+
+//MARK: Set pointer to Team on saved Player object based on player's teamId
+Parse.Cloud.afterSave("Player", function(request) { 
+	var player = request.object;
+	
+    var Team = Parse.Object.extend("Team");
+    query = new Parse.Query("Team");
+    query.equalTo("teamId", player.get("teamId"));
+  
+	query.find({
+	    success: function(results) {
+			
+			player.set("team", results[0]);
+			savePlayer(player);
+	        console.log("Updated team for player");
+	    },
+	    error: function() {
+	      console.log("Team query failed");
+	    }
+    });
+});
+
 //MARK: Helpers
 function saveTimeSlot(timeSlot) {
 	timeSlot.save(null, { 
@@ -112,7 +265,7 @@ function saveTimeSlot(timeSlot) {
 	  error: function(timeSlot, error) {
 	    // Execute any logic that should take place if the save fails.
 	    // error is a Parse.Error with an error code and message.
-	    alert('Failed to create new object, with error code: ' + error.message);
+	    alert('Failed to create new timeSlot object, with error code: ' + error.message);
 	  }
 	});
 }
@@ -126,7 +279,35 @@ function saveGame(game) {
 	  error: function(game, error) {
 	    // Execute any logic that should take place if the save fails.
 	    // error is a Parse.Error with an error code and message.
-	    alert('Failed to create new object, with error code: ' + error.message);
+	    alert('Failed to create new game object, with error code: ' + error.message);
+	  }
+	});
+}
+
+function savePlayer(player) {
+	player.save(null, { 
+	  success: function(player) {
+	    // Execute any logic that should take place after the object is saved.
+	    alert('New Player object created with objectId: ' + player.id);
+	  },
+	  error: function(player, error) {
+	    // Execute any logic that should take place if the save fails.
+	    // error is a Parse.Error with an error code and message.
+	    alert('Failed to create new player object, with error code: ' + error.message);
+	  }
+	});
+}
+
+function saveTeam(team) {
+	team.save(null, { 
+	  success: function(team) {
+	    // Execute any logic that should take place after the object is saved.
+	    alert('New team object created with objectId: ' + team.id);
+	  },
+	  error: function(team, error) {
+	    // Execute any logic that should take place if the save fails.
+	    // error is a Parse.Error with an error code and message.
+	    alert('Failed to create new team object, with error code: ' + error.message);
 	  }
 	});
 }
@@ -191,3 +372,31 @@ function dateFromAPIString(str) {
 	
 	return date;
 }
+
+//Email
+Parse.Cloud.define("sendMail", function(request, response) {
+var Mandrill = require('mandrill');
+Mandrill.initialize('1LqrcTEglA_6Jpwx7nPCOw');
+
+Mandrill.sendEmail({
+	message: {
+		text: "it worked",
+		subject: "vwalla",
+		from_email: "vik.denic@gmail.com",
+		from_name: "Fantalytics",
+		to: [{ email: "vik.denic@gmail.com",
+			   name: "Vik"
+			}]
+	},
+	async: true
+	},{ 
+		success: function(httpResponse) {
+			console.log(httpResponse);
+			response.success("Email sent!");
+		},
+		error: function(httpResponse) {
+			console.error(httpResponse);
+			response.error("Uh oh, something went wrong");
+		}
+	});
+});

@@ -18,6 +18,8 @@ class Team: PFObject, PFSubclassing {
         return "Team"
     }
 
-    @NSManaged var teamId: String
+    @NSManaged var teamId: NSNumber
     @NSManaged var abbrevName: String
+    @NSManaged var cityName: String
+    @NSManaged var teamName: String
 }

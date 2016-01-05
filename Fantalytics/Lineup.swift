@@ -69,7 +69,7 @@ class Lineup: PFObject, PFSubclassing {
                 completed(players: nil, error: error)
                 return
             }
-            players.sortInPlace({ $0.position.intValue < $1.position.intValue})
+            players.sortInPlace({ $0.position.toPositionNumber() < $1.position.toPositionNumber()})
             completed(players: players, error: nil)
         })
     }

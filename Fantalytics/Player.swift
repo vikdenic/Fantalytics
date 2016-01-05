@@ -20,5 +20,8 @@ class Player: PFObject, PFSubclassing {
 
     @NSManaged var firstName: String
     @NSManaged var lastName: String
-    @NSManaged var position: NSNumber
+    @NSManaged var position: String
+    @NSManaged var playerId: NSNumber
+    @NSManaged var teamId: NSNumber
+    @NSManaged var team: Team
 }

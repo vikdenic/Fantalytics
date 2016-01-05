@@ -45,6 +45,20 @@ extension String {
         formatter.timeZone = est
         return formatter.dateFromString(self)! //.dateByAddingTimeInterval(-3600*6)
     }
+
+    /**
+     - returns: A String abbreviation of the basketball position (i.e. 1 returns "PG", 3 returns "SF", etc)
+     */
+    func toPositionNumber() -> Int {
+        switch self {
+        case "PG": return 1
+        case "SG": return 2
+        case "SF": return 3
+        case "PF": return 4
+        case "C": return 5
+        default: return 3
+        }
+    }
 }
 
 extension NSDate {

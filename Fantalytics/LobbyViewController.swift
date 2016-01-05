@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class LobbyViewController: UIViewController {
 
@@ -54,6 +55,7 @@ class LobbyViewController: UIViewController {
 
     //MARK: Testing
     @IBAction func onTestButtonTapped(sender: UIBarButtonItem) {
+        PFCloud.triggerFunction(withName: "sendMail")
     }
 }
 
