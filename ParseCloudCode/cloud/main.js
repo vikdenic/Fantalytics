@@ -74,6 +74,9 @@ Parse.Cloud.job("slotCreation", function(request, status) {
 					var timeSlot = new TimeSlot();
 					timeSlot.set("startDate", date);
 					timeSlot.set("isFirst", true);
+					timeSlot.set("homeId", results[i].get("home_id"));
+					timeSlot.set("awayId", results[i].get("away_id"));
+					
 					slots.push(timeSlot);
 					saveTimeSlot(timeSlot);
 				} else {
@@ -235,7 +238,9 @@ Parse.Cloud.job("teamCreation", function(request, status) {
 });
 
 //MARK: Set pointer to Team on saved Player object based on player's teamId
+//TODO possible infinite loop here
 Parse.Cloud.afterSave("Player", function(request) { 
+	
 	var player = request.object;
 	
     var Team = Parse.Object.extend("Team");
@@ -253,6 +258,45 @@ Parse.Cloud.afterSave("Player", function(request) {
 	      console.log("Team query failed");
 	    }
     });
+});
+
+//MARK: Set pointer to Team on saved Player object based on player's teamId
+Parse.Cloud.afterSave("TimeSlot", function(request) { 
+	
+	if (!request.object.existed()) {
+		var timeSlot = request.object;
+	
+	    var Team = Parse.Object.extend("Team");
+	    homeQuery = new Parse.Query("Team");
+	    homeQuery.equalTo("teamId", timeSlot.get("homeId"));
+  
+		homeQuery.find({
+		    success: function(results) {
+			
+				timeSlot.set("homeTeam", results[0]);
+				saveTimeSlot(timeSlot);
+		        console.log("Updated timeSlot with home team pointer");
+		    },
+		    error: function() {
+		      console.log("Home team pointer update for time slot query failed");
+		    }
+	    });
+	
+	    awayQuery = new Parse.Query("Team");
+	    awayQuery.equalTo("teamId", timeSlot.get("awayId"));
+  
+		awayQuery.find({
+		    success: function(results) {
+			
+				timeSlot.set("awayTeam", results[0]);
+				saveTimeSlot(timeSlot);
+		        console.log("Updated timeSlot with away team pointer");
+		    },
+		    error: function() {
+		      console.log("Away team pointer update for time slot query failed");
+		    }
+	    });
+	}
 });
 
 //MARK: Helpers
