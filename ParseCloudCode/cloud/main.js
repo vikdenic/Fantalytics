@@ -37,8 +37,8 @@ Parse.Cloud.job("gameCreation", function(request, status) {
 			if (dateString == tomorrowsDateString()) {			
 				var newGame = new Game();
 				newGame.set("date", dateFromAPIString(game["date"]));
-				newGame.set("homeId", game.get("home_id"));
-				newGame.set("awayId", game.get("away_id"));
+				newGame.set("homeId", game["home_id"]);
+				newGame.set("awayId", game["away_id"]);
 				saveGame(newGame);
 				gameCount++;
 			}
