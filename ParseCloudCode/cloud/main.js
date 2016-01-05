@@ -37,6 +37,8 @@ Parse.Cloud.job("gameCreation", function(request, status) {
 			if (dateString == tomorrowsDateString()) {			
 				var newGame = new Game();
 				newGame.set("date", dateFromAPIString(game["date"]));
+				newGame.set("homeId", game.get("home_id"));
+				newGame.set("awayId", game.get("away_id"));
 				saveGame(newGame);
 				gameCount++;
 			}
@@ -74,8 +76,6 @@ Parse.Cloud.job("slotCreation", function(request, status) {
 					var timeSlot = new TimeSlot();
 					timeSlot.set("startDate", date);
 					timeSlot.set("isFirst", true);
-					timeSlot.set("homeId", results[i].get("home_id"));
-					timeSlot.set("awayId", results[i].get("away_id"));
 					
 					slots.push(timeSlot);
 					saveTimeSlot(timeSlot);
@@ -261,24 +261,24 @@ Parse.Cloud.afterSave("Player", function(request) {
 });
 
 //MARK: Set pointer to Team on saved Player object based on player's teamId
-Parse.Cloud.afterSave("TimeSlot", function(request) { 
+Parse.Cloud.afterSave("Game", function(request) { 
 	
 	if (!request.object.existed()) {
-		var timeSlot = request.object;
+		var game = request.object;
 	
 	    var Team = Parse.Object.extend("Team");
 	    homeQuery = new Parse.Query("Team");
-	    homeQuery.equalTo("teamId", timeSlot.get("homeId"));
+	    homeQuery.equalTo("teamId", game.get("homeId"));
   
 		homeQuery.find({
 		    success: function(results) {
 			
-				timeSlot.set("homeTeam", results[0]);
-				saveTimeSlot(timeSlot);
-		        console.log("Updated timeSlot with home team pointer");
+				game.set("homeTeam", results[0]);
+				saveGame(game);
+		        console.log("Updated game with home team pointer");
 		    },
 		    error: function() {
-		      console.log("Home team pointer update for time slot query failed");
+		      console.log("team query failed");
 		    }
 	    });
 	
@@ -288,12 +288,12 @@ Parse.Cloud.afterSave("TimeSlot", function(request) {
 		awayQuery.find({
 		    success: function(results) {
 			
-				timeSlot.set("awayTeam", results[0]);
-				saveTimeSlot(timeSlot);
-		        console.log("Updated timeSlot with away team pointer");
+				game.set("awayTeam", results[0]);
+				saveGame(game);
+		        console.log("Updated game with away team pointer");
 		    },
 		    error: function() {
-		      console.log("Away team pointer update for time slot query failed");
+		      console.log("team query failed");
 		    }
 	    });
 	}
