@@ -263,7 +263,12 @@ Parse.Cloud.afterSave("Player", function(request) {
 //MARK: Set pointer to Team on saved Player object based on player's teamId
 Parse.Cloud.afterSave("Game", function(request) { 
 	
-	if (!request.object.existed()) {
+	var createdAt = request.object.get("createdAt");
+	var updatedAt = request.object.get("updatedAt");
+	var objectExisted = (createdAt.getTime() != updatedAt.getTime());
+	
+	if (!objectExisted) {
+		console.log("twas new");
 		var game = request.object;
 	
 	    var Team = Parse.Object.extend("Team");
@@ -283,7 +288,7 @@ Parse.Cloud.afterSave("Game", function(request) {
 	    });
 	
 	    awayQuery = new Parse.Query("Team");
-	    awayQuery.equalTo("teamId", timeSlot.get("awayId"));
+	    awayQuery.equalTo("teamId", game.get("awayId"));
   
 		awayQuery.find({
 		    success: function(results) {
