@@ -21,6 +21,7 @@ let kCellH2HMatch = "H2HMatchCell"
 let KCellLobby = "LobbyCell"
 let kCellTimeSlot = "TimeSlotCell"
 let kCellAvailableContest = "AvailableContestCell"
+let kCellPlayerSelection = "SelectPlayerCell"
 
 //MARK: SignUp
 let kPermittedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"

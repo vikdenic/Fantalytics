@@ -56,6 +56,7 @@ class AvailableContestsViewController: UIViewController {
 }
 
 extension AvailableContestsViewController: UITableViewDataSource, UITableViewDelegate {
+    //Datasource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(kCellAvailableContest) as! AvailableContestTableViewCell
 
@@ -70,5 +71,21 @@ extension AvailableContestsViewController: UITableViewDataSource, UITableViewDel
             return someContests.count
         }
         return 0
+    }
+
+    //Delegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let alert = UIAlertController(title: "Join Contest?", message: nil, preferredStyle: .Alert)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+
+        let okayAction = UIAlertAction(title: "Join", style: .Default) { (action) -> Void in
+            self.performSegueWithIdentifier(kSegueAvailableContestsToSelectLineup, sender: self)
+        }
+
+        alert.addAction(okayAction)
+        alert.addAction(cancelAction)
+
+        presentViewController(alert, animated: true, completion: nil)
     }
 }

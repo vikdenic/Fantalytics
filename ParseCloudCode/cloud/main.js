@@ -382,9 +382,9 @@ Mandrill.sendEmail({
 	message: {
 		text: "it worked",
 		subject: "vwalla",
-		from_email: "vik.denic@gmail.com",
+		from_email: "vik@fantalytics.co",
 		from_name: "Fantalytics",
-		to: [{ email: "vik.denic@gmail.com",
+		to: [{ email: "vik@fantalytics.co",
 			   name: "Vik"
 			}]
 	},
