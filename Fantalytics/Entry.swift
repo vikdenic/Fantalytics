@@ -22,18 +22,20 @@ class Entry: PFObject, PFSubclassing {
     @NSManaged var contest: Contest
     @NSManaged var lineup: Lineup?
 
-    @NSManaged var contestKind: ContestKind!
-    @NSManaged var gameKind: GameKind!
-
     class func queryWithIncludes () -> PFQuery! {
         let query  = Entry.query()
         query?.includeKey("user")
-        query?.includeKey("contestKind")
-        query?.includeKey("gameKind")
         query?.includeKey("contest")
+        query?.includeKey("contest.timeSlot")
         query?.includeKey("lineup")
 
         return query
+    }
+
+    convenience init(user : User, contest : Contest) {
+        self.init()
+        self.user = user
+        self.contest = contest
     }
 
     /**
