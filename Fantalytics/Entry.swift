@@ -36,6 +36,11 @@ class Entry: PFObject, PFSubclassing {
         return query
     }
 
+    /**
+     Retrieves all Entry objects for the current user.
+
+     - parameter completed: the block to execture, providing the array of entries
+     */
     class func getAllEntriesForCurrentUser(completed:(entries : [Entry]?, error : NSError!) -> Void) {
 
         let query = Entry.queryWithIncludes()
@@ -51,6 +56,12 @@ class Entry: PFObject, PFSubclassing {
         }
     }
 
+    /**
+     Retrieves all Entry objects for the specified Contest
+
+     - parameter contest:   The Contest for which to retrieve all entries for
+     - parameter completed: the block to execute, providing the array of entries
+     */
     class func getAllEntriesForContest(contest : Contest, completed:(entries : [Entry]?, error : NSError!) -> Void) {
         let query = Entry.queryWithIncludes()
         query.whereKey("contest", equalTo: contest)
@@ -65,6 +76,11 @@ class Entry: PFObject, PFSubclassing {
         }
     }
 
+    /**
+     Retrieves the other Entry from the same Contest
+
+     - parameter completed: the block to execute, provigin the opponent's Entry
+     */
     func getH2HOpponentEntry(completed:(entry : Entry?, error : NSError!) -> Void) {
         let query = Entry.queryWithIncludes()
         query.whereKey("contest", equalTo: self.contest)
