@@ -90,7 +90,11 @@ class CreateContestViewController: FormViewController {
                     row.value = row.options[0]
                     }.onChange {row in
                         self.setEntryAndPrize(row.value!)
-                    }//.onExpandInlineRow { cell, row, inlineRow in }
+                    }.onExpandInlineRow { cell, row, inlineRow in
+                        print("z")
+                    }.onCollapseInlineRow({ (cell, row, inlinerow) -> () in
+                        
+                    })
 
                 +++ Section(footer: "Automatically find an opponent if nobody accepts your challenge") {
                     $0.hidden = .Function(["segments"], { form -> Bool in

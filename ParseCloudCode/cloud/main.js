@@ -184,7 +184,7 @@ Parse.Cloud.job("playerCreation", function(request, status) {
 				 }
 	  	    }
 			 console.log("updated team for " + updatedTeamCount + " players.")
-			 console.log("updated position for " + updatedPositionCount +  " players.")
+			 // console.log("updated position for " + updatedPositionCount +  " players.")
 			 console.log("created " + newPlayerCount + " new players")
 	    }, 
 	    function (error) {
@@ -252,7 +252,6 @@ Parse.Cloud.afterSave("Player", function(request) {
 			
 			player.set("team", results[0]);
 			savePlayer(player);
-	        console.log("Updated team for player");
 	    },
 	    error: function() {
 	      console.log("Team query failed");
@@ -268,7 +267,6 @@ Parse.Cloud.afterSave("Game", function(request) {
 	var objectExisted = (createdAt.getTime() != updatedAt.getTime());
 	
 	if (!objectExisted) {
-		console.log("twas new");
 		var game = request.object;
 	
 	    var Team = Parse.Object.extend("Team");
@@ -433,7 +431,7 @@ Mandrill.sendEmail({
 		subject: "vwalla",
 		from_email: "vik@fantalytics.co",
 		from_name: "Fantalytics",
-		to: [{ email: "vik@fantalytics.co",
+		to: [{ email: "vik.denic@gmail.com",
 			   name: "Vik"
 			}]
 	},

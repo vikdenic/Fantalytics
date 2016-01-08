@@ -56,6 +56,7 @@ class User: PFUser {
         }
 
         let newUser = User()
+//        newUser.email = "vik.denic@gmail.com"
         newUser.username = username.lowercaseString
         newUser.password = password.lowercaseString
 
