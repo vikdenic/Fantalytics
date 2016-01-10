@@ -110,4 +110,11 @@ class Entry: PFObject, PFSubclassing {
 enum EntryStatus {
     case Recent
     case TodayOrUpcoming
+
+    var emptyMessage : String {
+        switch self {
+        case .Recent: return "You have no past contests.";
+        case .TodayOrUpcoming: return "You have no Live or Upcoming contests.";
+        }
+    }
 }

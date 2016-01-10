@@ -13,6 +13,9 @@ class MyContestsViewController: UIViewController {
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var tableView: UITableView!
 
+    @IBOutlet var noContestsLabel: UILabel!
+    @IBOutlet var noContestsDescLabel: UILabel!
+
     var selectedEntry : Entry!
 
     var allEntries = [Entry]()
@@ -42,7 +45,7 @@ class MyContestsViewController: UIViewController {
                 return
             }
             self.allEntries = someEntries
-            self.displayedEntries = someEntries
+            self.sortEntries(byStatus: .TodayOrUpcoming)
         }
     }
 
@@ -60,19 +63,33 @@ class MyContestsViewController: UIViewController {
             }
         }
         self.displayedEntries = sortedArray
+        self.hideOrShowEmptyMessages()
     }
 
     //MARK: View Helpers
     func viewSetup() {
-        segmentedControl.selectedSegmentIndex = 2
+        self.segmentedControl.selectedSegmentIndex = 1
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+
+    func hideOrShowEmptyMessages() {
+        if self.displayedEntries.count == 0 {
+            self.noContestsLabel.hidden = false
+            self.noContestsDescLabel.hidden = false
+        } else {
+            self.noContestsLabel.hidden = true
+            self.noContestsDescLabel.hidden = true
+        }
     }
 
     //MARK: Actions
     @IBAction func onSegmentTapped(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             sortEntries(byStatus: .Recent)
+            self.noContestsLabel.text = EntryStatus.Recent.emptyMessage
         } else {
             sortEntries(byStatus: .TodayOrUpcoming)
+            self.noContestsLabel.text = EntryStatus.TodayOrUpcoming.emptyMessage
         }
     }
 

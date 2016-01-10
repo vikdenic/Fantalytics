@@ -427,17 +427,42 @@
                                     <action selector="onSegmentTapped:" destination="cpz-he-BAe" eventType="valueChanged" id="3f0-7Q-Iwy"/>
                                 </connections>
                             </segmentedControl>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no live or upcoming contests." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="aAZ-Cj-muy">
+                                <rect key="frame" x="20" y="290" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="hKy-Ju-nX6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visit the Lobby to enter." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfY-SW-u0y">
+                                <rect key="frame" x="20" y="319" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3oD-78-Sa7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gfY-SW-u0y" firstAttribute="top" secondItem="aAZ-Cj-muy" secondAttribute="bottom" constant="8" id="4Ye-F0-KC8"/>
                             <constraint firstItem="iO7-tV-UGq" firstAttribute="leading" secondItem="kn7-GJ-0vh" secondAttribute="leadingMargin" constant="-20" id="6Vd-PK-WwT"/>
                             <constraint firstItem="iO7-tV-UGq" firstAttribute="top" secondItem="H7s-VM-smc" secondAttribute="bottom" id="ChJ-lu-hku"/>
                             <constraint firstItem="rKg-af-fhv" firstAttribute="bottom" secondItem="kn7-GJ-0vh" secondAttribute="bottomMargin" id="R5H-NX-ib2"/>
                             <constraint firstItem="rKg-af-fhv" firstAttribute="leading" secondItem="kn7-GJ-0vh" secondAttribute="leadingMargin" constant="-20" id="UjI-hF-Knz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iO7-tV-UGq" secondAttribute="trailing" constant="-20" id="Wwx-pd-IXT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rKg-af-fhv" secondAttribute="trailing" constant="-20" id="aRQ-f9-GSC"/>
+                            <constraint firstItem="aAZ-Cj-muy" firstAttribute="leading" secondItem="kn7-GJ-0vh" secondAttribute="leadingMargin" id="e4t-za-bkI"/>
+                            <constraint firstItem="aAZ-Cj-muy" firstAttribute="centerY" secondItem="kn7-GJ-0vh" secondAttribute="centerY" id="idA-w6-oFF"/>
+                            <constraint firstItem="aAZ-Cj-muy" firstAttribute="centerX" secondItem="kn7-GJ-0vh" secondAttribute="centerX" id="j3x-4J-c0B"/>
                             <constraint firstItem="rKg-af-fhv" firstAttribute="top" secondItem="kn7-GJ-0vh" secondAttribute="topMargin" constant="28" id="rVG-KQ-OG7"/>
                             <constraint firstItem="rKg-af-fhv" firstAttribute="top" secondItem="iO7-tV-UGq" secondAttribute="bottom" id="sGZ-at-BfF"/>
+                            <constraint firstItem="aAZ-Cj-muy" firstAttribute="trailing" secondItem="kn7-GJ-0vh" secondAttribute="trailingMargin" id="sU3-FX-kc5"/>
+                            <constraint firstItem="gfY-SW-u0y" firstAttribute="leading" secondItem="kn7-GJ-0vh" secondAttribute="leadingMargin" id="uDk-2G-nna"/>
+                            <constraint firstItem="gfY-SW-u0y" firstAttribute="trailing" secondItem="kn7-GJ-0vh" secondAttribute="trailingMargin" id="w4E-1m-xbo"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -447,6 +472,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Contests" id="Qpt-fD-hZl"/>
                     <connections>
+                        <outlet property="noContestsDescLabel" destination="gfY-SW-u0y" id="RK5-7j-seg"/>
+                        <outlet property="noContestsLabel" destination="aAZ-Cj-muy" id="MrF-kA-YqW"/>
                         <outlet property="segmentedControl" destination="iO7-tV-UGq" id="ODd-4z-47s"/>
                         <outlet property="tableView" destination="rKg-af-fhv" id="RkT-qZ-SAt"/>
                         <segue destination="inn-wj-DWr" kind="show" identifier="MyContestsToH2HMatchSegue" id="DKt-J0-LxE"/>
