@@ -111,6 +111,7 @@ Parse.Cloud.job("playerCreation", function(request, status) {
 	
 	var Player = Parse.Object.extend("Player");
 	var query = new Parse.Query(Player);
+	query.limit(1000);
 	query.find({
 	  success: function(parsePlayers) {
 	    alert("Successfully retrieved " + parsePlayers.length + " players.");

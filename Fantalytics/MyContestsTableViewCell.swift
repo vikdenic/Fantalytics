@@ -16,25 +16,7 @@ class MyContestsTableViewCell: UITableViewCell {
         }
     }
 
-    var timeSlot: TimeSlot? {
-        didSet {
-            setUpCell()
-        }
-    }
-
-    var contest: Contest? {
-        didSet {
-            setUpCell()
-        }
-    }
-
-    var gameKind: GameKind? {
-        didSet {
-            setUpCell()
-        }
-    }
-
-    var contestKind: ContestKind? {
+    var entriesCount: NSNumber? {
         didSet {
             setUpCell()
         }
@@ -53,21 +35,13 @@ class MyContestsTableViewCell: UITableViewCell {
     }
 
     func setUpCell() {
+        self.entryFeeLabel.text = "Entry: $\(entry.contest.entryFee)"
+        self.dateLabel.text = entry.contest.timeSlot.startDate.toAbbrevString()
+        self.gameKindLabel.text = entry.contest.gameKind.name
+        self.contestKindLabel.text = entry.contest.contestKind.name
 
-        if let someContest = contest {
-            self.entryFeeLabel.text = "Entry: $\(someContest.entryFee)"
-        }
-
-        if let someTimeSlot = timeSlot {
-            self.dateLabel.text = someTimeSlot.startDate.toAbbrevString()
-        }
-
-        if let someGameKind = gameKind {
-            self.gameKindLabel.text = someGameKind.name
-        }
-
-        if let someContestKind = contestKind {
-            self.contestKindLabel.text = someContestKind.name
+        if let someEntriesCount = entriesCount {
+            self.placeLabel.text = "nth / \(someEntriesCount)"
         }
     }
 }

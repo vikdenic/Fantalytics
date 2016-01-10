@@ -27,6 +27,8 @@ class Entry: PFObject, PFSubclassing {
         query?.includeKey("user")
         query?.includeKey("contest")
         query?.includeKey("contest.timeSlot")
+        query?.includeKey("contest.gameKind")
+        query?.includeKey("contest.contestKind")
         query?.includeKey("lineup")
 
         return query
@@ -59,16 +61,46 @@ class Entry: PFObject, PFSubclassing {
     }
 
     /**
+     Retrieves all Entry objects for the current user.
+
+     - parameter completed: the block to execture, providing the array of entries
+     */
+    class func getAllEntriesForCurrentUserWithStatus(status : EntryStatus, completed:(entries : [Entry]?, error : NSError!) -> Void) {
+        let slotQuery = PFQuery(className: "TimeSlot")
+
+        switch status {
+        case .Recent:
+            slotQuery.whereKey("startDate", lessThan: NSDate())
+        case .Upcoming:
+            slotQuery.whereKey("startDate", greaterThan: NSDate())
+        }
+
+        let entryQuery = Entry.queryWithIncludes()
+        entryQuery.whereKey("user", equalTo: User.currentUser()!)
+        entryQuery.whereKey("timeSlot", matchesQuery: slotQuery)
+
+        entryQuery.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+
+            guard let entries = objects as! [Entry]! else {
+                completed(entries: nil, error: error)
+                return
+            }
+            completed(entries: entries, error: nil)
+        }
+    }
+
+    /**
      Retrieves all Entry objects for the specified Contest
 
      - parameter contest:   The Contest for which to retrieve all entries for
      - parameter completed: the block to execute, providing the array of entries
      */
     class func getAllEntriesForContest(contest : Contest, completed:(entries : [Entry]?, error : NSError!) -> Void) {
-        let query = Entry.queryWithIncludes()
-        query.whereKey("contest", equalTo: contest)
 
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+        let entryQuery = Entry.queryWithIncludes()
+        entryQuery.whereKey("contest", equalTo: contest)
+
+        entryQuery.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
 
             guard let entries = objects as! [Entry]! else {
                 completed(entries: nil, error: error)
@@ -95,4 +127,10 @@ class Entry: PFObject, PFSubclassing {
             completed(entry: someEntry, error: nil)
         }
     }
+}
+
+/// An enum type used in conjunction with the ContestKind class
+enum EntryStatus {
+    case Recent
+    case Upcoming
 }
