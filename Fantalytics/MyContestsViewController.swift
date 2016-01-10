@@ -27,12 +27,12 @@ class MyContestsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewSetup()
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        viewSetup()
         retrieveAndSetEntries()
     }
 
@@ -45,14 +45,14 @@ class MyContestsViewController: UIViewController {
                 return
             }
             self.allEntries = someEntries
-            self.sortEntries(byStatus: .TodayOrUpcoming)
+            self.sortEntries()
         }
     }
 
-    func sortEntries(byStatus status : EntryStatus) {
+    func sortEntries() {
         var sortedArray = [Entry]()
         for entry in self.allEntries {
-            if status == .TodayOrUpcoming {
+            if segmentedControl.selectedSegmentIndex == 1 {
                 if entry.isTodayOrUpcoming() {
                     sortedArray.append(entry)
                 }
@@ -84,11 +84,10 @@ class MyContestsViewController: UIViewController {
 
     //MARK: Actions
     @IBAction func onSegmentTapped(sender: UISegmentedControl) {
+        self.sortEntries()
         if sender.selectedSegmentIndex == 0 {
-            sortEntries(byStatus: .Recent)
             self.noContestsLabel.text = EntryStatus.Recent.emptyMessage
         } else {
-            sortEntries(byStatus: .TodayOrUpcoming)
             self.noContestsLabel.text = EntryStatus.TodayOrUpcoming.emptyMessage
         }
     }
