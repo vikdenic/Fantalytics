@@ -59,36 +59,6 @@ class Entry: PFObject, PFSubclassing {
             completed(entries: entries, error: nil)
         }
     }
-
-    /**
-     Retrieves all Entry objects for the current user.
-
-     - parameter completed: the block to execture, providing the array of entries
-     */
-    class func getAllEntriesForCurrentUserWithStatus(status : EntryStatus, completed:(entries : [Entry]?, error : NSError!) -> Void) {
-        let slotQuery = PFQuery(className: "TimeSlot")
-
-        switch status {
-        case .Recent:
-            slotQuery.whereKey("startDate", lessThan: NSDate())
-        case .Upcoming:
-            slotQuery.whereKey("startDate", greaterThan: NSDate())
-        }
-
-        let entryQuery = Entry.queryWithIncludes()
-        entryQuery.whereKey("user", equalTo: User.currentUser()!)
-        entryQuery.whereKey("timeSlot", matchesQuery: slotQuery)
-
-        entryQuery.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-
-            guard let entries = objects as! [Entry]! else {
-                completed(entries: nil, error: error)
-                return
-            }
-            completed(entries: entries, error: nil)
-        }
-    }
-
     /**
      Retrieves all Entry objects for the specified Contest
 
@@ -127,10 +97,17 @@ class Entry: PFObject, PFSubclassing {
             completed(entry: someEntry, error: nil)
         }
     }
+
+    func isTodayOrUpcoming() -> Bool {
+        if self.contest.timeSlot.startDate.isToday() || self.contest.timeSlot.startDate.timeIntervalSinceNow > 0 {
+            return true
+        }
+        return false
+    }
 }
 
 /// An enum type used in conjunction with the ContestKind class
 enum EntryStatus {
     case Recent
-    case Upcoming
+    case TodayOrUpcoming
 }

@@ -15,7 +15,8 @@ class MyContestsViewController: UIViewController {
 
     var selectedEntry : Entry!
 
-    var entries = [Entry]() {
+    var allEntries = [Entry]()
+    var displayedEntries = [Entry]() {
         didSet {
             self.tableView.reloadData()
         }
@@ -40,8 +41,25 @@ class MyContestsViewController: UIViewController {
                 UIAlertController.showAlertWithError(error, forVC: self)
                 return
             }
-            self.entries = someEntries
+            self.allEntries = someEntries
+            self.displayedEntries = someEntries
         }
+    }
+
+    func sortEntries(byStatus status : EntryStatus) {
+        var sortedArray = [Entry]()
+        for entry in self.allEntries {
+            if status == .TodayOrUpcoming {
+                if entry.isTodayOrUpcoming() {
+                    sortedArray.append(entry)
+                }
+            } else {
+                if !entry.isTodayOrUpcoming() {
+                    sortedArray.append(entry)
+                }
+            }
+        }
+        self.displayedEntries = sortedArray
     }
 
     //MARK: View Helpers
@@ -52,9 +70,9 @@ class MyContestsViewController: UIViewController {
     //MARK: Actions
     @IBAction func onSegmentTapped(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-
+            sortEntries(byStatus: .Recent)
         } else {
-
+            sortEntries(byStatus: .TodayOrUpcoming)
         }
     }
 
@@ -73,7 +91,7 @@ extension MyContestsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdMyContests) as! MyContestsTableViewCell
 
-        let entry = entries[indexPath.row] as Entry
+        let entry = displayedEntries[indexPath.row] as Entry
         cell.entry = entry
 
         Entry.getAllEntriesForContest(entry.contest) { (entries, error) -> Void in
@@ -94,12 +112,12 @@ extension MyContestsViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entries.count
+        return displayedEntries.count
     }
 
     //MARK: TV DL
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        selectedEntry = entries[indexPath.row] as Entry
+        selectedEntry = displayedEntries[indexPath.row] as Entry
 
         switch selectedEntry.contest.gameKind.objectId {
         case GameType.MarathonMan.parseObjectId as NSString:

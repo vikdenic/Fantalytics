@@ -420,9 +420,8 @@
                                     <constraint firstAttribute="height" constant="28" id="HVh-BW-DI1"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="UPCOMING"/>
-                                    <segment title="LIVE"/>
                                     <segment title="RECENT"/>
+                                    <segment title="TODAY / UPCOMING"/>
                                 </segments>
                                 <connections>
                                     <action selector="onSegmentTapped:" destination="cpz-he-BAe" eventType="valueChanged" id="3f0-7Q-Iwy"/>
