@@ -772,11 +772,37 @@
                                     <outlet property="delegate" destination="5fl-ci-bge" id="qUo-IC-q2K"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No contests yet for this time. " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="PPR-Ne-y8o">
+                                <rect key="frame" x="20" y="278" width="560" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="WUz-se-PxL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap + to create one!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Q5I-c3-bph">
+                                <rect key="frame" x="20" y="324" width="560" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="YcG-Z3-wtO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Q5I-c3-bph" firstAttribute="leading" secondItem="l1S-DO-XRW" secondAttribute="leadingMargin" id="2Z5-cK-zWf"/>
                             <constraint firstItem="yF3-bA-vR5" firstAttribute="leading" secondItem="l1S-DO-XRW" secondAttribute="leadingMargin" constant="-20" id="2tN-j7-nA6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yF3-bA-vR5" secondAttribute="trailing" constant="-20" id="5Hc-Y2-Gby"/>
+                            <constraint firstItem="PPR-Ne-y8o" firstAttribute="centerY" secondItem="l1S-DO-XRW" secondAttribute="centerY" id="9Ko-us-iVB"/>
+                            <constraint firstItem="PPR-Ne-y8o" firstAttribute="trailing" secondItem="l1S-DO-XRW" secondAttribute="trailingMargin" id="9gh-55-Re1"/>
+                            <constraint firstItem="Q5I-c3-bph" firstAttribute="top" secondItem="PPR-Ne-y8o" secondAttribute="bottom" constant="2" id="Aum-7K-Gae"/>
+                            <constraint firstItem="Q5I-c3-bph" firstAttribute="trailing" secondItem="l1S-DO-XRW" secondAttribute="trailingMargin" id="B0R-Ys-2qT"/>
+                            <constraint firstItem="Q5I-c3-bph" firstAttribute="centerX" secondItem="l1S-DO-XRW" secondAttribute="centerX" id="DcS-ag-aoF"/>
+                            <constraint firstItem="PPR-Ne-y8o" firstAttribute="centerX" secondItem="l1S-DO-XRW" secondAttribute="centerX" id="J8f-1W-0ud"/>
+                            <constraint firstItem="PPR-Ne-y8o" firstAttribute="leading" secondItem="l1S-DO-XRW" secondAttribute="leadingMargin" id="Jh5-tx-mMD"/>
                             <constraint firstItem="yF3-bA-vR5" firstAttribute="top" secondItem="l1S-DO-XRW" secondAttribute="topMargin" id="pCE-Ag-Wmr"/>
                             <constraint firstItem="yF3-bA-vR5" firstAttribute="bottom" secondItem="l1S-DO-XRW" secondAttribute="bottomMargin" id="zl8-Cl-KrI"/>
                         </constraints>
@@ -789,6 +815,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="noContestsDescLabel" destination="Q5I-c3-bph" id="FiE-iY-wKs"/>
+                        <outlet property="noContestsLabel" destination="PPR-Ne-y8o" id="zuN-xJ-kjz"/>
                         <outlet property="tableView" destination="yF3-bA-vR5" id="54S-Fr-OIL"/>
                         <segue destination="sIO-SA-eDO" kind="show" identifier="AvailableContestsToSelectLineup" id="jyx-vv-qxh"/>
                     </connections>

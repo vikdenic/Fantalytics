@@ -94,7 +94,6 @@ class MyContestsViewController: UIViewController {
 
     //MARK: Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if segue.identifier == kSegueMyContestsToMMH2H {
             let vc = segue.destinationViewController as! HeadToHeadMatchViewController
             vc.entry1 = selectedEntry
@@ -135,8 +134,11 @@ extension MyContestsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         selectedEntry = displayedEntries[indexPath.row] as Entry
 
+        //TODO: Segue to appropriate VC depending on game type and contest type
         switch selectedEntry.contest.gameKind.objectId {
         case GameType.MarathonMan.parseObjectId as NSString:
+            performSegueWithIdentifier(kSegueMyContestsToMMH2H, sender: self)
+        case GameType.SmartCat.parseObjectId as NSString:
             performSegueWithIdentifier(kSegueMyContestsToMMH2H, sender: self)
         default:
             break

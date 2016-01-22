@@ -18,12 +18,16 @@ class AvailableContestsViewController: UIViewController {
         }
     }
 
+    @IBOutlet var noContestsLabel: UILabel!
+    @IBOutlet var noContestsDescLabel: UILabel!
+
     var timeSlot : TimeSlot!
     var gameKind : GameKind!
     var contestKind : ContestKind!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewSetup()
         retrieveAndSetContests()
     }
 
@@ -39,6 +43,7 @@ class AvailableContestsViewController: UIViewController {
                 return
             }
             self.contests = someContests
+            self.hideOrShowEmptyMessages()
         }
     }
 
@@ -51,6 +56,23 @@ class AvailableContestsViewController: UIViewController {
             createContestVC.timeSlot = timeSlot
             createContestVC.gameKind = gameKind
             createContestVC.contestKind = contestKind
+        }
+    }
+
+    //Display Helpers
+    func viewSetup() {
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+
+    func hideOrShowEmptyMessages() {
+        if let someContests = self.contests {
+            if someContests.count == 0 {
+                self.noContestsLabel.hidden = false
+                self.noContestsDescLabel.hidden = false
+            } else {
+                self.noContestsLabel.hidden = true
+                self.noContestsDescLabel.hidden = true
+            }
         }
     }
 }

@@ -52,8 +52,11 @@ class CreateContestViewController: FormViewController {
             }
 
             contest.saveInBackgroundWithBlock({ (object, error) -> Void in
-                self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                    self.availableContestsVC.performSegueWithIdentifier(kSegueAvailableContestsToSelectLineup, sender: self.availableContestsVC)
+                let entry = Entry(user: User.currentUser()!, contest: contest)
+                entry.saveInBackgroundWithBlock({ (success, error) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                        self.availableContestsVC.performSegueWithIdentifier(kSegueAvailableContestsToSelectLineup, sender: self.availableContestsVC)
+                    })
                 })
             })
         }
