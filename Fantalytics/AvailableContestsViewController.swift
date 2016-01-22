@@ -80,7 +80,10 @@ extension AvailableContestsViewController: UITableViewDataSource, UITableViewDel
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
 
         let okayAction = UIAlertAction(title: "Join", style: .Default) { (action) -> Void in
-            self.performSegueWithIdentifier(kSegueAvailableContestsToSelectLineup, sender: self)
+            let entry = Entry(user: User.currentUser()!, contest: self.contests![(self.tableView.indexPathForSelectedRow?.row)!])
+            entry.saveInBackgroundWithBlock({ (success, error) -> Void in
+                self.performSegueWithIdentifier(kSegueAvailableContestsToSelectLineup, sender: self)
+            })
         }
 
         alert.addAction(okayAction)
