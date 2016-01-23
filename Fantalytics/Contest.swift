@@ -33,6 +33,8 @@ class Contest: PFObject, PFSubclassing {
     @NSManaged var winners: [AnyObject]?
     @NSManaged var invites: [AnyObject]?
 
+    @NSManaged var isFilled: Bool
+
     class func queryWithIncludes () -> PFQuery! {
         let query  = Contest.query()
         query?.includeKey("contestKind")

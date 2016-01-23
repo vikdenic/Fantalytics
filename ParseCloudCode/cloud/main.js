@@ -303,6 +303,17 @@ Parse.Cloud.afterSave("Game", function(request) {
 	}
 });
 
+//MARK: Prevent contest from over-filling
+Parse.Cloud.beforeSave("Entry", function(request, response) {
+    request.object.get("contest").fetch().then(function(contest){
+  	  if (contest.get("isFilled") == true) {
+  	      response.error('This contest is full.');
+  	  } else {
+          response.success();
+  	  }
+    });
+});
+
 //MARK: Helpers
 function saveTimeSlot(timeSlot) {
 	timeSlot.save(null, { 
