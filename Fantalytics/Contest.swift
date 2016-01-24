@@ -95,6 +95,7 @@ class Contest: PFObject, PFSubclassing {
         query?.whereKey("timeSlot", equalTo: timeSlot)
         query?.whereKey("gameKind", equalTo: gameKind)
         query?.whereKey("contestKind", equalTo: contestKind)
+        query?.whereKey("creator", notEqualTo: User.currentUser()!)
         query?.whereKey("isFilled", equalTo: false)
         query?.addAscendingOrder("createdAt")
 
