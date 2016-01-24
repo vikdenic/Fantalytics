@@ -323,11 +323,19 @@ Parse.Cloud.afterSave("Entry", function(request, response) {
 
 //MARK: Prevent contest from over-filling
 Parse.Cloud.beforeSave("Entry", function(request, response) {
-    request.object.get("contest").fetch().then(function(contest){
+	var theContest = request.object.get("contest");
+    theContest.fetch().then(function(contest){
   	  if (contest.get("isFilled") == true) {
   	      response.error('This contest is full.');
   	  } else {
-          response.success();
+	  	  contest.get("timeSlot").fetch().then(function(timeSlot){
+			  var now = new Date();
+		 	  if (timeSlot.get("startDate") < now) {
+			  	response.error('This contest has already started.');
+			  } else {
+			      response.success();
+			  }
+		  });
   	  }
     });
 });
