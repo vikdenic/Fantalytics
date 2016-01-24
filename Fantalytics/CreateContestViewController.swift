@@ -45,7 +45,7 @@ class CreateContestViewController: FormViewController {
 
         let okayAction = UIAlertAction(title: "Create", style: .Default) { (action) -> Void in
 
-            let contest = Contest(creator: User.currentUser()!, gameKind: self.gameKind, contestKind: self.contestKind, timeSlot: self.timeSlot, entryFee: self.entryFee, prizeAmount: self.prizeAmount, isPrivate: self.isPrivate, findsOpponent: self.findsOpponent, invites: nil)
+            let contest = Contest(creator: User.currentUser()!, gameKind: self.gameKind, contestKind: self.contestKind, timeSlot: self.timeSlot, entryFee: self.entryFee, prizeAmount: self.prizeAmount, isPrivate: self.isPrivate, findsOpponent: self.findsOpponent, invites: nil, maxEntries: 2)
 
             if contest.isPrivate == false {
                 contest.findsOpponent = false

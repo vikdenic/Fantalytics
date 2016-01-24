@@ -303,6 +303,24 @@ Parse.Cloud.afterSave("Game", function(request) {
 	}
 });
 
+//MARK: Set a contest as isFilled when filled up
+//MARK: Update Contest object when filled
+Parse.Cloud.afterSave("Entry", function(request, response) {
+    request.object.get("contest").fetch().then(function(contest){
+		console.log("entries count is: " + contest.get("entriesCount"));
+		console.log("max entries is: " + contest.get("maxEntries"));
+	
+		//check if entriesCount is less than maxEntries
+		contest.set("entriesCount", contest.get("entriesCount") + 1);
+			
+		if (contest.get("entriesCount") == contest.get("maxEntries")) {
+			contest.set("isFilled", true);
+		}
+		
+		saveContest(contest);
+    });
+});
+
 //MARK: Prevent contest from over-filling
 Parse.Cloud.beforeSave("Entry", function(request, response) {
     request.object.get("contest").fetch().then(function(contest){
@@ -367,6 +385,20 @@ function saveTeam(team) {
 	    // Execute any logic that should take place if the save fails.
 	    // error is a Parse.Error with an error code and message.
 	    alert('Failed to create new team object, with error code: ' + error.message);
+	  }
+	});
+}
+
+function saveContest(contest) {
+	contest.save(null, { 
+	  success: function(contest) {
+	    // Execute any logic that should take place after the object is saved.
+	    alert('New contest object created with objectId: ' + contest.id);
+	  },
+	  error: function(contest, error) {
+	    // Execute any logic that should take place if the save fails.
+	    // error is a Parse.Error with an error code and message.
+	    alert('Failed to create new contest object, with error code: ' + error.message);
 	  }
 	});
 }

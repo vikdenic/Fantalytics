@@ -38,7 +38,7 @@ class AvailableContestsViewController: UIViewController {
 
     //MARK: Data retrieval
     func retrieveAndSetContests() {
-        Contest.getTimeSlots(timeSlot, gameKind: gameKind, contestKind: contestKind) { (contests, error) -> Void in
+        Contest.getContests(timeSlot, gameKind: gameKind, contestKind: contestKind) { (contests, error) -> Void in
             guard let someContests = contests else {
                 return
             }

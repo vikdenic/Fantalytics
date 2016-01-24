@@ -21,6 +21,9 @@ class Contest: PFObject, PFSubclassing {
     @NSManaged var entryFee: NSNumber
     @NSManaged var prizeAmount: NSNumber
 
+    @NSManaged var entriesCount: NSNumber
+    @NSManaged var maxEntries: NSNumber
+
     @NSManaged var creator: User!
 
     @NSManaged var timeSlot: TimeSlot!
@@ -58,9 +61,8 @@ class Contest: PFObject, PFSubclassing {
      - parameter findsOpponent: whether or not the app will automatically find an opponent for the contest if no invitees accept
      - parameter invites:       an array of Users who are invited to the Contest
 
-     - returns: <#return value description#>
      */
-    convenience init(creator : User, gameKind : GameKind, contestKind : ContestKind, timeSlot: TimeSlot!, entryFee : NSNumber, prizeAmount : NSNumber, isPrivate : Bool, findsOpponent : Bool, invites : [User]?) {
+    convenience init(creator : User, gameKind : GameKind, contestKind : ContestKind, timeSlot: TimeSlot!, entryFee : NSNumber, prizeAmount : NSNumber, isPrivate : Bool, findsOpponent : Bool, invites : [User]?, maxEntries : NSNumber) {
         self.init()
         self.creator = creator
         self.gameKind = gameKind
@@ -76,19 +78,24 @@ class Contest: PFObject, PFSubclassing {
         if let someInvites = invites {
             self.invites = someInvites
         }
+
+        self.maxEntries = maxEntries
+        self.entriesCount = 0
+        self.isFilled = false
     }
 
     /**
-     Finds TimeSlot objects that have yet to begin
+     Finds Contests for the provided parameters
 
-     - parameter completed: The block to exectute, providing the array of of TimeSlot objects
+     - parameter completed: The block to exectute, providing the array of of Contest objects
      */
-    class func getTimeSlots(timeSlot : TimeSlot, gameKind : GameKind, contestKind : ContestKind, completed:(contests : [Contest]?, error : NSError!) -> Void) {
+    class func getContests(timeSlot : TimeSlot, gameKind : GameKind, contestKind : ContestKind, completed:(contests : [Contest]?, error : NSError!) -> Void) {
 
         let query = Contest.queryWithIncludes()
         query?.whereKey("timeSlot", equalTo: timeSlot)
         query?.whereKey("gameKind", equalTo: gameKind)
         query?.whereKey("contestKind", equalTo: contestKind)
+        query?.whereKey("isFilled", equalTo: false)
         query?.addAscendingOrder("createdAt")
 
         query!.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
