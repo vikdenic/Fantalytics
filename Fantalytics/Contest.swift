@@ -22,7 +22,7 @@ class Contest: PFObject, PFSubclassing {
     @NSManaged var prizeAmount: NSNumber
 
     @NSManaged var entriesCount: NSNumber
-    @NSManaged var maxEntries: NSNumber
+    @NSManaged var entriesLimit: NSNumber
 
     @NSManaged var creator: User!
 
@@ -35,8 +35,6 @@ class Contest: PFObject, PFSubclassing {
 
     @NSManaged var winners: [AnyObject]?
     @NSManaged var invites: [AnyObject]?
-
-    @NSManaged var isFilled: Bool
 
     class func queryWithIncludes () -> PFQuery! {
         let query  = Contest.query()
@@ -79,9 +77,8 @@ class Contest: PFObject, PFSubclassing {
             self.invites = someInvites
         }
 
-        self.maxEntries = maxEntries
+        self.entriesLimit = maxEntries
         self.entriesCount = 0
-        self.isFilled = false
     }
 
     /**
@@ -96,7 +93,6 @@ class Contest: PFObject, PFSubclassing {
         query?.whereKey("gameKind", equalTo: gameKind)
         query?.whereKey("contestKind", equalTo: contestKind)
         query?.whereKey("creator", notEqualTo: User.currentUser()!)
-        query?.whereKey("isFilled", equalTo: false)
         query?.addAscendingOrder("createdAt")
 
         query!.findObjectsInBackgroundWithBlock { (objects, error) -> Void in

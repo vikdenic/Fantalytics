@@ -305,40 +305,52 @@ Parse.Cloud.afterSave("Game", function(request) {
 
 //MARK: Set a contest as isFilled when filled up
 //MARK: Update Contest object when filled
-Parse.Cloud.afterSave("Entry", function(request, response) {
-    request.object.get("contest").fetch().then(function(contest){
-		console.log("entries count is: " + contest.get("entriesCount"));
-		console.log("max entries is: " + contest.get("maxEntries"));
-	
-		//check if entriesCount is less than maxEntries
-		contest.set("entriesCount", contest.get("entriesCount") + 1);
-			
-		if (contest.get("entriesCount") == contest.get("maxEntries")) {
-			contest.set("isFilled", true);
-		}
-		
-		saveContest(contest);
-    });
-});
+// Parse.Cloud.afterSave("Entry", function(request, response) {
+//     request.object.get("contest").fetch().then(function(contest){
+// 		console.log("entries count is: " + contest.get("entriesCount"));
+// 		console.log("max entries is: " + contest.get("maxEntries"));
+//
+// 		//check if entriesCount is less than maxEntries
+// 		contest.set("entriesCount", contest.get("entriesCount") + 1);
+//
+// 		if (contest.get("entriesCount") == contest.get("maxEntries")) {
+// 			contest.set("isFilled", true);
+// 		}
+//
+// 		saveContest(contest);
+//     });
+// });
 
 //MARK: Prevent contest from over-filling
 Parse.Cloud.beforeSave("Entry", function(request, response) {
 	var theContest = request.object.get("contest");
-    theContest.fetch().then(function(contest){
-  	  if (contest.get("isFilled") == true) {
-  	      response.error('This contest is full.');
-  	  } else {
-	  	  contest.get("timeSlot").fetch().then(function(timeSlot){
-			  var now = new Date();
-		 	  if (timeSlot.get("startDate") < now) {
-			  	response.error('This contest has already started.');
-			  } else {
-			      response.success();
-			  }
-		  });
-  	  }
-    });
+	theContest.increment("entriesCount");
+	theContest.increment("entriesLimit", 0); //have to do this, otherwise entriesLimit is undefined in save callback (?)
+	
+	theContest.save().then(function(contest) {	 
+		if (contest.get("entriesCount") > contest.get("entriesLimit")) {
+			response.error('The contest is full.');
+	    } else {
+		  	  contest.fetch().then(function(fetchedContest) {
+			  	  fetchedContest.get("timeSlot").fetch().then(function(timeSlot) {			  
+					  var now = new Date();
+			 		  if (timeSlot.get("startDate") < now) {
+			  		  	response.error('This contest has already started.');
+				  	  } else {
+				      	response.success();
+				  	  }
+				  });  
+			  });
+		}
+	});
 });
+
+//MARK: Restrict contest entriesCount from exceeding max
+// Parse.Cloud.afterSave("Contest", function(request) {
+// 	var contest = request.object;
+//     if (contest.get("entriesCount") <= contest.get("maxEntries")) {
+//     }
+// });
 
 //MARK: Helpers
 function saveTimeSlot(timeSlot) {
