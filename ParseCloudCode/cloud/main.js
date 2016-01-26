@@ -346,11 +346,13 @@ Parse.Cloud.beforeSave("Entry", function(request, response) {
 });
 
 //MARK: Restrict contest entriesCount from exceeding max
-// Parse.Cloud.afterSave("Contest", function(request) {
-// 	var contest = request.object;
-//     if (contest.get("entriesCount") <= contest.get("maxEntries")) {
-//     }
-// });
+Parse.Cloud.afterSave("Contest", function(request) {
+	var contest = request.object;
+    if (contest.get("entriesCount") >= contest.get("entriesLimit")) {
+		contest.set("isFull", true);
+		saveContest(contest);
+    }
+});
 
 //MARK: Helpers
 function saveTimeSlot(timeSlot) {

@@ -44,6 +44,7 @@ class AvailableContestsViewController: UIViewController {
             }
             self.contests = someContests
             self.hideOrShowEmptyMessages()
+            print(someContests)
         }
     }
 

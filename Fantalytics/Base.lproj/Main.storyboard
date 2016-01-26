@@ -263,7 +263,7 @@
                                 <action selector="onTestButtonTapped:" destination="gLD-qf-F6R" id="0gL-Wn-85b"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="RoA-yo-QaT">
+                        <barButtonItem key="rightBarButtonItem" title="Profile" id="RoA-yo-QaT">
                             <connections>
                                 <segue destination="8Z6-eY-jhz" kind="show" id="NDy-QX-qg0"/>
                             </connections>

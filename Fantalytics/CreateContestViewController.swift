@@ -19,10 +19,10 @@ class CreateContestViewController: FormViewController {
     var gameKind : GameKind!
     var contestKind : ContestKind!
 
-    var entryFee = 1 as NSNumber!
-    var prizeAmount = 1.8 as NSNumber!
+    var entryFee = 1 as NSNumber
+    var prizeAmount = 1.8 as NSNumber
 
-    let entryPrizeArray : [(entry: Double, prize: Double)] = [(1 , 1.80), (2, 3.6), (5 , 9),
+    let entryPrizeArray : [(entry: NSNumber, prize: NSNumber)] = [(1 , 1.8), (2, 3.6), (5 , 9),
                                                              (10 , 18), (20 , 36), (50 , 90),
                                                              (109 , 200), (270 , 500), (535 , 1000)]
 
@@ -94,7 +94,7 @@ class CreateContestViewController: FormViewController {
                     }.onChange {row in
                         self.setEntryAndPrize(row.value!)
                     }.onExpandInlineRow { cell, row, inlineRow in
-                        print("z")
+                        //code
                     }.onCollapseInlineRow({ (cell, row, inlinerow) -> () in
                         
                     })

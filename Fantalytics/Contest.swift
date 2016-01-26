@@ -23,6 +23,7 @@ class Contest: PFObject, PFSubclassing {
 
     @NSManaged var entriesCount: NSNumber
     @NSManaged var entriesLimit: NSNumber
+    @NSManaged var isFull: Bool
 
     @NSManaged var creator: User!
 
@@ -93,6 +94,8 @@ class Contest: PFObject, PFSubclassing {
         query?.whereKey("gameKind", equalTo: gameKind)
         query?.whereKey("contestKind", equalTo: contestKind)
         query?.whereKey("creator", notEqualTo: User.currentUser()!)
+        query?.whereKey("isFull", notEqualTo: true)
+
         query?.addAscendingOrder("createdAt")
 
         query!.findObjectsInBackgroundWithBlock { (objects, error) -> Void in

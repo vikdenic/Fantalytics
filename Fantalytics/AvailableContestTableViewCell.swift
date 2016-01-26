@@ -25,8 +25,8 @@ class AvailableContestTableViewCell: UITableViewCell {
             let creator = object as! User
             self.versusLabel.text = "vs \(creator.username!)"
         })
-        entryAmountLabel.text = "Entry: $" + (contest?.entryFee.stringValue)!
-        prizeAmountLabel.text = "Prize: $" + (contest?.prizeAmount.stringValue)!
+        entryAmountLabel.text = "Entry: $\(contest!.entryFee)"
+        prizeAmountLabel.text = "Prize: $\(contest!.prizeAmount)"
     }
 
     override func awakeFromNib() {
