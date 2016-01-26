@@ -348,7 +348,7 @@ Parse.Cloud.beforeSave("Entry", function(request, response) {
 //MARK: Restrict contest entriesCount from exceeding max
 Parse.Cloud.afterSave("Contest", function(request) {
 	var contest = request.object;
-    if (contest.get("entriesCount") >= contest.get("entriesLimit")) {
+    if (contest.get("entriesCount") >= contest.get("entriesLimit") && contest.get("isFull") != true) {
 		contest.set("isFull", true);
 		saveContest(contest);
     }
