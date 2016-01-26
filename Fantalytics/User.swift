@@ -28,6 +28,8 @@ import Parse
 
 class User: PFUser {
 
+    @NSManaged var fundsAvailable: NSNumber
+
     override class func initialize() {
         self.registerSubclass()
     }

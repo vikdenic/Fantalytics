@@ -108,6 +108,7 @@ extension AvailableContestsViewController: UITableViewDataSource, UITableViewDel
             entry.saveInBackgroundWithBlock({ (success, error) -> Void in
                 if error != nil {
                     UIAlertController.showAlertWithError(error, forVC: self)
+                    self.retrieveAndSetContests()
                 } else {
                     self.performSegueWithIdentifier(kSegueAvailableContestsToSelectLineup, sender: self)
                 }

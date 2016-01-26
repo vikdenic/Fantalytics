@@ -11,14 +11,25 @@ import Eureka
 
 class SettingsMenuViewController: FormViewController {
 
+    var currentUser : User!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpForm()
+        retrieveUserInfo()
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationController!.navigationBar.translucent = false
+    }
+
+    //Helpers
+    func retrieveUserInfo() {
+        User.currentUser()?.fetchInBackgroundWithBlock({ (object, error) -> Void in
+            self.currentUser = object as! User
+            self.setUpForm()
+        })
     }
 
     //Using Eureka form builder library
@@ -35,7 +46,11 @@ class SettingsMenuViewController: FormViewController {
 
                 <<< LabelRow("Add Funds") {
                     $0.title = $0.tag
-                    $0.value = "$100"
+                    guard let someUser = currentUser else {
+                        $0.value = "$"
+                        return
+                    }
+                    $0.value = "Current Balance: $" + someUser.fundsAvailable.stringValue
                 }
 
                 <<< LabelRow("Withdraw") {

@@ -345,6 +345,19 @@ Parse.Cloud.beforeSave("Entry", function(request, response) {
 	});
 });
 
+//MARK: Prevent contest creation if funds insufficient
+Parse.Cloud.beforeSave("Contest", function(request, response) {
+	var contest = request.object;
+	
+	contest.get("creator").fetch().then(function(creator) {
+		if (creator.get("fundsAvailable") < contest.get("entryFee")) {
+  		  	response.error('Insufficient funds.');
+		} else {
+			response.success();
+		}
+ 	});
+});
+
 //MARK: Restrict contest entriesCount from exceeding max
 Parse.Cloud.afterSave("Contest", function(request) {
 	var contest = request.object;

@@ -52,12 +52,20 @@ class CreateContestViewController: FormViewController {
             }
 
             contest.saveInBackgroundWithBlock({ (object, error) -> Void in
-                let entry = Entry(user: User.currentUser()!, contest: contest)
-                entry.saveInBackgroundWithBlock({ (success, error) -> Void in
-                    self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                        self.availableContestsVC.performSegueWithIdentifier(kSegueAvailableContestsToSelectLineup, sender: self.availableContestsVC)
+                if error != nil {
+                    UIAlertController.showAlertWithError(error, forVC: self)
+                } else {
+                    let entry = Entry(user: User.currentUser()!, contest: contest)
+                    entry.saveInBackgroundWithBlock({ (success, error) -> Void in
+                        if error != nil {
+                            UIAlertController.showAlertWithError(error, forVC: self)
+                        } else {
+                            self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                                self.availableContestsVC.performSegueWithIdentifier(kSegueAvailableContestsToSelectLineup, sender: self.availableContestsVC)
+                            })
+                        }
                     })
-                })
+                }
             })
         }
 
