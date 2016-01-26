@@ -358,6 +358,13 @@ Parse.Cloud.beforeSave("Contest", function(request, response) {
  	});
 });
 
+//MARK: Set up new users
+Parse.Cloud.beforeSave(Parse.User, function(request, response) {
+	var user = request.object;
+	user.set("fundsAvailable", 0);
+	response.success();
+});
+
 //MARK: Restrict contest entriesCount from exceeding max
 Parse.Cloud.afterSave("Contest", function(request) {
 	var contest = request.object;
