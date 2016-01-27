@@ -22,6 +22,6 @@ class SelectPlayerTableViewCell: UITableViewCell {
     }
 
     func setUpCell() {
-
+        nameLabel.text = player!.firstName + " " + player!.lastName
     }
 }

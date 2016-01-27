@@ -907,8 +907,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="sIO-SA-eDO" id="VJg-gC-c0S"/>
-                                    <outlet property="delegate" destination="sIO-SA-eDO" id="N5T-Y1-ykd"/>
+                                    <outlet property="dataSource" destination="sIO-SA-eDO" id="M5v-kR-UCp"/>
+                                    <outlet property="delegate" destination="sIO-SA-eDO" id="Fwy-cr-AX3"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -932,7 +932,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneButton" destination="2OD-Ks-2hr" id="NTT-c6-Zcg"/>
-                        <outlet property="tableView" destination="vWe-Fd-Q5z" id="mGd-nx-daZ"/>
+                        <outlet property="tableView" destination="vWe-Fd-Q5z" id="Ovx-IE-8AO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFC-1b-2dQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
