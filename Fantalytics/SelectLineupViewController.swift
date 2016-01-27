@@ -11,14 +11,26 @@ import UIKit
 class SelectLineupViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var doneButton: UIBarButtonItem!
 
     var players : [Player]?  {
         didSet {
             self.tableView.reloadData()
         }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
+    }
+
+    //MARK: Actions
+    @IBAction func onSegmentTapped(sender: UISegmentedControl) {
+        
+    }
+
+    @IBAction func onDoneTapped(sender: UIBarButtonItem) {
+        navigationController?.popToRootViewControllerAnimated(true)
     }
 }
 

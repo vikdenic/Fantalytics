@@ -366,11 +366,11 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry: $y" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sq-uq-erB">
-                                                    <rect key="frame" x="512" y="70" width="80" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry: $y" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sq-uq-erB">
+                                                    <rect key="frame" x="485" y="70" width="107" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20.5" id="Yhb-0D-86S"/>
-                                                        <constraint firstAttribute="width" constant="80" id="lfU-Yf-cu6"/>
+                                                        <constraint firstAttribute="width" constant="107" id="lfU-Yf-cu6"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -846,6 +846,9 @@
                                     <segment title="PF"/>
                                     <segment title="C"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onSegmentTapped:" destination="sIO-SA-eDO" eventType="valueChanged" id="HUz-u0-fma"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vWe-Fd-Q5z">
                                 <rect key="frame" x="0.0" y="93" width="600" height="507"/>
@@ -920,7 +923,15 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Qcc-M2-8qn" secondAttribute="trailing" constant="-20" id="vAu-w7-lmb"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="aJ2-VL-mfG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="2OD-Ks-2hr">
+                            <connections>
+                                <action selector="onDoneTapped:" destination="sIO-SA-eDO" id="XEQ-2w-6Rp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="doneButton" destination="2OD-Ks-2hr" id="NTT-c6-Zcg"/>
                         <outlet property="tableView" destination="vWe-Fd-Q5z" id="mGd-nx-daZ"/>
                     </connections>
                 </viewController>
