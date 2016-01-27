@@ -10,6 +10,8 @@ import UIKit
 
 class SelectLineupViewController: UIViewController {
 
+    var timeSlot : TimeSlot!
+
     @IBOutlet var tableView: UITableView!
     @IBOutlet var doneButton: UIBarButtonItem!
 
@@ -22,6 +24,10 @@ class SelectLineupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+
+        Player.getAllPlayers(timeSlot) { (players, error) -> Void in
+            print(players)
+        }
     }
 
     //MARK: Actions

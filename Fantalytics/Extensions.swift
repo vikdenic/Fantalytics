@@ -185,6 +185,13 @@ extension NSDate {
     class func thisTimeTomrorrow() -> NSDate {
         return NSDate().dateByAddingTimeInterval(60*60*24*1)
     }
+
+    /**
+     - returns: An NSDate instance 24-hours from the current date and time
+     */
+    class func thisTimeIn12Hours() -> NSDate {
+        return NSDate().dateByAddingTimeInterval(60*60*12*1)
+    }
 }
 
 extension NSNumber {

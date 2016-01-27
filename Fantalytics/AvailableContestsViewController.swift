@@ -57,6 +57,9 @@ class AvailableContestsViewController: UIViewController {
             createContestVC.timeSlot = timeSlot
             createContestVC.gameKind = gameKind
             createContestVC.contestKind = contestKind
+        } else if segue.identifier == kSegueAvailableContestsToSelectLineup {
+            let selectVC = segue.destinationViewController as! SelectLineupViewController
+            selectVC.timeSlot = timeSlot
         }
     }
 

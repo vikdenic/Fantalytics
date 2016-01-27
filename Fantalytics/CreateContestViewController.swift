@@ -38,6 +38,7 @@ class CreateContestViewController: FormViewController {
         navigationController!.navigationBar.translucent = false
     }
 
+    //MARK: Actions
     @IBAction func onDoneTapped(sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Create Contest?", message: nil, preferredStyle: .Alert)
 
@@ -79,7 +80,7 @@ class CreateContestViewController: FormViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    //Using Eureka form builder library
+    //MARK: Eureka Form
     func setUpForm() {
             form =
 

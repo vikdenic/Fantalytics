@@ -20,10 +20,25 @@ class Game: PFObject, PFSubclassing {
 
     @NSManaged var date: NSDate
 
-    class func getAllGamesForToday(completed:(games : [Game]?, error : NSError!) -> Void) {
+    @NSManaged var homeTeam: Team
+    @NSManaged var awayTeam: Team
 
-        let query = Game.query()
-        query?.whereKey("date", greaterThan: NSDate())
+    class func queryWithIncludes () -> PFQuery! {
+        let query  = Game.query()
+        query?.includeKey("homeTeam")
+        query?.includeKey("awayTeam")
+        return query
+    }
+
+    /**
+     Retrieves all Games that are valid for a given TimeSlot
+
+     - parameter timeSlot:  the timeSlot for which you want games for
+     - parameter completed: the block to execture, providing the array of games
+     */
+    class func getAllGames(forTimeSlot timeSlot: TimeSlot, completed:(games: [Game]?, error: NSError!) -> Void) {
+        let query = Game.queryWithIncludes()
+        query.whereKey("date", greaterThanOrEqualTo: timeSlot.startDate)
 
         query!.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
 
@@ -31,7 +46,13 @@ class Game: PFObject, PFSubclassing {
                 completed(games: nil, error: error)
                 return
             }
-            completed(games: games, error: nil)
+
+            var validGames = [Game]()
+            for game in games where NSCalendar.currentCalendar().isDate(game.date, equalToDate: timeSlot.startDate, toUnitGranularity: .Day) {
+                validGames.append(game)
+            }
+
+            completed(games: validGames, error: nil)
         }
     }
 }

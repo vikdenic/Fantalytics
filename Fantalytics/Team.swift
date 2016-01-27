@@ -22,4 +22,9 @@ class Team: PFObject, PFSubclassing {
     @NSManaged var abbrevName: String
     @NSManaged var cityName: String
     @NSManaged var teamName: String
+
+    class func queryWithIncludes () -> PFQuery! {
+        let query  = Team.query()
+        return query
+    }
 }
