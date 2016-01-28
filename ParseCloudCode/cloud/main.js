@@ -233,50 +233,8 @@ Parse.Cloud.job("teamCreation", function(request, status) {
     })
 });
 
-
-//MARK: Set pointer to Team on saved Player object based on player's teamId
-Parse.Cloud.afterSave("Game", function(request) { 
-	
-	var createdAt = request.object.get("createdAt");
-	var updatedAt = request.object.get("updatedAt");
-	var objectExisted = (createdAt.getTime() != updatedAt.getTime());
-	
-	if (!objectExisted) {
-		var game = request.object;
-	
-	    var Team = Parse.Object.extend("Team");
-	    homeQuery = new Parse.Query("Team");
-	    homeQuery.equalTo("teamId", game.get("homeId"));
-  
-		homeQuery.find({
-		    success: function(results) {
-				game.set("homeTeam", results[0]);
-				saveGame(game);
-		        console.log("Updated game with home team pointer");
-		    },
-		    error: function() {
-		      console.log("team query failed");
-		    }
-	    });
-	
-	    awayQuery = new Parse.Query("Team");
-	    awayQuery.equalTo("teamId", game.get("awayId"));
-  
-		awayQuery.find({
-		    success: function(results) {
-			
-				game.set("awayTeam", results[0]);
-				saveGame(game);
-		        console.log("Updated game with away team pointer");
-		    },
-		    error: function() {
-		      console.log("team query failed");
-		    }
-	    });
-	}
-});
-
-//MARK: Prevent contest from over-filling
+//MARK: Before Saves
+//Prevent contest from over-filling
 Parse.Cloud.beforeSave("Entry", function(request, response) {
     var entry = request.object;
     var contest = request.object.get("contest");
@@ -318,7 +276,7 @@ Parse.Cloud.beforeSave("Entry", function(request, response) {
     });
 });
 
-//MARK: Prevent contest creation if funds insufficient
+//Prevent contest creation if funds insufficient
 Parse.Cloud.beforeSave("Contest", function(request, response) {
 	var contest = request.object;
 	
@@ -342,7 +300,8 @@ Parse.Cloud.beforeSave(Parse.User, function(request, response) {
 	response.success();
 });
 
-//MARK: Restrict contest entriesCount from exceeding max
+//MARK: After saves
+//Restrict contest entriesCount from exceeding max
 Parse.Cloud.afterSave("Contest", function(request) {
 	var contest = request.object;
     if (contest.get("entriesCount") >= contest.get("entriesLimit") && contest.get("isFull") != true) {
@@ -351,7 +310,49 @@ Parse.Cloud.afterSave("Contest", function(request) {
     }
 });
 
-//MARK: Helpers
+//Set pointer to Team on saved Player object based on player's teamId
+Parse.Cloud.afterSave("Game", function(request) { 
+	
+	var createdAt = request.object.get("createdAt");
+	var updatedAt = request.object.get("updatedAt");
+	var objectExisted = (createdAt.getTime() != updatedAt.getTime());
+	
+	if (!objectExisted) {
+		var game = request.object;
+	
+	    var Team = Parse.Object.extend("Team");
+	    homeQuery = new Parse.Query("Team");
+	    homeQuery.equalTo("teamId", game.get("homeId"));
+  
+		homeQuery.find({
+		    success: function(results) {
+				game.set("homeTeam", results[0]);
+				saveGame(game);
+		        console.log("Updated game with home team pointer");
+		    },
+		    error: function() {
+		      console.log("team query failed");
+		    }
+	    });
+	
+	    awayQuery = new Parse.Query("Team");
+	    awayQuery.equalTo("teamId", game.get("awayId"));
+  
+		awayQuery.find({
+		    success: function(results) {
+			
+				game.set("awayTeam", results[0]);
+				saveGame(game);
+		        console.log("Updated game with away team pointer");
+		    },
+		    error: function() {
+		      console.log("team query failed");
+		    }
+	    });
+	}
+});
+
+//MARK: Save Helpers
 function saveTimeSlot(timeSlot) {
 	timeSlot.save(null, { 
 	  success: function(timeSlot) {
@@ -422,6 +423,7 @@ function saveContest(contest) {
 	});
 }
 
+//MARK: Date Helpers
 // Returns a String of today's date (i.e. 12/02/2015) 
 // to be used for comparison with the dates of Games from the ProBball API
 function todaysDateString() {
@@ -483,7 +485,7 @@ function dateFromAPIString(str) {
 	return date;
 }
 
-//Email
+///MARK: Email
 function sendCrashEmail(error) {
 	var Mandrill = require('mandrill');
 	Mandrill.initialize('1LqrcTEglA_6Jpwx7nPCOw');
