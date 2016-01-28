@@ -43,7 +43,8 @@ Parse.Cloud.job("gameCreation", function(request, status) {
 				gameCount++;
 			}
 		 });
-		 console.log("saved " + gameCount + "game objects")
+		console.log("saved " + gameCount + "game objects")
+ 	    status.success("Games completed successfully.");		
     }, 
     function (error) {
 		sendCrashEmail(error)
