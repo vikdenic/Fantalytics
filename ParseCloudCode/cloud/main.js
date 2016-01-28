@@ -47,7 +47,7 @@ Parse.Cloud.job("gameCreation", function(request, status) {
  	    status.success("Games completed successfully.");		
     }, 
     function (error) {
-		sendCrashEmail(error)
+		sendCrashEmail(error);
         console.error('Console Log response: ' + error.text);
 	    status.error("Error creating games.");
     })
@@ -97,6 +97,7 @@ Parse.Cloud.job("slotCreation", function(request, status) {
 	}).then(function(result) {
 	    status.success("TimeSlots completed successfully.");		
 	}, function(error) {
+		sendCrashEmail(error);
 	    status.error("Uh oh, something went wrong.");
 	});
 });
