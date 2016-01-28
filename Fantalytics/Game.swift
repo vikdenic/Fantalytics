@@ -51,7 +51,7 @@ class Game: PFObject, PFSubclassing {
             for game in games where NSCalendar.currentCalendar().isDate(game.date, equalToDate: timeSlot.startDate, toUnitGranularity: .Day) {
                 validGames.append(game)
             }
-
+            print(validGames)
             completed(games: validGames, error: nil)
         }
     }

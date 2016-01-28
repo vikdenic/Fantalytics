@@ -46,6 +46,7 @@ Parse.Cloud.job("gameCreation", function(request, status) {
 		 console.log("saved " + gameCount + "game objects")
     }, 
     function (error) {
+		sendCrashEmail(error)
         console.error('Console Log response: ' + error.text);
 	    status.error("Error creating games.");
     })
@@ -53,58 +54,50 @@ Parse.Cloud.job("gameCreation", function(request, status) {
 
 Parse.Cloud.job("slotCreation", function(request, status) {
 	var TimeSlot = Parse.Object.extend("TimeSlot");
-	
 	var tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
 	
 	//Get all the upcoming games
     var query = new Parse.Query("Game");
     query.greaterThan("date", tomorrow);
-
-    query.find({
-    	success: function(results) {
-    		console.log("Successfully retrieved " + results.length + " games.");
-
-			var slots = [];
-			var previousTime = null;
-
-	  	    for (var i = 0; i < results.length; i++) {
-				var date = results[i].get("date");
+	
+	query.find().then(function(results) {
+		
+		var slots = [];
+		var previousTime = null;
+		
+  	    for (var i = 0; i < results.length; i++) {
+			var date = results[i].get("date");
+			
+			//Always create TimeSlot with date of first game
+			if (i == 0) {
+				previousTime = date;
+				var timeSlot = new TimeSlot();
+				timeSlot.set("startDate", date);
+				timeSlot.set("isFirst", true);
 				
-				//Always create TimeSlot with date of first game
-				if (i == 0) {
+				slots.push(timeSlot);
+				saveTimeSlot(timeSlot);
+			} else {
+				// If date is at least 1 hour later then previously saved TimeSlot
+				// AND there are at least 3 games remaining from that time, creat TimeSlot with it
+				var difference = Math.abs(date - previousTime) / 36e5;
+				var gamesLeft = results.length - i;
+									
+				if (difference >= 1.0 && gamesLeft >= 3) {
 					previousTime = date;
 					var timeSlot = new TimeSlot();
 					timeSlot.set("startDate", date);
-					timeSlot.set("isFirst", true);
-					
 					slots.push(timeSlot);
 					saveTimeSlot(timeSlot);
-				} else {
-					// If date is at least 1 hour later then previously saved TimeSlot
-					// AND there are at least 3 games remaining from that time, creat TimeSlot with it
-					var difference = Math.abs(date - previousTime) / 36e5;
-					var gamesLeft = results.length - i;
-										
-					if (difference >= 1.0 && gamesLeft >= 3) {
-						previousTime = date;
-						var timeSlot = new TimeSlot();
-						timeSlot.set("startDate", date);
-						slots.push(timeSlot);
-						saveTimeSlot(timeSlot);
-					}
 				}
-   			}
-	    },
-	  	error: function(error) {
-	  		alert("Error: " + error.code + " " + error.message);
-	    }
-	}).then(function() {
-    // Set the job's success status
-    status.success("TimeSlots completed successfully.");
-    }, function(error) {
-    // Set the job's error status
-    status.error("Uh oh, something went wrong.");
-  });
+			}
+		}
+		return results;
+	}).then(function(result) {
+	    status.success("TimeSlots completed successfully.");		
+	}, function(error) {
+	    status.error("Uh oh, something went wrong.");
+	});
 });
 
 Parse.Cloud.job("playerCreation", function(request, status) {
@@ -238,27 +231,6 @@ Parse.Cloud.job("teamCreation", function(request, status) {
     })
 });
 
-//MARK: Set pointer to Team on saved Player object based on player's teamId
-//TODO possible infinite loop here
-Parse.Cloud.afterSave("Player", function(request) { 
-	
-	var player = request.object;
-	
-    var Team = Parse.Object.extend("Team");
-    query = new Parse.Query("Team");
-    query.equalTo("teamId", player.get("teamId"));
-  
-	query.find({
-	    success: function(results) {
-			
-			player.set("team", results[0]);
-			savePlayer(player);
-	    },
-	    error: function() {
-	      console.log("Team query failed");
-	    }
-    });
-});
 
 //MARK: Set pointer to Team on saved Player object based on player's teamId
 Parse.Cloud.afterSave("Game", function(request) { 
@@ -276,7 +248,6 @@ Parse.Cloud.afterSave("Game", function(request) {
   
 		homeQuery.find({
 		    success: function(results) {
-			
 				game.set("homeTeam", results[0]);
 				saveGame(game);
 		        console.log("Updated game with home team pointer");
@@ -305,34 +276,44 @@ Parse.Cloud.afterSave("Game", function(request) {
 
 //MARK: Prevent contest from over-filling
 Parse.Cloud.beforeSave("Entry", function(request, response) {
-	var entry = request.object;
-	var contest = request.object.get("contest");
-	
-	entry.get("user").fetch().then(function(fetchedUser) {
-  	  contest.fetch().then(function(fetchedContest) {
-			if ( fetchedUser.get("fundsAvailable") < fetchedContest.get("entryFee") ) {
-			  response.error('Insufficient Funds.');
-			} else {
-				fetchedContest.get("timeSlot").fetch().then(function(fetchedTimeSlot) {		
-					var now = new Date();
-					if (fetchedTimeSlot.get("startDate") < now) {
-						response.error('This contest has already started.');
-					} else {
-						contest.increment("entriesCount");
-						contest.increment("entriesLimit", 0); //have to do this, otherwise entriesLimit is undefined in save callback (?)
-	
-						contest.save().then(function(fetchedContest) {	 
-							if (contest.get("entriesCount") > contest.get("entriesLimit")) {
-								response.error('The contest is full.');
-						    } else {
-								response.success();
-						    }
-						});
-					} 	  
-				});
-			}
-		});
-	});
+    var entry = request.object;
+    var contest = request.object.get("contest");
+
+    var fetchedUser, fetchedContest;
+    var errorMessage;
+
+    entry.get("user").fetch().then(function(result) {
+        fetchedUser = result;
+        return contest.fetch();
+    }).then(function(result) {
+        fetchedContest = result;
+        return fetchedContest.get("timeSlot").fetch();
+    }).then(function(fetchedTimeSlot) {
+        // now we have all the variables we need to determine validity
+        var now = new Date();
+        var hasSufficientFunds = fetchedUser.get("fundsAvailable") >= fetchedContest.get("entryFee");
+        var contestNotStarted = fetchedTimeSlot.get("startDate") >= now;
+        if (hasSufficientFunds && contestNotStarted) {
+            contest.increment("entriesCount");
+            contest.increment("entriesLimit", 0); //have to do this, otherwise entriesLimit is undefined in save callback (?)
+            return contest.save();
+        } else {
+            errorMessage = (hasSufficientFunds)? 'This contest has already started.' : 'Insufficient Funds.';
+            return null;
+        }
+    }).then(function(result) {
+        if (!result) {
+            response.error(errorMessage);
+        } else {
+            if (contest.get("entriesCount") > contest.get("entriesLimit")) {
+                response.error('The contest is full.');
+            } else {
+                response.success();
+            }
+        }
+    }, function(error) {
+        response.error(error);
+    });
 });
 
 //MARK: Prevent contest creation if funds insufficient
@@ -501,29 +482,31 @@ function dateFromAPIString(str) {
 }
 
 //Email
-Parse.Cloud.define("sendMail", function(request, response) {
-var Mandrill = require('mandrill');
-Mandrill.initialize('1LqrcTEglA_6Jpwx7nPCOw');
+function sendCrashEmail(error) {
+	var Mandrill = require('mandrill');
+	Mandrill.initialize('1LqrcTEglA_6Jpwx7nPCOw');
+	
+	var textDesc = "File: " + error.fileName + "/n" + "Line: " + error.lineNumber + "/n /n" + error.toSource() + "/n /n" + error.toString();
 
-Mandrill.sendEmail({
-	message: {
-		text: "it worked",
-		subject: "vwalla",
-		from_email: "vik@fantalytics.co",
-		from_name: "Fantalytics",
-		to: [{ email: "vik.denic@gmail.com",
-			   name: "Vik"
-			}]
-	},
-	async: true
-	},{ 
-		success: function(httpResponse) {
-			console.log(httpResponse);
-			response.success("Email sent!");
+	Mandrill.sendEmail({
+		message: {
+			text: textDesc,
+			subject: "Error discovered in Fantalytics: " + error.toString(),
+			from_email: "no-reply@fantalytics.co",
+			from_name: "Fantalytics",
+			to: [{ email: "vik@fantalytics.co",
+				   name: "Vik"
+				}]
 		},
-		error: function(httpResponse) {
-			console.error(httpResponse);
-			response.error("Uh oh, something went wrong");
-		}
-	});
-});
+		async: true
+		},{ 
+			success: function(httpResponse) {
+				console.log(httpResponse);
+				response.success("Crash email sent!");
+			},
+			error: function(httpResponse) {
+				console.error(httpResponse);
+				response.error("Uh oh, something went wrong. Crash email failed to send.");
+			}
+		});
+}

@@ -53,6 +53,7 @@ class Player: PFObject, PFSubclassing {
                     completed(players: nil, error: error)
                     return
                 }
+                print(players)
                 completed(players: players, error: nil)
             })
         }
